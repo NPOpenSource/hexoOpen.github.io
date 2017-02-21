@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>自定义相机 | 温杰的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##调用系统相机
+调用系统相机一般的功能是可以满足的，如果没有特殊的要求要求，可以直接用系统相机。
+代码如下：
+调用照相机
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+
+    UIImagePickerController * picker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义相机">
+<meta property="og:url" content="http://yoursite.com/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/index.html">
+<meta property="og:site_name" content="温杰的博客">
+<meta property="og:description" content="##调用系统相机
+调用系统相机一般的功能是可以满足的，如果没有特殊的要求要求，可以直接用系统相机。
+代码如下：
+调用照相机
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+
+    UIImagePickerController * picker">
+<meta property="og:image" content="http://yoursite.com/images/comera1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/camerasytemChinese.png">
+<meta property="og:image" content="http://yoursite.com/images/comera2.jpg">
+<meta property="og:updated_time" content="2017-02-21T07:02:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义相机">
+<meta name="twitter:description" content="##调用系统相机
+调用系统相机一般的功能是可以满足的，如果没有特殊的要求要求，可以直接用系统相机。
+代码如下：
+调用照相机
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+
+    UIImagePickerController * picker">
+<meta name="twitter:image" content="http://yoursite.com/images/comera1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">温杰的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-08-12-zi-ding-yi-xiang-ji" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/" class="article-date">
+  <time datetime="2015-08-12T03:31:08.000Z" itemprop="datePublished">2015-08-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      自定义相机
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##调用系统相机</p>
+<p>调用系统相机一般的功能是可以满足的，如果没有特殊的要求要求，可以直接用系统相机。</p>
+<p>代码如下：</p>
+<pre><code>调用照相机
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+
+    UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    block(picker);
+    //摄像头
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:^{
+
+    }];
+}else{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@&quot;Error&quot; message:@&quot;你没有摄像头&quot; delegate:nil cancelButtonTitle:@&quot;Drat!&quot; otherButtonTitles:nil];
+    [alert show];
+
+}
+</code></pre><p>获取图片或者取消图片实现代理</p>
+<pre><code>- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+
+UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
+if ([self respondsToSelector:@selector(getCameraImage:)]) {
+    [self getCameraImage:image];
+}
+[self dismissViewControllerAnimated:YES completion:^{
+
+}];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+[self dismissViewControllerAnimated:YES completion:^{
+
+}];
+}
+</code></pre><p>以上代码只是简单的调用下系统相机。并没有对相机进行相关设置。</p>
+<p>配置前</p>
+<p><img src="/images/comera1.jpg" alt="image"></p>
+<pre><code>注意将系统相机配置成中文 ，在工程文件plist 中添加下面一项即可。
+</code></pre><p><img src="/images/camerasytemChinese.png" alt="image"></p>
+<p>配置后</p>
+<p><img src="/images/comera2.jpg" alt="image"></p>
+<p>##自定义相机</p>
+<pre><code>我个人偏向用自定义相机，个人理由只有一条，可以高度定制。（虽然有点麻烦）
+
+暂时更新到这里（哈哈。没有上下文了。）我发现学习相机还是先系统学习学习avfoudation.framework 比较靠谱些。学完av 再回来学喽
+</code></pre><p>#####参考连接</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/" data-id="cizf6s5p4000657tcezektxn1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          AVFoundation.framework的学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">进军二维码，从零开始学习二维码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/18/2015-08-18-mu-qian-chang-yong-di-san-fang-cha-jian/">目前常用第三方插件</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/18/2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi/">更改xcode生成每个文件头信息</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/">AVFoundation.framework的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/">自定义相机</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/">进军二维码，从零开始学习二维码</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

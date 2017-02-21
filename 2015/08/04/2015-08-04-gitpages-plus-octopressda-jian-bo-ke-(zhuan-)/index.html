@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GitPages + Octopress搭建博客（转） | 温杰的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#直接转兄弟的链接
+GitPages + Octopress 搭建博客
+##我在创建中遇到的问题
+主要问题是输入命令rake deploy 的时候报下面的错误
+## Pushing generated _deploy website
+To git@github.com:NPOpenSource/npopensource.github.com.git
+ ! [rejected]        mas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitPages + Octopress搭建博客（转）">
+<meta property="og:url" content="http://yoursite.com/2015/08/04/2015-08-04-gitpages-plus-octopressda-jian-bo-ke-(zhuan-)/index.html">
+<meta property="og:site_name" content="温杰的博客">
+<meta property="og:description" content="#直接转兄弟的链接
+GitPages + Octopress 搭建博客
+##我在创建中遇到的问题
+主要问题是输入命令rake deploy 的时候报下面的错误
+## Pushing generated _deploy website
+To git@github.com:NPOpenSource/npopensource.github.com.git
+ ! [rejected]        mas">
+<meta property="og:updated_time" content="2017-02-21T07:02:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitPages + Octopress搭建博客（转）">
+<meta name="twitter:description" content="#直接转兄弟的链接
+GitPages + Octopress 搭建博客
+##我在创建中遇到的问题
+主要问题是输入命令rake deploy 的时候报下面的错误
+## Pushing generated _deploy website
+To git@github.com:NPOpenSource/npopensource.github.com.git
+ ! [rejected]        mas">
+  
+    <link rel="alternate" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">温杰的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-08-04-gitpages-plus-octopressda-jian-bo-ke-(zhuan-)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/04/2015-08-04-gitpages-plus-octopressda-jian-bo-ke-(zhuan-)/" class="article-date">
+  <time datetime="2015-08-04T08:39:04.000Z" itemprop="datePublished">2015-08-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GitPages + Octopress搭建博客（转）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#直接转兄弟的链接</p>
+<p><a href="http://summerhanada.github.io/blog/2015/07/07/da-jian-zi-ji-de-bo-ke/" target="_blank" rel="external">GitPages + Octopress 搭建博客</a></p>
+<p>##我在创建中遇到的问题</p>
+<p>主要问题是输入命令rake deploy 的时候报下面的错误</p>
+<pre><code>## Pushing generated _deploy website
+To git@github.com:NPOpenSource/npopensource.github.com.git
+ ! [rejected]        master -&gt; master (non-fast-forward)
+error: failed to push some refs to &apos;git@github.com:NPOpenSource/    npopensource.github.com.git&apos;
+hint: Updates were rejected because the tip of your current branch is     behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: &apos;git pull ...&apos;) before pushing again.
+hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.
+</code></pre><p>这个原因的产生是因为在目录 /octopress/_deploy/ 下面的文件和远程有冲突导致的。</p>
+<p>解决办法是 在 /octopress  输入命令git pull origin master</p>
+<p> cd _deploy/<br>进入该文件夹 git remote -v<br>查看当前文件下 有冲突的文件  将有冲突的文件解决掉就行了 并提交</p>
+<p>保证 git status 结果为</p>
+<pre><code> On branch master
+nothing to commit, working directory clean
+</code></pre><p>之后cd .. 退出到 /octopress</p>
+<p>查看 git remote -v  将修改的文件也提交<br> 保证 git status  结果为</p>
+<pre><code> On branch master
+nothing to commit, working directory clean
+</code></pre><p>最后再次运行 rake deploy 就行了。</p>
+<p>个性化设置<a href="http://www.tuicool.com/articles/3muYJj" target="_blank" rel="external">参考链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/04/2015-08-04-gitpages-plus-octopressda-jian-bo-ke-(zhuan-)/" data-id="cizf6s5ou000157tc7pufy8ht" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/04/2015-08-04-ji-lu-unixming-ling-de-shi-yong/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          记录unix命令的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/04/2015-08-04-gitde-xue-xi-shi-yong/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git的学习使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/18/2015-08-18-mu-qian-chang-yong-di-san-fang-cha-jian/">目前常用第三方插件</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/18/2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi/">更改xcode生成每个文件头信息</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/">AVFoundation.framework的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/">自定义相机</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/">进军二维码，从零开始学习二维码</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
