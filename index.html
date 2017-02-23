@@ -45,7 +45,7 @@
 			<img src="null" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">温杰</a></h1>
 		</hgroup>
 		
 
@@ -103,7 +103,7 @@
 				<img src="null" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">温杰</h1>
 			</hgroup>
 			
 			
@@ -150,6 +150,163 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-coretext-framework-大全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/23/coretext-framework-大全/">coretext.framework 大全</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/23/coretext-framework-大全/" class="archive-article-date">
+  	<time datetime="2017-02-23T03:07:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>想学好一个framework ，以前总是看看简单的写写代码，实现基本功能。可是稍微遇到点困难的问题，就很难解决，所以这次我决定还是把所有的api都给实现一遍，看看功能，印象深刻。</p>
+<h2 id="coretext包含的类文件"><a href="#coretext包含的类文件" class="headerlink" title="coretext包含的类文件"></a>coretext包含的类文件</h2><table>
+<thead>
+<tr>
+<th>CoreText.h</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CTDefines.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTFont.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTFontCollection.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTFontDescriptor.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTFontManager.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTFontTraits.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTFrame.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTFramesetter.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTGlyphInfo.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTLine.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTParagraphStyle.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTRubyAnnotation.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTRun.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTRunDelegate.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTStringAttributes.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTTextTab.h</td>
+<td></td>
+</tr>
+<tr>
+<td>CTTypesetter.h</td>
+<td></td>
+</tr>
+<tr>
+<td>SFNTLayoutTypes.h</td>
+<td></td>
+</tr>
+<tr>
+<td>SFNTTypes.h</td>
+</tr>
+</tbody>
+</table>
+<p>以上是coretext.framework 包含的所有类</p>
+<h2 id="富文本字体规范"><a href="#富文本字体规范" class="headerlink" title="富文本字体规范"></a>富文本字体规范</h2><h4 id="字体的相关知识"><a href="#字体的相关知识" class="headerlink" title="字体的相关知识"></a>字体的相关知识</h4><p>字体(Font):是一系列字号、样式和磅值相同的字符(例如:10磅黑体Palatino)。现多被视为字样的同义词</p>
+<p>字面(Face):是所有字号的磅值和格式的综合</p>
+<p>字体集(Font family):是一组相关字体(例如:Franklin family包括Franklin Gothic、Fran-klinHeavy和Franklin Compressed)</p>
+<p>磅值(Weight):用于描述字体粗度。典型的磅值,从最粗到最细,有极细、细、book、中等、半粗、粗、较粗、极粗</p>
+<p>样式(Style):字形有三种形式:Roman type是直体;oblique type是斜体;utakuc type是斜体兼曲线(比Roman type更像书法体)。</p>
+<p>x高度(X height):指小写字母的平均高度(以x为基准)。磅值相同的两字母,x高度越大的字母看起来比x高度小的字母要大</p>
+<p>Cap高度(Cap height):与x高度相似。指大写字母的平均高度(以C为基准)</p>
+<p>下行字母(Descender):例如在字母q中,基线以下的字母部分叫下伸部分</p>
+<p>上行字母(Ascender):x高度以上的部分(比如字母b)叫做上伸部分</p>
+<p>基线(Baseline):通常在x、v、b、m下的那条线</p>
+<p>描边(Stroke):组成字符的线或曲线。可以加粗或改变字符形状</p>
+<p>衬线(Serif):用来使字符更可视的一条水平线。如字母左上角和下部的水平线。</p>
+<p>无衬线(Sans Serif):可以让排字员不使用衬线装饰。</p>
+<p>方形字(Block):这种字体的笔画使字符看起来比无衬线字更显眼,但还不到常见的衬线字的程度。例如Lubalin Graph就是方形字,这种字看起来好像是木头块刻的一样</p>
+<p>手写体脚本(Calligraphic script):是一种仿效手写体的字体。例如Murray Hill或者Fraktur字体</p>
+<p>艺术字(Decorative):像绘画般的字体</p>
+<p>Pi符号(Pisymbol):非标准的字母数字字符的特殊符号。例如Wingdings和Mathematical Pi</p>
+<p>连写(Ligature):是一系列连写字母如fi、fl、ffi或ffl。由于字些字母形状的原因经常被连写,故排字员已习惯将它们连写。</p>
+<p><img src="/images/font.gif" alt="image"></p>
+<p><img src="/images/font2.gif" alt="image"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/23/coretext-framework-大全/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-2015-08-18-mu-qian-chang-yong-di-san-fang-cha-jian" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1551,64 +1708,6 @@ $ git push origin master
 
 
   
-    <article id="post-2015-08-04-rakezai-octopresszhong-de-shi-yong-ming-ling-jie-shao" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/04/2015-08-04-rakezai-octopresszhong-de-shi-yong-ming-ling-jie-shao/">rake在octopress中的使用命令介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/04/2015-08-04-rakezai-octopresszhong-de-shi-yong-ming-ling-jie-shao/" class="archive-article-date">
-  	<time datetime="2015-08-04T08:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>刚开始接触octopress ，对rake命令使用的较少，特在此记录，记录每个命令的作用。</p>
-<p>##命令</p>
-<ul>
-<li>rake generate 将 /octopress/source/_posts 目录下的 .markdown 文件 翻译成html网页</li>
-<li>rake preview 生成本地网页服务器，端口号4000   <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></li>
-<li>rake deploy  将本地的_deploy 修改的文件提交到 github上面去。</li>
-<li>rake new_post[‘新的博客名字’] 在 octopress/source/_posts 目录下创建博客，名字为《新的博客名字》</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/04/2015-08-04-rakezai-octopresszhong-de-shi-yong-ming-ling-jie-shao/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1623,7 +1722,7 @@ $ git push origin master
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 John Doe
+    		&copy; 2017 温杰
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
