@@ -6,33 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>coretext.framework 大全 | 温杰的博客</title>
+  <title>CTFontCollection.h学习 | 温杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+  <meta name="description" content="1.Collection Types1CFTypeID CTFontCollectionGetTypeID( void )
+12345typedef CFComparisonResult (*CTFontCollectionSortDescriptorsCallback)(    CTFontDescriptorRef first,    CTFontDescriptorRef second,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coretext.framework 大全">
-<meta property="og:url" content="http://yoursite.com/2017/02/23/coretext-framework-大全/index.html">
+<meta property="og:title" content="CTFontCollection.h学习">
+<meta property="og:url" content="http://yoursite.com/2017/03/02/CTFontCollection学习/index.html">
 <meta property="og:site_name" content="温杰的博客">
-<meta property="og:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
-<meta property="og:updated_time" content="2017-03-02T06:06:57.000Z">
+<meta property="og:description" content="1.Collection Types1CFTypeID CTFontCollectionGetTypeID( void )
+12345typedef CFComparisonResult (*CTFontCollectionSortDescriptorsCallback)(    CTFontDescriptorRef first,    CTFontDescriptorRef second,">
+<meta property="og:updated_time" content="2017-03-02T06:05:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="coretext.framework 大全">
-<meta name="twitter:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+<meta name="twitter:title" content="CTFontCollection.h学习">
+<meta name="twitter:description" content="1.Collection Types1CFTypeID CTFontCollectionGetTypeID( void )
+12345typedef CFComparisonResult (*CTFontCollectionSortDescriptorsCallback)(    CTFontDescriptorRef first,    CTFontDescriptorRef second,">
   
     <link rel="alternative" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
   
@@ -168,32 +156,63 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-coretext-framework-大全" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CTFontCollection学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      coretext.framework 大全
+      CTFontCollection.h学习
     </h1>
   
 
         
-        <a href="/2017/02/23/coretext-framework-大全/" class="archive-article-date">
-  	<time datetime="2017-02-23T03:07:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+        <a href="/2017/03/02/CTFontCollection学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T06:03:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>### </p>
-<p>### </p>
-<p>### </p>
-<p>### </p>
-<p>### </p>
-<h3 id="CTParagraphStyle-h"><a href="#CTParagraphStyle-h" class="headerlink" title="CTParagraphStyle.h"></a>CTParagraphStyle.h</h3><h3 id="CTTextTab-h"><a href="#CTTextTab-h" class="headerlink" title="CTTextTab.h"></a>CTTextTab.h</h3><h3 id="CTRunDelegate-h"><a href="#CTRunDelegate-h" class="headerlink" title="CTRunDelegate.h"></a>CTRunDelegate.h</h3><h3 id="CTRubyAnnotation-h"><a href="#CTRubyAnnotation-h" class="headerlink" title="CTRubyAnnotation.h"></a>CTRubyAnnotation.h</h3><h3 id="SFNTLayoutTypes-h"><a href="#SFNTLayoutTypes-h" class="headerlink" title="SFNTLayoutTypes.h"></a>SFNTLayoutTypes.h</h3><h3 id="SFNTTypes-h"><a href="#SFNTTypes-h" class="headerlink" title="SFNTTypes.h"></a>SFNTTypes.h</h3><p>### </p>
+        <h4 id="1-Collection-Types"><a href="#1-Collection-Types" class="headerlink" title="1.Collection Types"></a>1.Collection Types</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFTypeID CTFontCollectionGetTypeID( void )</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">typedef CFComparisonResult (*CTFontCollectionSortDescriptorsCallback)(</div><div class="line">    CTFontDescriptorRef first,</div><div class="line">    CTFontDescriptorRef second,</div><div class="line">    void *refCon );</div><div class="line">    排序用的</div></pre></td></tr></table></figure>
+<h4 id="2-Collection-Matching-Options"><a href="#2-Collection-Matching-Options" class="headerlink" title="2.Collection Matching Options"></a>2.Collection Matching Options</h4><table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kCTFontCollectionRemoveDuplicatesOption</td>
+<td>a non-zero value</td>
+<td>collection过滤相同的 duplicate font descriptors</td>
+</tr>
+<tr>
+<td>kCTFontCollectionIncludeDisabledFontsOption</td>
+<td>a non-zero value</td>
+<td>匹配禁用字体</td>
+</tr>
+<tr>
+<td>kCTFontCollectionDisallowAutoActivationOption</td>
+<td>a non-zero value</td>
+<td>不匹配丢失的字体</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-Collection-Creation"><a href="#3-Collection-Creation" class="headerlink" title="3.Collection Creation"></a>3.Collection Creation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CTFontCollectionRef CTFontCollectionCreateFromAvailableFonts(</div><div class="line">    CFDictionaryRef __nullable options ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CTFontCollectionRef CTFontCollectionCreateWithFontDescriptors(</div><div class="line">    CFArrayRef __nullable queryDescriptors,</div><div class="line">    CFDictionaryRef __nullable options ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CTFontCollectionRef CTFontCollectionCreateCopyWithFontDescriptors(</div><div class="line">    CTFontCollectionRef original,</div><div class="line">    CFArrayRef __nullable queryDescriptors,</div><div class="line">    CFDictionaryRef __nullable options ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CTMutableFontCollectionRef CTFontCollectionCreateMutableCopy(</div><div class="line">    CTFontCollectionRef original ) CT_AVAILABLE_MAC(10_7);</div><div class="line">    mac专用</div></pre></td></tr></table></figure>
+<h4 id="4-Editing-the-query-descriptors"><a href="#4-Editing-the-query-descriptors" class="headerlink" title="4.Editing the query descriptors"></a>4.Editing the query descriptors</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">CFArrayRef __nullable CTFontCollectionCopyQueryDescriptors(</div><div class="line">    CTFontCollectionRef collection ) CT_AVAILABLE_MAC(10_7);</div><div class="line">    mac 专用</div><div class="line">    </div><div class="line">    void CTFontCollectionSetQueryDescriptors(</div><div class="line">    CTMutableFontCollectionRef  collection,</div><div class="line">    CFArrayRef __nullable       descriptors ) CT_AVAILABLE_MAC(10_7);</div><div class="line">   mac 专用</div><div class="line"> </div><div class="line"> CFArrayRef __nullable CTFontCollectionCopyExclusionDescriptors( CTFontCollectionRef collection ) CT_AVAILABLE_MAC(10_7);</div><div class="line"> mac 专用</div><div class="line"> </div><div class="line"> void CTFontCollectionSetExclusionDescriptors(</div><div class="line">    CTMutableFontCollectionRef  collection,</div><div class="line">    CFArrayRef __nullable       descriptors ) CT_AVAILABLE_MAC(10_7);</div><div class="line">  mac 专用</div></pre></td></tr></table></figure>
+<h4 id="5-Retrieving-Matching-Descriptors"><a href="#5-Retrieving-Matching-Descriptors" class="headerlink" title="5.Retrieving Matching Descriptors"></a>5.Retrieving Matching Descriptors</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFArrayRef __nullable CTFontCollectionCreateMatchingFontDescriptors(</div><div class="line">    CTFontCollectionRef collection ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CFArrayRef __nullable CTFontCollectionCreateMatchingFontDescriptorsSortedWithCallback(</div><div class="line">    CTFontCollectionRef                     collection,</div><div class="line">    CTFontCollectionSortDescriptorsCallback __nullable sortCallback,</div><div class="line">    void * __nullable                       refCon ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">CFArrayRef __nullable CTFontCollectionCreateMatchingFontDescriptorsWithOptions(</div><div class="line">    CTFontCollectionRef collection,</div><div class="line">    CFDictionaryRef __nullable options ) CT_AVAILABLE_MAC(10_7);</div><div class="line">    mac 专用</div><div class="line">    </div><div class="line">    CFArrayRef __nullable CTFontCollectionCreateMatchingFontDescriptorsForFamily(</div><div class="line">    CTFontCollectionRef collection,</div><div class="line">    CFStringRef         familyName,</div><div class="line">    CFDictionaryRef __nullable options ) CT_AVAILABLE_MAC(10_7);</div><div class="line">    mac 专用</div></pre></td></tr></table></figure>
+<h4 id="6-Bulk-attribute-access"><a href="#6-Bulk-attribute-access" class="headerlink" title="6.Bulk attribute access"></a>6.Bulk attribute access</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">typedef CF_OPTIONS(uint32_t, CTFontCollectionCopyOptions) &#123;</div><div class="line">    kCTFontCollectionCopyDefaultOptions = 0,</div><div class="line">    kCTFontCollectionCopyUnique = (1 &lt;&lt; 0),</div><div class="line">    kCTFontCollectionCopyStandardSort = (1 &lt;&lt; 1)</div><div class="line">&#125; CT_AVAILABLE_MAC(10_7);</div><div class="line">mac 专用</div><div class="line"></div><div class="line">CFArrayRef CTFontCollectionCopyFontAttribute(</div><div class="line">    CTFontCollectionRef         collection,</div><div class="line">    CFStringRef                 attributeName,</div><div class="line">    CTFontCollectionCopyOptions options ) CT_AVAILABLE_MAC(10_7);</div><div class="line">   mac 专用</div><div class="line">   </div><div class="line">   </div><div class="line"> CFArrayRef CTFontCollectionCopyFontAttributes(</div><div class="line">    CTFontCollectionRef         collection,</div><div class="line">    CFSetRef                    attributeNames,</div><div class="line">    CTFontCollectionCopyOptions options ) CT_AVAILABLE_MAC(10_7);</div><div class="line">    mac 专用</div></pre></td></tr></table></figure>
 
       
 
@@ -273,7 +292,7 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/23/coretext-framework-大全/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/02/CTFontCollection学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +306,18 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/coreText概述/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/02/CTFontDescriptor学习/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          coreText概述
+          CTFontDescriptor.h学习
         
       </div>
     </a>
   
   
-    <a href="/2015/08/18/2015-08-18-mu-qian-chang-yong-di-san-fang-cha-jian/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">目前常用第三方插件</div>
+    <a href="/2017/03/02/CTFontTraits学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CTFontTraits.h学习</div>
       <i class="icon-circle-right"></i>
     </a>
   

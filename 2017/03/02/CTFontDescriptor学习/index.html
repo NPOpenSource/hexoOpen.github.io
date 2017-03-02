@@ -6,33 +6,69 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>coretext.framework 大全 | 温杰的博客</title>
+  <title>CTFontDescriptor.h学习 | 温杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+  <meta name="description" content="该类从以下四个方面来学习。
+1.Descriptor Types1CFTypeID CTFontDescriptorGetTypeID( void ) CT_AVAILABLE(10_5, 3_2);
+2.Descriptor Constants
+
+
+ke’y
+value
+解释
+
+
+
+
+kCTFontURLAttribute
+CFURLRef
+通过 descriptor 访问字体的url
+
+
+kC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coretext.framework 大全">
-<meta property="og:url" content="http://yoursite.com/2017/02/23/coretext-framework-大全/index.html">
+<meta property="og:title" content="CTFontDescriptor.h学习">
+<meta property="og:url" content="http://yoursite.com/2017/03/02/CTFontDescriptor学习/index.html">
 <meta property="og:site_name" content="温杰的博客">
-<meta property="og:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
-<meta property="og:updated_time" content="2017-03-02T06:06:57.000Z">
+<meta property="og:description" content="该类从以下四个方面来学习。
+1.Descriptor Types1CFTypeID CTFontDescriptorGetTypeID( void ) CT_AVAILABLE(10_5, 3_2);
+2.Descriptor Constants
+
+
+ke’y
+value
+解释
+
+
+
+
+kCTFontURLAttribute
+CFURLRef
+通过 descriptor 访问字体的url
+
+
+kC">
+<meta property="og:updated_time" content="2017-03-02T06:05:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="coretext.framework 大全">
-<meta name="twitter:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+<meta name="twitter:title" content="CTFontDescriptor.h学习">
+<meta name="twitter:description" content="该类从以下四个方面来学习。
+1.Descriptor Types1CFTypeID CTFontDescriptorGetTypeID( void ) CT_AVAILABLE(10_5, 3_2);
+2.Descriptor Constants
+
+
+ke’y
+value
+解释
+
+
+
+
+kCTFontURLAttribute
+CFURLRef
+通过 descriptor 访问字体的url
+
+
+kC">
   
     <link rel="alternative" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
   
@@ -168,32 +204,225 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-coretext-framework-大全" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CTFontDescriptor学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      coretext.framework 大全
+      CTFontDescriptor.h学习
     </h1>
   
 
         
-        <a href="/2017/02/23/coretext-framework-大全/" class="archive-article-date">
-  	<time datetime="2017-02-23T03:07:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+        <a href="/2017/03/02/CTFontDescriptor学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T06:04:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>### </p>
+        <p>该类从以下四个方面来学习。</p>
+<h4 id="1-Descriptor-Types"><a href="#1-Descriptor-Types" class="headerlink" title="1.Descriptor Types"></a>1.Descriptor Types</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFTypeID CTFontDescriptorGetTypeID( void ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<h4 id="2-Descriptor-Constants"><a href="#2-Descriptor-Constants" class="headerlink" title="2.Descriptor Constants"></a>2.Descriptor Constants</h4><table>
+<thead>
+<tr>
+<th>ke’y</th>
+<th>value</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kCTFontURLAttribute</td>
+<td>CFURLRef</td>
+<td>通过 descriptor 访问字体的url</td>
+</tr>
+<tr>
+<td>kCTFontNameAttribute</td>
+<td>CFStringRef</td>
+<td>先从 PostScript arr 中找， 没发现在从 family 数字找，没发现  用 display name 。， 如果还是从字体列表中没找到，默认返回 Helvetica 字体</td>
+</tr>
+<tr>
+<td>kCTFontDisplayNameAttribute</td>
+<td>CFStringRef</td>
+<td>这个返回display name  大多数是 the full name。</td>
+</tr>
+<tr>
+<td>kCTFontFamilyNameAttribute</td>
+<td>CFStringRef</td>
+<td>返回  family name</td>
+</tr>
+<tr>
+<td>kCTFontStyleNameAttribute</td>
+<td>CFStringRef</td>
+<td>返回 the style name of the font。代表设计者对该字体样式的描述。</td>
+</tr>
+<tr>
+<td>kCTFontTraitsAttribute</td>
+<td>CFDictionaryRef</td>
+<td>返回改字体的特性 traits 字典。</td>
+</tr>
+<tr>
+<td>kCTFontVariationAttribute</td>
+<td>CFDictionaryRef</td>
+<td>不知道啥用</td>
+</tr>
+<tr>
+<td>kCTFontSizeAttribute</td>
+<td>CFNumberRef</td>
+<td>返回字体的大小</td>
+</tr>
+<tr>
+<td>kCTFontMatrixAttribute</td>
+<td>CFDataRef</td>
+<td>该data是 CGAffineTransform信息</td>
+</tr>
+<tr>
+<td>kCTFontCascadeListAttribute</td>
+<td>CFArrayRef</td>
+<td>级联表格数组，具体干嘛的不知道。看结果在说</td>
+</tr>
+<tr>
+<td>kCTFontCharacterSetAttribute</td>
+<td>CFCharacterSetRef</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontLanguagesAttribute</td>
+<td>CFArrayRef</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontBaselineAdjustAttribute</td>
+<td>CFNumberRef</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontMacintoshEncodingsAttribute</td>
+<td>CFNumberRef</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontFeaturesAttribute</td>
+<td>CFArrayRef</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontFeatureSettingsAttribute</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontFixedAdvanceAttribute</td>
+<td>CFNumberRef</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontOrientationAttribute</td>
+<td>CFNumberRef</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontFormatAttribute</td>
+<td>CFNumber</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontRegistrationScopeAttribute</td>
+<td>CTFontManagerScope</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontPriorityAttribute</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontEnabledAttribute</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDownloadableAttribute</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDownloadedAttribute</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(uint32_t, CTFontOrientation) &#123;</div><div class="line">    kCTFontOrientationDefault    CT_ENUM_AVAILABLE(10_8, 6_0) = 0,</div><div class="line">    kCTFontOrientationHorizontal CT_ENUM_AVAILABLE(10_8, 6_0) = 1,</div><div class="line">    kCTFontOrientationVertical   CT_ENUM_AVAILABLE(10_8, 6_0) = 2,</div><div class="line"></div><div class="line">    kCTFontDefaultOrientation CT_ENUM_DEPRECATED(10_5, 10_11, 3_2, 9_0) = kCTFontOrientationDefault,</div><div class="line">    kCTFontHorizontalOrientation CT_ENUM_DEPRECATED(10_5, 10_11, 3_2, 9_0) = kCTFontOrientationHorizontal,</div><div class="line">    kCTFontVerticalOrientation CT_ENUM_DEPRECATED(10_5, 10_11, 3_2, 9_0) = kCTFontOrientationVertical</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(uint32_t, CTFontFormat) &#123;</div><div class="line">    kCTFontFormatUnrecognized       = 0,</div><div class="line">    kCTFontFormatOpenTypePostScript = 1,</div><div class="line">    kCTFontFormatOpenTypeTrueType   = 2,</div><div class="line">    kCTFontFormatTrueType           = 3,</div><div class="line">    kCTFontFormatPostScript         = 4,</div><div class="line">    kCTFontFormatBitmap             = 5</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="3-Descriptor-Creation"><a href="#3-Descriptor-Creation" class="headerlink" title="3.Descriptor Creation"></a>3.Descriptor Creation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef CTFontDescriptorCreateWithNameAndSize(</div><div class="line">    CFStringRef         name,</div><div class="line">    CGFloat             size ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef CTFontDescriptorCreateWithAttributes(</div><div class="line">    CFDictionaryRef     attributes ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef CTFontDescriptorCreateCopyWithAttributes(</div><div class="line">    CTFontDescriptorRef     original,</div><div class="line">    CFDictionaryRef         attributes ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef __nullable CTFontDescriptorCreateCopyWithFamily(</div><div class="line">    CTFontDescriptorRef     original,</div><div class="line">    CFStringRef             family ) CT_AVAILABLE(10_9, 7_0);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef __nullable CTFontDescriptorCreateCopyWithSymbolicTraits(</div><div class="line">    CTFontDescriptorRef     original,</div><div class="line">    CTFontSymbolicTraits    symTraitValue,</div><div class="line">    CTFontSymbolicTraits    symTraitMask ) CT_AVAILABLE(10_9, 7_0);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef CTFontDescriptorCreateCopyWithVariation(</div><div class="line">    CTFontDescriptorRef     original,</div><div class="line">    CFNumberRef             variationIdentifier,</div><div class="line">    CGFloat                 variationValue ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef CTFontDescriptorCreateCopyWithFeature(</div><div class="line">    CTFontDescriptorRef     original,</div><div class="line">    CFNumberRef             featureTypeIdentifier,</div><div class="line">    CFNumberRef             featureSelectorIdentifier ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CFArrayRef __nullable CTFontDescriptorCreateMatchingFontDescriptors(</div><div class="line">    CTFontDescriptorRef     descriptor,</div><div class="line">    CFSetRef __nullable     mandatoryAttributes ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef __nullable CTFontDescriptorCreateMatchingFontDescriptor(</div><div class="line">    CTFontDescriptorRef     descriptor,</div><div class="line">    CFSetRef __nullable     mandatoryAttributes ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(uint32_t, CTFontDescriptorMatchingState) &#123;</div><div class="line">    kCTFontDescriptorMatchingDidBegin,              // called once at the beginning.</div><div class="line">    kCTFontDescriptorMatchingDidFinish,             // called once at the end.</div><div class="line">    </div><div class="line">    kCTFontDescriptorMatchingWillBeginQuerying,     // called once before talking to the server.  Skipped if not necessary.</div><div class="line">    kCTFontDescriptorMatchingStalled,               // called when stalled. (e.g. while waiting for server response.)</div><div class="line">    </div><div class="line">    // Downloading and activating are repeated for each descriptor.</div><div class="line">    kCTFontDescriptorMatchingWillBeginDownloading,  // Downloading part may be skipped if all the assets are already downloaded</div><div class="line">    kCTFontDescriptorMatchingDownloading,</div><div class="line">    kCTFontDescriptorMatchingDidFinishDownloading,</div><div class="line">    kCTFontDescriptorMatchingDidMatch,              // called when font descriptor is matched.</div><div class="line">    </div><div class="line">    kCTFontDescriptorMatchingDidFailWithError       // called when an error occurred.  (may be called multiple times.)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>keys for progressParameter dictionary</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kCTFontDescriptorMatchingSourceDescriptor</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDescriptorMatchingDescriptors</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDescriptorMatchingResult</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDescriptorMatchingPercentage</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDescriptorMatchingCurrentAssetSize</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDescriptorMatchingTotalDownloadedSize</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDescriptorMatchingTotalAssetSize</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kCTFontDescriptorMatchingError</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bool CTFontDescriptorMatchFontDescriptorsWithProgressHandler(</div><div class="line">    CFArrayRef                          descriptors,</div><div class="line">    CFSetRef __nullable                 mandatoryAttributes,</div><div class="line">    CTFontDescriptorProgressHandler     progressBlock) CT_AVAILABLE(10_9, 6_0);</div></pre></td></tr></table></figure>
+<h4 id="4-Descriptor-Accessors"><a href="#4-Descriptor-Accessors" class="headerlink" title="4.Descriptor Accessors"></a>4.Descriptor Accessors</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CFTypeRef __nullable CTFontDescriptorCopyAttribute(</div><div class="line">    CTFontDescriptorRef     descriptor,</div><div class="line">    CFStringRef             attribute ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CFTypeRef __nullable CTFontDescriptorCopyLocalizedAttribute(</div><div class="line">    CTFontDescriptorRef     descriptor,</div><div class="line">    CFStringRef             attribute,</div><div class="line">    CFStringRef __nullable * __nullable language ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
 <p>### </p>
-<p>### </p>
-<p>### </p>
-<p>### </p>
-<h3 id="CTParagraphStyle-h"><a href="#CTParagraphStyle-h" class="headerlink" title="CTParagraphStyle.h"></a>CTParagraphStyle.h</h3><h3 id="CTTextTab-h"><a href="#CTTextTab-h" class="headerlink" title="CTTextTab.h"></a>CTTextTab.h</h3><h3 id="CTRunDelegate-h"><a href="#CTRunDelegate-h" class="headerlink" title="CTRunDelegate.h"></a>CTRunDelegate.h</h3><h3 id="CTRubyAnnotation-h"><a href="#CTRubyAnnotation-h" class="headerlink" title="CTRubyAnnotation.h"></a>CTRubyAnnotation.h</h3><h3 id="SFNTLayoutTypes-h"><a href="#SFNTLayoutTypes-h" class="headerlink" title="SFNTLayoutTypes.h"></a>SFNTLayoutTypes.h</h3><h3 id="SFNTTypes-h"><a href="#SFNTTypes-h" class="headerlink" title="SFNTTypes.h"></a>SFNTTypes.h</h3><p>### </p>
 
       
 
@@ -273,7 +502,7 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/23/coretext-framework-大全/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/02/CTFontDescriptor学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +516,18 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/coreText概述/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/02/CTFont学习/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          coreText概述
+          CTFont.h学习
         
       </div>
     </a>
   
   
-    <a href="/2015/08/18/2015-08-18-mu-qian-chang-yong-di-san-fang-cha-jian/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">目前常用第三方插件</div>
+    <a href="/2017/03/02/CTFontCollection学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CTFontCollection.h学习</div>
       <i class="icon-circle-right"></i>
     </a>
   

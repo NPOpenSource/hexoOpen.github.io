@@ -6,33 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>coretext.framework 大全 | 温杰的博客</title>
+  <title>CTRun.h学习 | 温杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+  <meta name="description" content="CTLine是由CTRun组成的。
+我们通过以下几个方面来看看CTRun
+   1.Glyph Run Types
+   2Glyph Run Access
+1.Glyph Run TypesCFTypeID CTRunGetTypeID( void ) 获取CTRunRef 的 CFTypeID 
+12345678910111213typedef CF_OPTIONS(uint32_t, CTR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coretext.framework 大全">
-<meta property="og:url" content="http://yoursite.com/2017/02/23/coretext-framework-大全/index.html">
+<meta property="og:title" content="CTRun.h学习">
+<meta property="og:url" content="http://yoursite.com/2017/03/02/CTRun学习/index.html">
 <meta property="og:site_name" content="温杰的博客">
-<meta property="og:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
-<meta property="og:updated_time" content="2017-03-02T06:06:57.000Z">
+<meta property="og:description" content="CTLine是由CTRun组成的。
+我们通过以下几个方面来看看CTRun
+   1.Glyph Run Types
+   2Glyph Run Access
+1.Glyph Run TypesCFTypeID CTRunGetTypeID( void ) 获取CTRunRef 的 CFTypeID 
+12345678910111213typedef CF_OPTIONS(uint32_t, CTR">
+<meta property="og:updated_time" content="2017-03-02T05:59:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="coretext.framework 大全">
-<meta name="twitter:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+<meta name="twitter:title" content="CTRun.h学习">
+<meta name="twitter:description" content="CTLine是由CTRun组成的。
+我们通过以下几个方面来看看CTRun
+   1.Glyph Run Types
+   2Glyph Run Access
+1.Glyph Run TypesCFTypeID CTRunGetTypeID( void ) 获取CTRunRef 的 CFTypeID 
+12345678910111213typedef CF_OPTIONS(uint32_t, CTR">
   
     <link rel="alternative" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
   
@@ -168,32 +168,107 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-coretext-framework-大全" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CTRun学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      coretext.framework 大全
+      CTRun.h学习
     </h1>
   
 
         
-        <a href="/2017/02/23/coretext-framework-大全/" class="archive-article-date">
-  	<time datetime="2017-02-23T03:07:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+        <a href="/2017/03/02/CTRun学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T05:58:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>### </p>
+        <p>CTLine是由CTRun组成的。</p>
+<p>我们通过以下几个方面来看看CTRun</p>
+<p>   1.Glyph Run Types</p>
+<p>   2Glyph Run Access</p>
+<h3 id="1-Glyph-Run-Types"><a href="#1-Glyph-Run-Types" class="headerlink" title="1.Glyph Run Types"></a>1.Glyph Run Types</h3><p>CFTypeID CTRunGetTypeID( void ) 获取CTRunRef 的 CFTypeID </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">typedef CF_OPTIONS(uint32_t, CTRunStatus)</div><div class="line">&#123;</div><div class="line">    kCTRunStatusNoStatus = 0,</div><div class="line">    kCTRunStatusRightToLeft = (1 &lt;&lt; 0),</div><div class="line">    kCTRunStatusNonMonotonic = (1 &lt;&lt; 1),</div><div class="line">    kCTRunStatusHasNonIdentityMatrix = (1 &lt;&lt; 2)</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Run的状态</div><div class="line">kCTRunStatusNoStatus 没有属性</div><div class="line">kCTRunStatusRightToLeft  暂时不知道干嘛的 </div><div class="line">kCTRunStatusNonMonotonic   暂时不知道干嘛的</div><div class="line">kCTRunStatusHasNonIdentityMatrix   暂时不知道干嘛的</div></pre></td></tr></table></figure>
+<h3 id="2-Glyph-Run-Access"><a href="#2-Glyph-Run-Access" class="headerlink" title="2.Glyph Run Access"></a>2.Glyph Run Access</h3><table>
+<thead>
+<tr>
+<th>CTRunGetGlyphCount (CTRunRef run )</th>
+<th>获取run的字体个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFDictionaryRef CTRunGetAttributes(CTRunRef run )</td>
+<td>获取run的属性</td>
+</tr>
+<tr>
+<td>CTRunStatus CTRunGetStatus(CTRunRef run )</td>
+<td>获取 status 不知道这个干嘛用</td>
+</tr>
+<tr>
+<td>const CGGlyph * __nullable CTRunGetGlyphsPtr(CTRunRef run )</td>
+<td>获取一个CGGlyph 指针数组</td>
+</tr>
+<tr>
+<td>void CTRunGetGlyphs(CTRunRef run,CFRange range,CGGlyph buffer[] )</td>
+<td>获取数据CGGlyph 在范围range</td>
+</tr>
+<tr>
+<td>const CGPoint * __nullable CTRunGetPositionsPtr(CTRunRef run )</td>
+<td>获取每个glyph 字体的起始位置数组</td>
+</tr>
+<tr>
+<td>void CTRunGetPositions(CTRunRef run,CFRange range,CGPoint buffer[] )</td>
+<td>获取数据获取数据CGGlyph位置 在范围range</td>
+</tr>
+<tr>
+<td>const CGSize * __nullable CTRunGetAdvancesPtr(CTRunRef run )</td>
+<td>获取CGGlyph 的大小数组</td>
+</tr>
+<tr>
+<td>void CTRunGetAdvances(CTRunRef run,CFRange range,CGSize buffer[] )</td>
+<td>获取数据获取数据CGGlyph大小 在范围range</td>
+</tr>
+<tr>
+<td>const CFIndex * __nullable CTRunGetStringIndicesPtr(CTRunRef run )</td>
+<td>获取CGGlyph 在整个字符串index数组的大小数组</td>
+</tr>
+<tr>
+<td>void CTRunGetStringIndices(CTRunRef run,CFRange range,CFIndex buffer[] )</td>
+<td>获取数据获取数据CGGlyph在整个字符串index处数组 在范围range</td>
+</tr>
+<tr>
+<td>CFRange CTRunGetStringRange(CTRunRef run )</td>
+<td>获取run在字符串中的range</td>
+</tr>
+<tr>
+<td>double CTRunGetTypographicBounds(CTRunRef run,CFRange range,CGFloat <em> __ nullable ascent,CGFloat </em>  <strong> nullable descent,CGFloat * </strong>nullable leading )</td>
+<td>获取run 在范围range的的相关信息 返回宽度</td>
+</tr>
+<tr>
+<td>CGRect CTRunGetImageBounds( CTRunRef run,CGContextRef __nullable context,CFRange range )</td>
+<td>获取一个rect 具体是怎么样子不知道</td>
+</tr>
+<tr>
+<td>CGAffineTransform CTRunGetTextMatrix(CTRunRef run )</td>
+<td>获取run 的二维矩阵</td>
+</tr>
+<tr>
+<td>void CTRunDraw(CTRunRef run,CGContextRef context,CFRange range )</td>
+<td>绘制run 位置什么的不变。</td>
+</tr>
+</tbody>
+</table>
+<p>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div></pre></td><td class="code"><pre><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学吧&quot;];</div><div class="line">    NSDictionary * dic = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:18] forKey:(__bridge NSString *)kCTFontAttributeName];</div><div class="line">    ///设置字体</div><div class="line">    [mabstring setAttributes:dic range:NSMakeRange(2, 3)];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;dd&quot;];</div><div class="line">   CTLineRef  linetoken = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTLineRef lineTru = CTLineCreateTruncatedLine(line, 300, kCTLineTruncationStart, linetoken);</div><div class="line">//    CTLineDraw(line, context);</div><div class="line"></div><div class="line">    </div><div class="line">    </div><div class="line">//    CTLineDraw(line, context);</div><div class="line">    double offset =  CTLineGetPenOffsetForFlush(line,0.5, 300);</div><div class="line">    NSLog(@&quot;line offset %f&quot;,offset);</div><div class="line">    UIView * view =[[UIView alloc]initWithFrame:CGRectMake(300/2-offset, self.bounds.size.height-64, offset, 10)];</div><div class="line">    [self addSubview:view];</div><div class="line">    view.backgroundColor =[UIColor redColor];</div><div class="line">    </div><div class="line">    view =[[UIView alloc]initWithFrame:CGRectMake(0, self.bounds.size.height-64, 300/2, 10)];</div><div class="line">    [self addSubview:view];</div><div class="line">    view.alpha = 0.4;</div><div class="line">    view.backgroundColor =[UIColor greenColor];</div><div class="line"></div><div class="line">    ///access</div><div class="line">    CFIndex index =   CTLineGetGlyphCount(lineTru);</div><div class="line">    NSLog(@&quot;line glyph %ld&quot;,index);</div><div class="line">    index =   CTLineGetGlyphCount(line);</div><div class="line">    NSLog(@&quot;line glyph %ld&quot;,index);</div><div class="line">    </div><div class="line">    </div><div class="line">  NSArray * runArr = (__bridge NSArray *)  CTLineGetGlyphRuns(line);</div><div class="line">    NSLog(@&quot;runArr %@&quot; ,runArr);</div><div class="line">    </div><div class="line"></div><div class="line">    if (runArr.count&gt;1) &#123;</div><div class="line">        CTRunRef run = (__bridge CTRunRef)runArr[1];</div><div class="line">        CFIndex index =  CTRunGetGlyphCount(run);</div><div class="line">        NSLog(@&quot;Run glyph 个数 %ld&quot;,index);</div><div class="line">       NSDictionary * dic = (__bridge NSDictionary * ) CTRunGetAttributes(run);</div><div class="line">        NSLog(@&quot;run att %@&quot;,dic);</div><div class="line">        CTRunStatus status = CTRunGetStatus(run);</div><div class="line">        NSLog(@&quot;run status %d&quot;,status);</div><div class="line">        </div><div class="line">        </div><div class="line">       const CGGlyph * glyph = CTRunGetGlyphsPtr(run);</div><div class="line">        const CGPoint * point =   CTRunGetPositionsPtr(run);</div><div class="line">        const CGSize * size = CTRunGetAdvancesPtr(run);</div><div class="line">        const CFIndex *  indexs = CTRunGetStringIndicesPtr(run);</div><div class="line">        for (int i=0; i&lt;index; i++) &#123;</div><div class="line">            NSLog(@&quot;run glyph   %d&quot;,glyph[i]);</div><div class="line">            NSLog(@&quot;run point %lf %lf&quot;,point[i].x,point[i].y);</div><div class="line">            NSLog(@&quot;run size %lf %lf&quot;,size[i].width,size[i].height);</div><div class="line">            NSLog(@&quot;run index %ld&quot;,indexs[i]);</div><div class="line">        &#125;</div><div class="line">        CGGlyph buffer[2];</div><div class="line">        CGPoint pointPos[2];</div><div class="line">        CGSize sizeBuffer[2];</div><div class="line">        CFIndex indexBuffer[2];</div><div class="line">        CTRunGetGlyphs(run, CFRangeMake(0, 2), buffer);</div><div class="line">        NSLog(@&quot;run glyph %d %d&quot;,buffer[0],buffer[1]);</div><div class="line">        CTRunGetPositions(run, CFRangeMake(0, 2), pointPos);</div><div class="line">        NSLog(@&quot;run glyph point %lf %lf&quot;,pointPos[0].x,pointPos[1].y);</div><div class="line">        CTRunGetAdvances(run, CFRangeMake(0, 2), sizeBuffer);</div><div class="line">        NSLog(@&quot;run glyph size %lf %lf&quot;,sizeBuffer[0].width,sizeBuffer[1].height);</div><div class="line">         CTRunGetStringIndices(run,CFRangeMake(0, 2),indexBuffer);</div><div class="line">        NSLog(@&quot;run glyph index %ld %ld&quot;,indexBuffer[0],indexBuffer[1]);</div><div class="line">        CFRange stringRange =  CTRunGetStringRange(run);</div><div class="line">        NSLog(@&quot;run string range %ld %ld&quot;,stringRange.location,stringRange.length);</div><div class="line">        CGFloat ascent;</div><div class="line">        CGFloat descent;</div><div class="line">        CGFloat leading;</div><div class="line">        CTRunGetTypographicBounds(run, CFRangeMake(1, 2), &amp;ascent, &amp;descent, &amp;leading);</div><div class="line">        NSLog(@&quot;run ascent %f,descent %f,leading %f&quot;,ascent,descent,leading);</div><div class="line"></div><div class="line">    CGRect imageRect=  CTRunGetImageBounds(run, context, CFRangeMake(1, 2));</div><div class="line">        NSLog(@&quot;不知道能干嘛 run image rect %@&quot;,NSStringFromCGRect(imageRect));</div><div class="line">        UIView * view = [[UIView alloc]initWithFrame:imageRect];</div><div class="line">        view.backgroundColor =[UIColor redColor ];</div><div class="line">        view.alpha = 0.8;</div><div class="line">        [self addSubview:view];</div><div class="line">        CGAffineTransform transfrom =   CTRunGetTextMatrix(run);</div><div class="line">        NSLog(@&quot;run transform %@&quot;,NSStringFromCGAffineTransform(transfrom));</div><div class="line">        </div><div class="line">        CTRunDraw(run, context, CFRangeMake(1, 2));</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    结果</div><div class="line">    2017-02-27 15:12:46.162 CoreTextDemo[11205:345484] line offset 110.487000</div><div class="line">2017-02-27 15:12:46.163 CoreTextDemo[11205:345484] line glyph 5</div><div class="line">2017-02-27 15:12:46.163 CoreTextDemo[11205:345484] line glyph 5</div><div class="line">2017-02-27 15:12:46.163 CoreTextDemo[11205:345484] runArr (</div><div class="line">    &quot;&lt;CTRun: 0x7fdb89c28330&gt;&#123;string range = (0, 2), string = \&quot;\\u5BCC\\u6587\&quot;, attributes = &lt;CFBasicHash 0x60800026abc0 [0x10117ec70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x101b3b788 [0x10117ec70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7fdb89c28130&gt;&#123;name = PingFangSC-Regular, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x60000008a640&gt;&#123;attributes = &lt;CFBasicHash 0x600000271a80 [0x10117ec70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x101b41908 [0x10117ec70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x10ea6d6c0 [0x10117ec70]&gt;&#123;contents = \&quot;PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;&quot;,</div><div class="line">    &quot;&lt;CTRun: 0x7fdb89c3d710&gt;&#123;string range = (2, 3), string = \&quot;\\u672C\\u5B66\\u5427\&quot;, attributes = &lt;CFBasicHash 0x60800026a8c0 [0x10117ec70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x101b3b788 [0x10117ec70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7fdb89c3d3f0&gt;&#123;name = .PingFangSC-Regular, size = 18.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x60000008d570&gt;&#123;attributes = &lt;CFBasicHash 0x600000279140 [0x10117ec70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x101b41908 [0x10117ec70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x101b39be8 [0x10117ec70]&gt;&#123;contents = \&quot;.PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;&quot;</div><div class="line">)</div><div class="line">2017-02-27 15:12:46.171 CoreTextDemo[11205:345484] Run glyph 个数 3</div><div class="line">2017-02-27 15:12:46.171 CoreTextDemo[11205:345484] run att &#123;</div><div class="line">    NSFont = &quot;&lt;UICTFont: 0x7fdb89c3d3f0&gt; font-family: \&quot;.PingFangSC-Regular\&quot;; font-weight: normal; font-style: normal; font-size: 18.00pt&quot;;</div><div class="line">&#125;</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run status 0</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run glyph   3676</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run point 24.000000 0.000000</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run size 18.342000 0.000000</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run index 2</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run glyph   2573</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run point 42.342000 0.000000</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run size 18.342000 0.000000</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run index 3</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run glyph   1929</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run point 60.684000 0.000000</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run size 18.342000 0.000000</div><div class="line">2017-02-27 15:12:46.255 CoreTextDemo[11205:345484] run index 4</div><div class="line">2017-02-27 15:12:46.255 CoreTextDemo[11205:345484] run glyph 3676 2573</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run glyph point 24.000000 0.000000</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run glyph size 18.342000 0.000000</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run glyph index 2 3</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run string range 2 3</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run ascent 15.480000,descent 2.520000,leading 0.540000</div><div class="line">2017-02-27 15:12:46.257 CoreTextDemo[11205:345484] 不知道能干嘛 run image rect &#123;&#123;19.619999999999997, -1.7459999999999998&#125;, &#123;34.128, 16.631999999999998&#125;&#125;</div><div class="line">2017-02-27 15:12:46.257 CoreTextDemo[11205:345484] run transform [1, 0, 0, 1, 0, 0]</div></pre></td></tr></table></figure>
+<p>从run 的api中可以看出，run 是CGGlyph 组成的。CGGlayph可以用来创建字体。</p>
+<p><strong>CTRun  CTLine CTFrame CTFrameSetter 这些就可以完成文本的布局了。</strong></p>
 <p>### </p>
-<p>### </p>
-<p>### </p>
-<p>### </p>
-<h3 id="CTParagraphStyle-h"><a href="#CTParagraphStyle-h" class="headerlink" title="CTParagraphStyle.h"></a>CTParagraphStyle.h</h3><h3 id="CTTextTab-h"><a href="#CTTextTab-h" class="headerlink" title="CTTextTab.h"></a>CTTextTab.h</h3><h3 id="CTRunDelegate-h"><a href="#CTRunDelegate-h" class="headerlink" title="CTRunDelegate.h"></a>CTRunDelegate.h</h3><h3 id="CTRubyAnnotation-h"><a href="#CTRubyAnnotation-h" class="headerlink" title="CTRubyAnnotation.h"></a>CTRubyAnnotation.h</h3><h3 id="SFNTLayoutTypes-h"><a href="#SFNTLayoutTypes-h" class="headerlink" title="SFNTLayoutTypes.h"></a>SFNTLayoutTypes.h</h3><h3 id="SFNTTypes-h"><a href="#SFNTTypes-h" class="headerlink" title="SFNTTypes.h"></a>SFNTTypes.h</h3><p>### </p>
 
       
 
@@ -273,7 +348,7 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/23/coretext-framework-大全/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/02/CTRun学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +362,18 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/coreText概述/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/02/CTStringAttributes学习/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          coreText概述
+          CTStringAttributes.h学习
         
       </div>
     </a>
   
   
-    <a href="/2015/08/18/2015-08-18-mu-qian-chang-yong-di-san-fang-cha-jian/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">目前常用第三方插件</div>
+    <a href="/2017/03/02/CTLine学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CTLine.h学习</div>
       <i class="icon-circle-right"></i>
     </a>
   

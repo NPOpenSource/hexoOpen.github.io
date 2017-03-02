@@ -6,33 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>coretext.framework 大全 | 温杰的博客</title>
+  <title>CTLine.h学习 | 温杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+  <meta name="description" content="CTFrame布局是由Path  和CTLine 组成的。
+我们能从CTLine中获取到什么信息呢。
+我们从以下方面  Line Types, Line Creation,Line Access ,Line Measurement, Line Caret Positioning and Highlighting
+1.Line Types12CFTypeID CTLineGetTypeID( voi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coretext.framework 大全">
-<meta property="og:url" content="http://yoursite.com/2017/02/23/coretext-framework-大全/index.html">
+<meta property="og:title" content="CTLine.h学习">
+<meta property="og:url" content="http://yoursite.com/2017/03/02/CTLine学习/index.html">
 <meta property="og:site_name" content="温杰的博客">
-<meta property="og:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
-<meta property="og:updated_time" content="2017-03-02T06:06:57.000Z">
+<meta property="og:description" content="CTFrame布局是由Path  和CTLine 组成的。
+我们能从CTLine中获取到什么信息呢。
+我们从以下方面  Line Types, Line Creation,Line Access ,Line Measurement, Line Caret Positioning and Highlighting
+1.Line Types12CFTypeID CTLineGetTypeID( voi">
+<meta property="og:image" content="http://yoursite.com/images/image-5.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-8.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-6.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-7.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-9.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-10.tiff">
+<meta property="og:updated_time" content="2017-03-02T05:58:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="coretext.framework 大全">
-<meta name="twitter:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+<meta name="twitter:title" content="CTLine.h学习">
+<meta name="twitter:description" content="CTFrame布局是由Path  和CTLine 组成的。
+我们能从CTLine中获取到什么信息呢。
+我们从以下方面  Line Types, Line Creation,Line Access ,Line Measurement, Line Caret Positioning and Highlighting
+1.Line Types12CFTypeID CTLineGetTypeID( voi">
+<meta name="twitter:image" content="http://yoursite.com/images/image-5.tiff">
   
     <link rel="alternative" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
   
@@ -168,32 +169,135 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-coretext-framework-大全" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CTLine学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      coretext.framework 大全
+      CTLine.h学习
     </h1>
   
 
         
-        <a href="/2017/02/23/coretext-framework-大全/" class="archive-article-date">
-  	<time datetime="2017-02-23T03:07:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+        <a href="/2017/03/02/CTLine学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T05:57:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>### </p>
-<p>### </p>
-<p>### </p>
-<p>### </p>
-<p>### </p>
-<h3 id="CTParagraphStyle-h"><a href="#CTParagraphStyle-h" class="headerlink" title="CTParagraphStyle.h"></a>CTParagraphStyle.h</h3><h3 id="CTTextTab-h"><a href="#CTTextTab-h" class="headerlink" title="CTTextTab.h"></a>CTTextTab.h</h3><h3 id="CTRunDelegate-h"><a href="#CTRunDelegate-h" class="headerlink" title="CTRunDelegate.h"></a>CTRunDelegate.h</h3><h3 id="CTRubyAnnotation-h"><a href="#CTRubyAnnotation-h" class="headerlink" title="CTRubyAnnotation.h"></a>CTRubyAnnotation.h</h3><h3 id="SFNTLayoutTypes-h"><a href="#SFNTLayoutTypes-h" class="headerlink" title="SFNTLayoutTypes.h"></a>SFNTLayoutTypes.h</h3><h3 id="SFNTTypes-h"><a href="#SFNTTypes-h" class="headerlink" title="SFNTTypes.h"></a>SFNTTypes.h</h3><p>### </p>
+        <p>CTFrame布局是由Path  和CTLine 组成的。</p>
+<p>我们能从CTLine中获取到什么信息呢。</p>
+<p>我们从以下方面  <strong>Line Types</strong>, <strong>Line Creation</strong>,<strong>Line Access</strong> ,<strong>Line Measurement</strong>, <strong>Line Caret Positioning and Highlighting</strong></p>
+<h4 id="1-Line-Types"><a href="#1-Line-Types" class="headerlink" title="1.Line Types"></a>1.Line Types</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFTypeID CTLineGetTypeID( void )</div><div class="line">获取CTLine的 CFTypeID</div></pre></td></tr></table></figure>
+<p>枚举值 CTLineBoundsOptions   和  CTLineTruncationType</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef CF_OPTIONS(CFOptionFlags, CTLineBoundsOptions) &#123;</div><div class="line">    kCTLineBoundsExcludeTypographicLeading  = 1 &lt;&lt; 0,</div><div class="line">    kCTLineBoundsExcludeTypographicShifts   = 1 &lt;&lt; 1,</div><div class="line">    kCTLineBoundsUseHangingPunctuation      = 1 &lt;&lt; 2,</div><div class="line">    kCTLineBoundsUseGlyphPathBounds         = 1 &lt;&lt; 3,</div><div class="line">    kCTLineBoundsUseOpticalBounds           = 1 &lt;&lt; 4,</div><div class="line">    kCTLineBoundsIncludeLanguageExtents CT_ENUM_AVAILABLE(10_11, 8_0) = 1 &lt;&lt; 5,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>目前看上面的枚举值不知道具体有啥用。放过，等看完下面的回来补充。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(uint32_t, CTLineTruncationType) &#123;</div><div class="line">    kCTLineTruncationStart  = 0,</div><div class="line">    kCTLineTruncationEnd    = 1,</div><div class="line">    kCTLineTruncationMiddle = 2</div><div class="line">&#125;;</div><div class="line">这个kCTLineTruncationStart 截断头部</div><div class="line">kCTLineTruncationEnd 截断尾部</div><div class="line">kCTLineTruncationMiddle 截断中间</div></pre></td></tr></table></figure>
+<h4 id="2-Line-Creation"><a href="#2-Line-Creation" class="headerlink" title="2.Line Creation"></a>2.Line Creation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">CTLineRef CTLineCreateWithAttributedString(</div><div class="line">    CFAttributedStringRef attrString )  </div><div class="line">根据CFAttributedStringRef 创建一个 CTLineRef     这个只能创建一行文本。</div><div class="line"></div><div class="line">//CTLine</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习富文本学习富文本学习富文本学习富文本学习富文本学习富文本学习富文本学习&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    CTLineDraw(line, context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/images/image-5.tiff" alt="image"></p>
+<p>文字一行排开。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">CTLineRef __nullable CTLineCreateTruncatedLine(</div><div class="line">    CTLineRef line,</div><div class="line">    double width,</div><div class="line">    CTLineTruncationType truncationType,</div><div class="line">    CTLineRef __nullable truncationToken )</div><div class="line">    </div><div class="line">   line 创建的截断的线</div><div class="line">   width 截断位置</div><div class="line">   truncationType 截断类型 头部截断还是中部尾部截断</div><div class="line">   truncationToken  这个是截断标志  不能让 truncationToken 线宽大于 width 要是大于width 函数返回NULL。</div><div class="line">   </div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功。总是么盛大的饭卡多看看案发扩大到非卡卡打卡卡&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;dd&quot;];</div><div class="line">   CTLineRef  linetoken = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTLineRef lineTru = CTLineCreateTruncatedLine(line, 300, kCTLineTruncationStart, linetoken);</div><div class="line">//    CTLineDraw(line, context);</div><div class="line">    CTLineDraw(lineTru, context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>头部截断效果如下：</p>
+<p><img src="/images/image-8.tiff" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">CTLineRef __nullable CTLineCreateJustifiedLine(</div><div class="line">    CTLineRef line,</div><div class="line">    CGFloat justificationFactor,</div><div class="line">    double justificationWidth )</div><div class="line">    line 参考线</div><div class="line">    justificationFactor  调整文字显示宽度比例 。大于等于1 就是justificationWidth 小于 1 大于零  宽度就是justificationFactor * justificationWidth</div><div class="line">    justificationWidth 宽度。</div><div class="line">   调整宽度小于实际宽度，文字会被压扁。</div><div class="line">    </div><div class="line">    //CTLine</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">  CTLineRef lineJustified =  CTLineCreateJustifiedLine(line, 1, 300);</div><div class="line">    </div><div class="line">    CTLineDraw(line, context);</div><div class="line">    CTLineDraw(lineJustified, context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如图</p>
+<p><img src="/images/image-6.tiff" alt="image"></p>
+<p>要是文本过长，justificationFactor 必须大于等于 1 否则，不进行CTLine绘制。</p>
+<p>代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//CTLine</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功。总是么盛大的饭卡多看看案发扩大到非卡卡打卡卡&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">  CTLineRef lineJustified =  CTLineCreateJustifiedLine(line, 1, 300);</div><div class="line">    </div><div class="line">//    CTLineDraw(line, context);</div><div class="line">    CTLineDraw(lineJustified, context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图：</p>
+<p><img src="/images/image-7.tiff" alt="image"></p>
+<p>文字压扁了。</p>
+<h3 id="3-Line-Access"><a href="#3-Line-Access" class="headerlink" title="3.Line Access"></a>3.Line Access</h3><table>
+<thead>
+<tr>
+<th>CFIndex CTLineGetGlyphCount( CTLineRef line )</th>
+<th>获取Glyph的个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFArrayRef CTLineGetGlyphRuns(CTLineRef line )</td>
+<td>获取CTRunRef数组</td>
+</tr>
+<tr>
+<td>CFRange CTLineGetStringRange(CTLineRef line )</td>
+<td>获取线所在字符串的范围</td>
+</tr>
+<tr>
+<td>double CTLineGetPenOffsetForFlush( CTLineRef line, CGFloat flushFactor, double flushWidth )</td>
+<td>文本flushFactor比例的距离到flushWidth<em>flushFactor的距离  flushFactor大于1 相当于1操作。公式  假设文本长度textWidth  结果result=flushWidth  </em>  flushFactor - flushFactor  * textWidth</td>
+</tr>
+<tr>
+<td>void CTLineDraw(  CTLineRef line,  CGContextRef context )</td>
+<td>绘制线。位置是从底部向上绘制。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功。总是么盛大的饭卡多看看案发扩大到非卡卡打卡卡&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;dd&quot;];</div><div class="line">   CTLineRef  linetoken = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTLineRef lineTru = CTLineCreateTruncatedLine(line, 300, kCTLineTruncationStart, linetoken);</div><div class="line">//    CTLineDraw(line, context);</div><div class="line"></div><div class="line">    </div><div class="line">    </div><div class="line">    CTLineDraw(line, context);</div><div class="line">    double offset =  CTLineGetPenOffsetForFlush(line, 2, 100);</div><div class="line">    NSLog(@&quot;line offset %f&quot;,offset);</div><div class="line">    ///access</div><div class="line">    CFIndex index =   CTLineGetGlyphCount(lineTru);</div><div class="line">    NSLog(@&quot;line glyph %ld&quot;,index);</div><div class="line">    index =   CTLineGetGlyphCount(line);</div><div class="line">    NSLog(@&quot;line glyph %ld&quot;,index);</div><div class="line">    </div><div class="line">    </div><div class="line">  NSArray * runArr = (__bridge NSArray *)  CTLineGetGlyphRuns(line);</div><div class="line">    NSLog(@&quot;runArr %@&quot; ,runArr);</div><div class="line">    CFRange range =  CTLineGetStringRange(lineTru );</div><div class="line">    NSLog(@&quot;line range %ld %ld&quot;,range.location,range.length);</div><div class="line">    range =  CTLineGetStringRange(line);</div><div class="line">    NSLog(@&quot;line range %ld %ld&quot;,range.location,range.length);</div><div class="line">&#125;</div><div class="line"></div><div class="line">结果：</div><div class="line">2017-02-24 17:07:16.149 CoreTextDemo[5171:125678] line offset 0.000000</div><div class="line">2017-02-24 17:07:16.149 CoreTextDemo[5171:125678] line glyph 25</div><div class="line">2017-02-24 17:07:16.149 CoreTextDemo[5171:125678] line glyph 41</div><div class="line">2017-02-24 17:07:16.150 CoreTextDemo[5171:125678] runArr (</div><div class="line">    &quot;&lt;CTRun: 0x7febf3709730&gt;&#123;string range = (0, 41), string = \&quot;\\u5BCC\\u6587\\u672C\\u5B66\\u4E60\\u6162\\u6162\\u6765\\u5427\\u3002\\u4E0D\\u662F\\u4E00\\u671D\\u4E00\\u5915\\u4E4B\\u529F\\u3002\\u603B\\u662F\\u4E48\\u76DB\\u5927\\u7684\\u996D\\u5361\\u591A\\u770B\\u770B\\u6848\\u53D1\\u6269\\u5927\\u5230\\u975E\\u5361\\u5361\\u6253\\u5361\\u5361\&quot;, attributes = &lt;CFBasicHash 0x600000266940 [0x10f4b1c70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10fe6e788 [0x10f4b1c70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7febf3709600&gt;&#123;name = PingFangSC-Regular, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x608000094e60&gt;&#123;attributes = &lt;CFBasicHash 0x60800026d980 [0x10f4b1c70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10fe74908 [0x10f4b1c70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x11cda06c0 [0x10f4b1c70]&gt;&#123;contents = \&quot;PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;&quot;</div><div class="line">)</div><div class="line">2017-02-24 17:07:16.150 CoreTextDemo[5171:125678] line range 0 41</div><div class="line">2017-02-24 17:07:16.152 CoreTextDemo[5171:125678] line range 0 41</div></pre></td></tr></table></figure>
+<p>从上面结果看：CTLineGetStringRange获取的范围可能会有问题。用的时候要小心（要是自己创建CTline的话）这个只是自己创建的CTline不准，而CTFrame创建的CTLine是没问题的。</p>
+<p>CTLineGetPenOffsetForFlush 函数相当于 文本到某点还有多少距离。</p>
+<p>测试代码是</p>
+<p>` NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@”富文本学”];</p>
+<p>   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</p>
+<pre><code>CTLineDraw(line, context);
+
+double offset =  CTLineGetPenOffsetForFlush(line,0.5, 300);
+
+NSLog(@&quot;line offset %f&quot;,offset);`
+</code></pre><p>如图</p>
+<p><img src="/images/image-9.tiff" alt="image"></p>
+<p>打印结果是<strong>2017-02-24 19:33:15.061 CoreTextDemo[4317:74402] line offset 126.000000</strong></p>
+<h3 id="4-Line-Measurement"><a href="#4-Line-Measurement" class="headerlink" title="4.Line Measurement"></a>4.Line Measurement</h3><table>
+<thead>
+<tr>
+<th>CTLineGetTypographicBounds( CTLineRef line,CGFloat <em> __nullable ascent,CGFloat </em> <strong>nullable descent, CGFloat * </strong>nullable leading )</th>
+<th>获取线 的ascent descent leading ,返回宽度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CGRect CTLineGetBoundsWithOptions(CTLineRef line,CTLineBoundsOptions options )</td>
+<td>目前还不知道CTLineBoundsOptions 代表啥。 应该与富文本的设置有关。暂时不做研究</td>
+</tr>
+<tr>
+<td>double CTLineGetTrailingWhitespaceWidth(CTLineRef line )</td>
+<td>目前还不会用</td>
+</tr>
+<tr>
+<td>CGRect CTLineGetImageBounds(CTLineRef line,CGContextRef __nullable context )</td>
+<td>目前还不会用</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CGFloat ascent;</div><div class="line">CGFloat descent;</div><div class="line">CGFloat leading;</div><div class="line">CTLineGetTypographicBounds(line, &amp;ascent, &amp;descent, &amp;leading);</div><div class="line">NSLog(@&quot;line ascent %f,descent %f,leading %f&quot;,ascent,descent,leading);</div></pre></td></tr></table></figure>
+<h3 id="5-Line-Caret-Positioning-and-Highlighting"><a href="#5-Line-Caret-Positioning-and-Highlighting" class="headerlink" title="5.Line Caret Positioning and Highlighting"></a>5.Line Caret Positioning and Highlighting</h3><table>
+<thead>
+<tr>
+<th>CFIndex CTLineGetStringIndexForPosition(CTLineRef line,CGPoint position )</th>
+<th>获取线position位置的String index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CGFloat CTLineGetOffsetForStringIndex(CTLineRef line,CFIndex charIndex,CGFloat * __nullable secondaryOffset )</td>
+<td>获取index位置字符的偏移量。目前不知道 返回结果和secondaryOffset 的区别</td>
+</tr>
+<tr>
+<td>void CTLineEnumerateCaretOffsets(CTLineRef line,void (^block)(double offset, CFIndex charIndex, bool leadingEdge, bool* stop) ) CT_AVAILABLE(10_11, 9_0)</td>
+<td>返回每个字体的前后边沿</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">CFIndex stringIndex =  CTLineGetStringIndexForPosition(line, CGPointMake(20,3 ));</div><div class="line">    NSLog(@&quot;line StringIndex %ld&quot;,stringIndex);</div><div class="line">    </div><div class="line">    CGFloat  secondaryOffset;</div><div class="line">   CGFloat offsetIndex = CTLineGetOffsetForStringIndex(line, 2,&amp;secondaryOffset );</div><div class="line">    NSLog(@&quot;line IndexOffset %lf ,secondaryOffset %lf&quot;,offsetIndex,secondaryOffset);</div><div class="line">    </div><div class="line">    CTLineEnumerateCaretOffsets(line, ^(double offset, CFIndex charIndex, bool leadingEdge, bool * _Nonnull stop) &#123;</div><div class="line">        NSLog(@&quot; offset %lf,charindex %ld,leadingEdge %d&quot;,offset,charIndex,leadingEdge);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">结果</div><div class="line">2017-02-27 11:29:21.537 CoreTextDemo[6188:222405] line StringIndex 2</div><div class="line">2017-02-27 11:29:21.537 CoreTextDemo[6188:222405] line IndexOffset 24.000000 ,secondaryOffset 24.000000</div><div class="line">2017-02-27 11:29:21.537 CoreTextDemo[6188:222405]  offset 0.000000,charindex 0,leadingEdge 1</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 12.000000,charindex 0,leadingEdge 0</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 12.000000,charindex 1,leadingEdge 1</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 24.000000,charindex 1,leadingEdge 0</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 24.000000,charindex 2,leadingEdge 1</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 36.000000,charindex 2,leadingEdge 0</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 36.000000,charindex 3,leadingEdge 1</div><div class="line">2017-02-27 11:29:21.539 CoreTextDemo[6188:222405]  offset 48.000000,charindex 3,leadingEdge 0</div></pre></td></tr></table></figure>
+<p>CTLine  的模型图</p>
+<p><img src="/images/image-10.tiff" alt="image"></p>
+<p>## </p>
 
       
 
@@ -273,7 +377,7 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/23/coretext-framework-大全/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/02/CTLine学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +391,18 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/coreText概述/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/02/CTRun学习/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          coreText概述
+          CTRun.h学习
         
       </div>
     </a>
   
   
-    <a href="/2015/08/18/2015-08-18-mu-qian-chang-yong-di-san-fang-cha-jian/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">目前常用第三方插件</div>
+    <a href="/2017/03/02/CTFrameSetter学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CTFrameSetter.h学习</div>
       <i class="icon-circle-right"></i>
     </a>
   

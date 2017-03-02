@@ -6,33 +6,77 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>coretext.framework 大全 | 温杰的博客</title>
+  <title>CTStringAttributes.h学习 | 温杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+  <meta name="description" content="完成丰富的布局离不开文本String   下面学习 学习CTStringAttributes
+配置富文本的key
+
+
+key
+value
+注意事项
+
+
+
+
+kCTFontAttributeName
+CTFontRef
+配置富文本的字体默认是  Helvetica 12
+
+
+kCTForegroundColorFromContextAttributeName
+CFBooleanRef
+Default">
 <meta property="og:type" content="article">
-<meta property="og:title" content="coretext.framework 大全">
-<meta property="og:url" content="http://yoursite.com/2017/02/23/coretext-framework-大全/index.html">
+<meta property="og:title" content="CTStringAttributes.h学习">
+<meta property="og:url" content="http://yoursite.com/2017/03/02/CTStringAttributes学习/index.html">
 <meta property="og:site_name" content="温杰的博客">
-<meta property="og:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
-<meta property="og:updated_time" content="2017-03-02T06:06:57.000Z">
+<meta property="og:description" content="完成丰富的布局离不开文本String   下面学习 学习CTStringAttributes
+配置富文本的key
+
+
+key
+value
+注意事项
+
+
+
+
+kCTFontAttributeName
+CTFontRef
+配置富文本的字体默认是  Helvetica 12
+
+
+kCTForegroundColorFromContextAttributeName
+CFBooleanRef
+Default">
+<meta property="og:image" content="http://yoursite.com/images/image-11.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-12.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-13.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-14.tiff">
+<meta property="og:updated_time" content="2017-03-02T06:01:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="coretext.framework 大全">
-<meta name="twitter:description" content="### 
-### 
-### 
-### 
-### 
-CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hSFNTTypes.h###">
+<meta name="twitter:title" content="CTStringAttributes.h学习">
+<meta name="twitter:description" content="完成丰富的布局离不开文本String   下面学习 学习CTStringAttributes
+配置富文本的key
+
+
+key
+value
+注意事项
+
+
+
+
+kCTFontAttributeName
+CTFontRef
+配置富文本的字体默认是  Helvetica 12
+
+
+kCTForegroundColorFromContextAttributeName
+CFBooleanRef
+Default">
+<meta name="twitter:image" content="http://yoursite.com/images/image-11.tiff">
   
     <link rel="alternative" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
   
@@ -168,32 +212,179 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-coretext-framework-大全" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CTStringAttributes学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      coretext.framework 大全
+      CTStringAttributes.h学习
     </h1>
   
 
         
-        <a href="/2017/02/23/coretext-framework-大全/" class="archive-article-date">
-  	<time datetime="2017-02-23T03:07:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+        <a href="/2017/03/02/CTStringAttributes学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T05:59:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>### </p>
-<p>### </p>
-<p>### </p>
-<p>### </p>
-<p>### </p>
-<h3 id="CTParagraphStyle-h"><a href="#CTParagraphStyle-h" class="headerlink" title="CTParagraphStyle.h"></a>CTParagraphStyle.h</h3><h3 id="CTTextTab-h"><a href="#CTTextTab-h" class="headerlink" title="CTTextTab.h"></a>CTTextTab.h</h3><h3 id="CTRunDelegate-h"><a href="#CTRunDelegate-h" class="headerlink" title="CTRunDelegate.h"></a>CTRunDelegate.h</h3><h3 id="CTRubyAnnotation-h"><a href="#CTRubyAnnotation-h" class="headerlink" title="CTRubyAnnotation.h"></a>CTRubyAnnotation.h</h3><h3 id="SFNTLayoutTypes-h"><a href="#SFNTLayoutTypes-h" class="headerlink" title="SFNTLayoutTypes.h"></a>SFNTLayoutTypes.h</h3><h3 id="SFNTTypes-h"><a href="#SFNTTypes-h" class="headerlink" title="SFNTTypes.h"></a>SFNTTypes.h</h3><p>### </p>
+        <p>完成丰富的布局离不开文本String   下面学习 学习CTStringAttributes</p>
+<h4 id="配置富文本的key"><a href="#配置富文本的key" class="headerlink" title="配置富文本的key"></a>配置富文本的key</h4><table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kCTFontAttributeName</td>
+<td>CTFontRef</td>
+<td>配置富文本的字体默认是  Helvetica 12</td>
+</tr>
+<tr>
+<td>kCTForegroundColorFromContextAttributeName</td>
+<td>CFBooleanRef</td>
+<td>Default is false ，具体想法不清楚</td>
+</tr>
+<tr>
+<td>kCTKernAttributeName</td>
+<td>CFNumberRef</td>
+<td>字符之间的间隔 默认是 0.0</td>
+</tr>
+<tr>
+<td>kCTLigatureAttributeName</td>
+<td>CFNumberRef</td>
+<td>默认值是1 ，用法不清楚</td>
+</tr>
+<tr>
+<td>kCTForegroundColorAttributeName</td>
+<td>CGColorRef</td>
+<td>默认是black  。设置字体颜色</td>
+</tr>
+<tr>
+<td>kCTBackgroundColorAttributeName</td>
+<td>CGColorRef</td>
+<td>默认透明，背景颜色</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleAttributeName</td>
+<td>CTParagraphStyleRef</td>
+<td>默认不设置该属性。可以设置例如line 对对齐，写的方向，tab规则等。</td>
+</tr>
+<tr>
+<td>kCTStrokeWidthAttributeName</td>
+<td>CFNumberRef</td>
+<td>线宽。默认0.0</td>
+</tr>
+<tr>
+<td>kCTStrokeColorAttributeName</td>
+<td>CGColorRef</td>
+<td>线的颜色。默认是  foreground颜色。没啥变化，有时间再研究</td>
+</tr>
+<tr>
+<td>kCTUnderlineStyleAttributeName</td>
+<td>CFNumberRef</td>
+<td>下划线  类型有 CTUnderlineStyle</td>
+</tr>
+<tr>
+<td>kCTSuperscriptAttributeName</td>
+<td>CFNumberRef</td>
+<td>默认是0.上标还是下标。 要 the specified font。具体是啥字体不知道。 -1 下标 1 上标。暂时设置没效果。</td>
+</tr>
+<tr>
+<td>kCTUnderlineColorAttributeName</td>
+<td>CGColorRef</td>
+<td>默认是foreground 颜色  ，下划线颜色.设置不起总用</td>
+</tr>
+<tr>
+<td>kCTVerticalFormsAttributeName</td>
+<td>CFBooleanRef</td>
+<td>value   false  horizontal    value  true  vertical</td>
+</tr>
+<tr>
+<td>kCTHorizontalInVerticalFormsAttributeName</td>
+<td>CFNumberRef</td>
+<td>默认是0. value  是1 to 4  只有设置 kCTVerticalFormsAttributeName才起作用.目前不知道杂用。没效果</td>
+</tr>
+<tr>
+<td>kCTGlyphInfoAttributeName</td>
+<td>CTGlyphInfoRef</td>
+<td>改value 不知道杂用，暂时过</td>
+</tr>
+<tr>
+<td>kCTCharacterShapeAttributeName</td>
+<td>CFNumberRef</td>
+<td>9.0 以后才能用 ，暂时value 值不知道咋用</td>
+</tr>
+<tr>
+<td>kCTLanguageAttributeName</td>
+<td>CFStringRef</td>
+<td>具体value值有哪些。暂时不管。</td>
+</tr>
+<tr>
+<td>kCTRunDelegateAttributeName</td>
+<td>CTRunDelegateRef</td>
+<td>可以用来图文混拍的东西。替代的每一个cgglyph</td>
+</tr>
+<tr>
+<td>kCTBaselineClassAttributeName</td>
+<td>CFStringRef</td>
+<td>value 有 kCTBaselineClassRoman， kCTBaselineClassIdeographicCentered， kCTBaselineClassIdeographicLow， kCTBaselineClassIdeographicHigh， kCTBaselineClassHanging， kCTBaselineClassMath，暂时不知道杂用</td>
+</tr>
+<tr>
+<td>kCTBaselineInfoAttributeName</td>
+<td>CFDictionaryRef</td>
+<td>key  是 value 有 kCTBaselineClassRoman， kCTBaselineClassIdeographicCentered， kCTBaselineClassIdeographicLow， kCTBaselineClassIdeographicHigh， kCTBaselineClassHanging， kCTBaselineClassMath，暂时不知道杂用，不会用</td>
+</tr>
+<tr>
+<td>kCTBaselineReferenceInfoAttributeName</td>
+<td>CFDictionaryRef</td>
+<td>key  是 value 有 kCTBaselineClassRoman， kCTBaselineClassIdeographicCentered， kCTBaselineClassIdeographicLow， kCTBaselineClassIdeographicHigh， kCTBaselineClassHanging， kCTBaselineClassMath，暂时不知道杂用，不会用</td>
+</tr>
+<tr>
+<td>kCTWritingDirectionAttributeName</td>
+<td>CFArray</td>
+<td>数组中是 number 。暂时不会用</td>
+</tr>
+<tr>
+<td>kCTRubyAnnotationAttributeName</td>
+<td>CTRubyAnnotation</td>
+<td>暂时不会用</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div></pre></td><td class="code"><pre><div class="line">-(void)setstring:(NSMutableAttributedString * )beginStr appendString:(CFStringRef )key value:(id)value string:(NSString *)string&#123;</div><div class="line">  NSRange range =   [beginStr.string rangeOfString:string];</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithObject:value forKey:(__bridge NSString *)key];</div><div class="line">    [beginStr setAttributes:dic range:range];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">-(void)string:(NSMutableAttributedString * )beginStr appendString:(CFStringRef )key value:(id)value string:(NSString *)string&#123;</div><div class="line">    </div><div class="line">    </div><div class="line">    NSMutableAttributedString *nextMabstring = [[NSMutableAttributedString alloc]initWithString:string];</div><div class="line">    </div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithObject:value forKey:(__bridge NSString *)key];</div><div class="line">    [nextMabstring setAttributes:dic range:NSMakeRange(0, nextMabstring.length)];</div><div class="line">    [beginStr appendAttributedString:nextMabstring];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTFontAttributeName value:[UIFont systemFontOfSize:24] string:@&quot;kCTFontAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTForegroundColorFromContextAttributeName value:@(YES) string:@&quot;kCTForegroundColorFromContextAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTKernAttributeName value:@(30) string:@&quot;kCTKernAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTLigatureAttributeName value:@(2) string:@&quot;kCTLigatureAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTForegroundColorAttributeName value:(id)([UIColor redColor].CGColor) string:@&quot;kCTForegroundColorAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBackgroundColorAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTBackgroundColorAttributeName&quot;];</div><div class="line">    CTParagraphStyleSetting setting[1] ;</div><div class="line">    CGFloat vale =30;</div><div class="line">    setting[0].spec = kCTParagraphStyleSpecifierLineSpacingAdjustment;</div><div class="line">    setting[0].valueSize =sizeof(CGFloat);</div><div class="line">    setting[0].value = &amp;vale;</div><div class="line">    CTParagraphStyleRef stlye = CTParagraphStyleCreate(setting, 1);</div><div class="line">    [self string:mabstring appendString:kCTParagraphStyleAttributeName value:(id)(stlye) string:@&quot;kCTParagraphStyleAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTStrokeWidthAttributeName value:(id)(@(5)) string:@&quot;kCTStrokeWidthAttributeName&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTStrokeColorAttributeName value:(id)([UIColor redColor].CGColor) string:@&quot;kCTStrokeColorAttributeName&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble)) string:@&quot;kCTUnderlineStyleAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleThick)) string:@&quot;kCTUnderlineStyleAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleSingle)) string:@&quot;kCTUnderlineStyleAttributeName&quot;];</div><div class="line"></div><div class="line">    [self string:mabstring appendString:kCTSuperscriptAttributeName value:(id)(@(-1)) string:@&quot;kCTSuperscriptAttributeName&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleSingle)) string:@&quot;kCTUnderlineColorAttributeName&quot;];</div><div class="line">    [self setstring:mabstring appendString:kCTUnderlineColorAttributeName value:(id)([UIColor redColor].CGColor) string:@&quot;kCTUnderlineColorAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTVerticalFormsAttributeName value:(id)(@(YES)) string:@&quot;kCTVerticalFormsAttributeName&quot;];</div><div class="line">    </div><div class="line">        [self string:mabstring appendString:kCTVerticalFormsAttributeName value:(id)(@(YES)) string:@&quot;kCTHorizontalInVerticalFormsAttributeName&quot;];</div><div class="line">//        [self setstring:mabstring appendString:kCTHorizontalInVerticalFormsAttributeName value:(id)(@(3)) string:@&quot;kCTHorizontalInVerticalFormsAttributeName&quot;];</div><div class="line">   </div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTGlyphInfoAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTGlyphInfoAttributeName&quot;];</div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTCharacterShapeAttributeName value:(id)(@(3)) string:@&quot;kCTCharacterShapeAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTLanguageAttributeName value:(id)(@&quot;Helvetica&quot;) string:@&quot;kCTLanguageAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    CTRunDelegateDeallocateCallback  deallocateCallback= CTRunDelegateDeallocateCallbackFunction;</div><div class="line">    </div><div class="line">    NSLog(@&quot;CTRunDelegateGetAscentCallback 获取ascent&quot;);</div><div class="line">    CTRunDelegateGetAscentCallback ascentCallback= CTRunDelegateGetAscentCallbackFunction;</div><div class="line">    CTRunDelegateGetDescentCallback descentCallback =  CTRunDelegateGetDescentCallbackFunction;</div><div class="line">    </div><div class="line">    CTRunDelegateGetWidthCallback widthCallBack = CTRunDelegateGetWidthCallbackFunction;</div><div class="line">    </div><div class="line">    CTRunDelegateCallbacks callBack ;</div><div class="line">    callBack.version =kCTRunDelegateCurrentVersion;</div><div class="line">    callBack.dealloc = deallocateCallback;</div><div class="line">    callBack.getAscent = ascentCallback;</div><div class="line">    callBack.getDescent = descentCallback;</div><div class="line">    callBack.getWidth = widthCallBack;</div><div class="line">    </div><div class="line">    CTRunDelegateRef delegate=  CTRunDelegateCreate(&amp;callBack, NULL);</div><div class="line">    ///获取delegate值</div><div class="line">    [self string:mabstring appendString:kCTRunDelegateAttributeName value:(__bridge id)(delegate) string:@&quot;kCTRunDelegateAttributeName&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassRoman) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassIdeographicCentered) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassIdeographicLow) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassIdeographicHigh) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassHanging) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassMath) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTBaselineInfoAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTBaselineInfoAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTBaselineReferenceInfoAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTBaselineReferenceInfoAttributeName&quot;];</div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTWritingDirectionAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTWritingDirectionAttributeName&quot;];</div><div class="line">//    [self string:mabstring appendString:kCTRubyAnnotationAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTRubyAnnotationAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line"></div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line"></div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    CTFrameDraw(frame, context);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">void CTRunDelegateDeallocateCallbackFunction (void * refCon )&#123;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">CGFloat CTRunDelegateGetAscentCallbackFunction (void * refCon )&#123;</div><div class="line">    return 30;</div><div class="line">&#125;</div><div class="line"></div><div class="line">CGFloat CTRunDelegateGetDescentCallbackFunction (void * refCon )&#123;</div><div class="line">    return 30;</div><div class="line">&#125;</div><div class="line"></div><div class="line">CGFloat CTRunDelegateGetWidthCallbackFunction(void * refCon )&#123;</div><div class="line">    return 30;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果截图</p>
+<p><img src="/images/image-11.tiff" alt="image"></p>
+<p>这个类就是 attString 配置类。</p>
+<h4 id="下面就是上面难点和不太清楚的地方攻关"><a href="#下面就是上面难点和不太清楚的地方攻关" class="headerlink" title="下面就是上面难点和不太清楚的地方攻关"></a>下面就是上面难点和不太清楚的地方攻关</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">kCTForegroundColorFromContextAttributeName  这个开关是关于是否用context 颜色来填充</div><div class="line">要是yes的话，kCTUnderlineStyleAttributeName 属性将失去效果。</div><div class="line"></div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetRGBStrokeColor(context, 0, 1, 0, 1);</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;kCTForegroundColorFromContextAttributeName&quot;];</div><div class="line">    </div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithObject:(id)(@(YES)) forKey:(__bridge NSString *)kCTForegroundColorFromContextAttributeName];</div><div class="line">    [dic setObject:(id)([UIColor redColor].CGColor) forKey:(__bridge NSString *)kCTUnderlineColorAttributeName];</div><div class="line">    [dic setObject:(id)(@(kCTUnderlineStyleSingle)) forKey:(__bridge NSString *)kCTUnderlineStyleAttributeName];</div><div class="line">    </div><div class="line">    [mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    </div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    CTFrameDraw(frame, context);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果  <img src="/images/image-12.tiff" alt="image"></p>
+<p>同时设置CGContextRef 颜色 和 kCTUnderlineStyleAttributeName 属性值，而其动作用的是CGContextRef颜色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTLigatureAttributeName  连体字  没发现可用的字体</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTSuperscriptAttributeName  上标和下标 没看出效果</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">kCTUnderlineColorAttributeName  这个可以被 kCTForegroundColorFromContextAttributeName 属性影响， 要是该属性设置为yes  那么该属性就失效了</div><div class="line"></div><div class="line">补充： 下划线的还可以设置成一下样式：</div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetRGBStrokeColor(context, 0, 1, 0, 1);</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;&quot;];</div><div class="line"></div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternSolid)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternDot)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternDash)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternDashDot)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternDashDotDot)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];</div><div class="line"></div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    CTFrameDraw(frame, context);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图：<img src="/images/image-13.tiff" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTHorizontalInVerticalFormsAttributeName   暂时不知道有啥用</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTGlyphInfoAttributeName  这个具体用法要看CTGlyphInfo.h</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTCharacterShapeAttributeName  9.0 以后被废弃了。不研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTLanguageAttributeName   暂时不知道干嘛用</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTBaselineClassAttributeName  没研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTBaselineInfoAttributeName 没研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTBaselineReferenceInfoAttributeName  没研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTWritingDirectionAttributeName  没研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">kCTRubyAnnotationAttributeName   类似汉语拼音的注音</div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetRGBStrokeColor(context, 0, 1, 0, 1);</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;kCTRubyAnnotationAttributeName&quot;];</div><div class="line">    CTRubyAnnotationRef rubyAnnotation =CTRubyAnnotationCreateWithAttributes(0, 0, 0, (__bridge CFStringRef)@&quot;nihoa&quot;, NULL);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithObject:(__bridge id)(rubyAnnotation) forKey:(__bridge NSString *)kCTRubyAnnotationAttributeName];</div><div class="line">    [mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    CTFrameDraw(frame, context);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如下:</p>
+<p><img src="/images/image-14.tiff" alt="image"></p>
 
       
 
@@ -273,7 +464,7 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/23/coretext-framework-大全/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/02/CTStringAttributes学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +478,18 @@ CTParagraphStyle.hCTTextTab.hCTRunDelegate.hCTRubyAnnotation.hSFNTLayoutTypes.hS
   
 <nav id="article-nav">
   
-    <a href="/2017/03/02/coreText概述/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/02/CTFontManager学习/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          coreText概述
+          CTFontManager学习
         
       </div>
     </a>
   
   
-    <a href="/2015/08/18/2015-08-18-mu-qian-chang-yong-di-san-fang-cha-jian/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">目前常用第三方插件</div>
+    <a href="/2017/03/02/CTRun学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CTRun.h学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
