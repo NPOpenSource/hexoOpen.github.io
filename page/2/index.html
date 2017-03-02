@@ -151,6 +151,618 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CTFontManagerError学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/CTFontManagerError学习/">CTFontManagerError.h学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/CTFontManagerError学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T06:02:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>### </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">CT_EXPORT const CFStringRef kCTFontManagerErrorDomain CT_AVAILABLE(10_6, 3_2);</div><div class="line">CT_EXPORT const CFStringRef kCTFontManagerErrorFontURLsKey CT_AVAILABLE(10_6, 3_2);</div><div class="line">typedef CF_ENUM(CFIndex, CTFontManagerError) &#123;</div><div class="line">    kCTFontManagerErrorFileNotFound             = 101,</div><div class="line">    kCTFontManagerErrorInsufficientPermissions  = 102,</div><div class="line">    kCTFontManagerErrorUnrecognizedFormat       = 103,</div><div class="line">    kCTFontManagerErrorInvalidFontData          = 104,</div><div class="line">    kCTFontManagerErrorAlreadyRegistered        = 105,</div><div class="line">    kCTFontManagerErrorNotRegistered            = 201,</div><div class="line">    kCTFontManagerErrorInUse                    = 202,</div><div class="line">    kCTFontManagerErrorSystemRequired           = 203,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/02/CTFontManagerError学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-CTFontManager学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/CTFontManager学习/">CTFontManager学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/CTFontManager学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T06:01:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个类是字体的管理者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CTRegisterBundleFonts  这个key 如果在application bundle info dictionary 设置为yes  。CTFontManager 将该bundle的所有子文件夹的字体都注册。  运用场景不明。有待学完回来在重新测试。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div><div class="line">442</div><div class="line">443</div><div class="line">444</div><div class="line">445</div><div class="line">446</div><div class="line">447</div><div class="line">448</div><div class="line">449</div><div class="line">450</div><div class="line">451</div><div class="line">452</div><div class="line">453</div><div class="line">454</div><div class="line">455</div><div class="line">456</div><div class="line">457</div><div class="line">458</div><div class="line">459</div><div class="line">460</div><div class="line">461</div><div class="line">462</div><div class="line">463</div><div class="line">464</div><div class="line">465</div><div class="line">466</div><div class="line">467</div><div class="line">468</div><div class="line">469</div><div class="line">470</div><div class="line">471</div><div class="line">472</div><div class="line">473</div><div class="line">474</div><div class="line">475</div><div class="line">476</div><div class="line">477</div><div class="line">478</div><div class="line">479</div><div class="line">480</div><div class="line">481</div><div class="line">482</div><div class="line">483</div><div class="line">484</div><div class="line">485</div><div class="line">486</div><div class="line">487</div><div class="line">488</div><div class="line">489</div><div class="line">490</div><div class="line">491</div><div class="line">492</div><div class="line">493</div><div class="line">494</div><div class="line">495</div><div class="line">496</div><div class="line">497</div><div class="line">498</div><div class="line">499</div><div class="line">500</div><div class="line">501</div><div class="line">502</div><div class="line">503</div><div class="line">504</div><div class="line">505</div><div class="line">506</div><div class="line">507</div><div class="line">508</div><div class="line">509</div><div class="line">510</div><div class="line">511</div><div class="line">512</div><div class="line">513</div><div class="line">514</div><div class="line">515</div><div class="line">516</div><div class="line">517</div><div class="line">518</div><div class="line">519</div><div class="line">520</div><div class="line">521</div><div class="line">522</div><div class="line">523</div><div class="line">524</div><div class="line">525</div><div class="line">526</div><div class="line">527</div><div class="line">528</div><div class="line">529</div><div class="line">530</div><div class="line">531</div><div class="line">532</div><div class="line">533</div><div class="line">534</div><div class="line">535</div><div class="line">536</div><div class="line">537</div><div class="line">538</div><div class="line">539</div><div class="line">540</div><div class="line">541</div><div class="line">542</div><div class="line">543</div><div class="line">544</div><div class="line">545</div><div class="line">546</div><div class="line">547</div><div class="line">548</div><div class="line">549</div><div class="line">550</div><div class="line">551</div><div class="line">552</div><div class="line">553</div></pre></td><td class="code"><pre><div class="line">CFArrayRef CTFontManagerCopyAvailablePostScriptNames( void ) CT_AVAILABLE(10_6, 10_0);  翻译所有的postScript Names </div><div class="line"></div><div class="line">所有的字体</div><div class="line">(</div><div class="line">    &quot;.AlNilePUA&quot;,</div><div class="line">    &quot;.AlNilePUA-Bold&quot;,</div><div class="line">    &quot;.AppleColorEmojiUI&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoI-Bold&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoI-Light&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoI-Medium&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoI-Regular&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoI-SemiBold&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoI-Thin&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoI-UltraLight&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoW-Bold&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoW-Light&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoW-Medium&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoW-Regular&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoW-SemiBold&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoW-Thin&quot;,</div><div class="line">    &quot;.AppleSDGothicNeoW-UltraLight&quot;,</div><div class="line">    &quot;.DamascusPUA&quot;,</div><div class="line">    &quot;.DamascusPUABold&quot;,</div><div class="line">    &quot;.DamascusPUALight&quot;,</div><div class="line">    &quot;.DamascusPUAMedium&quot;,</div><div class="line">    &quot;.DamascusPUASemiBold&quot;,</div><div class="line">    &quot;.FarahPUA&quot;,</div><div class="line">    &quot;.GeezaProInterface&quot;,</div><div class="line">    &quot;.GeezaProInterface-Bold&quot;,</div><div class="line">    &quot;.GeezaProInterface-Light&quot;,</div><div class="line">    &quot;.GeezaProPUA-Bold&quot;,</div><div class="line">    &quot;.GeezaProPUA-Regular&quot;,</div><div class="line">    &quot;.HelveticaLight&quot;,</div><div class="line">    &quot;.HelveticaLight-Oblique&quot;,</div><div class="line">    &quot;.HelveticaNeueATV&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-Bold&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-BoldItalic&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-Heavy&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-Italic&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-ItalicM3&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-Light&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-M3&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-MediumItalicP4&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-MediumP4&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-Regular&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-Thin&quot;,</div><div class="line">    &quot;.HelveticaNeueInterface-UltraLightP2&quot;,</div><div class="line">    &quot;.HelveticaNeueUI&quot;,</div><div class="line">    &quot;.HelveticaNeueUI-Bold&quot;,</div><div class="line">    &quot;.HelveticaNeueUI-BoldItalic&quot;,</div><div class="line">    &quot;.HelveticaNeueUI-Italic&quot;,</div><div class="line">    &quot;.HiraKakuInterface-W1&quot;,</div><div class="line">    &quot;.HiraKakuInterface-W2&quot;,</div><div class="line">    &quot;.HiraKakuInterface-W3&quot;,</div><div class="line">    &quot;.HiraKakuInterface-W6&quot;,</div><div class="line">    &quot;.HiraKakuInterfaceWatch-W1&quot;,</div><div class="line">    &quot;.HiraKakuInterfaceWatch-W2&quot;,</div><div class="line">    &quot;.HiraKakuInterfaceWatch-W3&quot;,</div><div class="line">    &quot;.HiraKakuInterfaceWatch-W6&quot;,</div><div class="line">    &quot;.Keycaps-Keys&quot;,</div><div class="line">    &quot;.Keycaps-Light&quot;,</div><div class="line">    &quot;.Keycaps-Popups&quot;,</div><div class="line">    &quot;.Keycaps-Thin&quot;,</div><div class="line">    &quot;.KeycapsA-Keys&quot;,</div><div class="line">    &quot;.KeycapsA-Popups&quot;,</div><div class="line">    &quot;.KeycapsB-Keys&quot;,</div><div class="line">    &quot;.KeycapsB-Popups&quot;,</div><div class="line">    &quot;.KeycapsPad-Keys&quot;,</div><div class="line">    &quot;.KeycapsPad-Light&quot;,</div><div class="line">    &quot;.KeycapsPadA-Keys&quot;,</div><div class="line">    &quot;.PhoneFallback&quot;,</div><div class="line">    &quot;.PhoneKeyCaps&quot;,</div><div class="line">    &quot;.PhoneKeyCapsThree&quot;,</div><div class="line">    &quot;.PingFangHK-Light&quot;,</div><div class="line">    &quot;.PingFangHK-Medium&quot;,</div><div class="line">    &quot;.PingFangHK-Regular&quot;,</div><div class="line">    &quot;.PingFangHK-Semibold&quot;,</div><div class="line">    &quot;.PingFangHK-Thin&quot;,</div><div class="line">    &quot;.PingFangHK-Ultralight&quot;,</div><div class="line">    &quot;.PingFangSC-Light&quot;,</div><div class="line">    &quot;.PingFangSC-Medium&quot;,</div><div class="line">    &quot;.PingFangSC-Regular&quot;,</div><div class="line">    &quot;.PingFangSC-Semibold&quot;,</div><div class="line">    &quot;.PingFangSC-Thin&quot;,</div><div class="line">    &quot;.PingFangSC-Ultralight&quot;,</div><div class="line">    &quot;.PingFangTC-Light&quot;,</div><div class="line">    &quot;.PingFangTC-Medium&quot;,</div><div class="line">    &quot;.PingFangTC-Regular&quot;,</div><div class="line">    &quot;.PingFangTC-Semibold&quot;,</div><div class="line">    &quot;.PingFangTC-Thin&quot;,</div><div class="line">    &quot;.PingFangTC-Ultralight&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Black&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Bold&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Heavy&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Light&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Medium&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Regular&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Semibold&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Thin&quot;,</div><div class="line">    &quot;.SFCompactDisplay-Ultralight&quot;,</div><div class="line">    &quot;.SFCompactRounded-Black&quot;,</div><div class="line">    &quot;.SFCompactRounded-Bold&quot;,</div><div class="line">    &quot;.SFCompactRounded-Heavy&quot;,</div><div class="line">    &quot;.SFCompactRounded-Light&quot;,</div><div class="line">    &quot;.SFCompactRounded-Medium&quot;,</div><div class="line">    &quot;.SFCompactRounded-Regular&quot;,</div><div class="line">    &quot;.SFCompactRounded-Semibold&quot;,</div><div class="line">    &quot;.SFCompactRounded-Thin&quot;,</div><div class="line">    &quot;.SFCompactRounded-Ultralight&quot;,</div><div class="line">    &quot;.SFCompactText-Bold&quot;,</div><div class="line">    &quot;.SFCompactText-BoldG1&quot;,</div><div class="line">    &quot;.SFCompactText-BoldG2&quot;,</div><div class="line">    &quot;.SFCompactText-BoldG3&quot;,</div><div class="line">    &quot;.SFCompactText-BoldItalic&quot;,</div><div class="line">    &quot;.SFCompactText-BoldItalicG1&quot;,</div><div class="line">    &quot;.SFCompactText-BoldItalicG2&quot;,</div><div class="line">    &quot;.SFCompactText-BoldItalicG3&quot;,</div><div class="line">    &quot;.SFCompactText-Heavy&quot;,</div><div class="line">    &quot;.SFCompactText-HeavyItalic&quot;,</div><div class="line">    &quot;.SFCompactText-Italic&quot;,</div><div class="line">    &quot;.SFCompactText-ItalicG1&quot;,</div><div class="line">    &quot;.SFCompactText-ItalicG2&quot;,</div><div class="line">    &quot;.SFCompactText-ItalicG3&quot;,</div><div class="line">    &quot;.SFCompactText-Light&quot;,</div><div class="line">    &quot;.SFCompactText-LightItalic&quot;,</div><div class="line">    &quot;.SFCompactText-Medium&quot;,</div><div class="line">    &quot;.SFCompactText-MediumItalic&quot;,</div><div class="line">    &quot;.SFCompactText-Regular&quot;,</div><div class="line">    &quot;.SFCompactText-RegularG1&quot;,</div><div class="line">    &quot;.SFCompactText-RegularG2&quot;,</div><div class="line">    &quot;.SFCompactText-RegularG3&quot;,</div><div class="line">    &quot;.SFCompactText-Semibold&quot;,</div><div class="line">    &quot;.SFCompactText-SemiboldItalic&quot;,</div><div class="line">    &quot;.SFUIDisplay&quot;,</div><div class="line">    &quot;.SFUIDisplay-Black&quot;,</div><div class="line">    &quot;.SFUIDisplay-Bold&quot;,</div><div class="line">    &quot;.SFUIDisplay-Heavy&quot;,</div><div class="line">    &quot;.SFUIDisplay-Light&quot;,</div><div class="line">    &quot;.SFUIDisplay-Medium&quot;,</div><div class="line">    &quot;.SFUIDisplay-Semibold&quot;,</div><div class="line">    &quot;.SFUIDisplay-Thin&quot;,</div><div class="line">    &quot;.SFUIDisplay-Ultralight&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Black&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Bold&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Heavy&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Light&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Medium&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Regular&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Semibold&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Thin&quot;,</div><div class="line">    &quot;.SFUIDisplayCondensed-Ultralight&quot;,</div><div class="line">    &quot;.SFUIText&quot;,</div><div class="line">    &quot;.SFUIText-Bold&quot;,</div><div class="line">    &quot;.SFUIText-BoldG1&quot;,</div><div class="line">    &quot;.SFUIText-BoldG2&quot;,</div><div class="line">    &quot;.SFUIText-BoldG3&quot;,</div><div class="line">    &quot;.SFUIText-BoldItalic&quot;,</div><div class="line">    &quot;.SFUIText-BoldItalicG1&quot;,</div><div class="line">    &quot;.SFUIText-BoldItalicG2&quot;,</div><div class="line">    &quot;.SFUIText-BoldItalicG3&quot;,</div><div class="line">    &quot;.SFUIText-Heavy&quot;,</div><div class="line">    &quot;.SFUIText-HeavyItalic&quot;,</div><div class="line">    &quot;.SFUIText-Italic&quot;,</div><div class="line">    &quot;.SFUIText-ItalicG1&quot;,</div><div class="line">    &quot;.SFUIText-ItalicG2&quot;,</div><div class="line">    &quot;.SFUIText-ItalicG3&quot;,</div><div class="line">    &quot;.SFUIText-Light&quot;,</div><div class="line">    &quot;.SFUIText-LightItalic&quot;,</div><div class="line">    &quot;.SFUIText-Medium&quot;,</div><div class="line">    &quot;.SFUIText-MediumItalic&quot;,</div><div class="line">    &quot;.SFUIText-RegularG1&quot;,</div><div class="line">    &quot;.SFUIText-RegularG2&quot;,</div><div class="line">    &quot;.SFUIText-RegularG3&quot;,</div><div class="line">    &quot;.SFUIText-Semibold&quot;,</div><div class="line">    &quot;.SFUIText-SemiboldItalic&quot;,</div><div class="line">    &quot;.SFUITextCondensed-Bold&quot;,</div><div class="line">    &quot;.SFUITextCondensed-Heavy&quot;,</div><div class="line">    &quot;.SFUITextCondensed-Light&quot;,</div><div class="line">    &quot;.SFUITextCondensed-Medium&quot;,</div><div class="line">    &quot;.SFUITextCondensed-Regular&quot;,</div><div class="line">    &quot;.SFUITextCondensed-Semibold&quot;,</div><div class="line">    &quot;.SavoyeLetPlainCC&quot;,</div><div class="line">    &quot;.SukhumvitSetUI-Bold&quot;,</div><div class="line">    &quot;.SukhumvitSetUI-Light&quot;,</div><div class="line">    &quot;.SukhumvitSetUI-Medium&quot;,</div><div class="line">    AcademyEngravedLetPlain,</div><div class="line">    AlNile,</div><div class="line">    &quot;AlNile-Bold&quot;,</div><div class="line">    AmericanTypewriter,</div><div class="line">    &quot;AmericanTypewriter-Bold&quot;,</div><div class="line">    &quot;AmericanTypewriter-Condensed&quot;,</div><div class="line">    &quot;AmericanTypewriter-CondensedBold&quot;,</div><div class="line">    &quot;AmericanTypewriter-CondensedLight&quot;,</div><div class="line">    &quot;AmericanTypewriter-Light&quot;,</div><div class="line">    &quot;AmericanTypewriter-Semibold&quot;,</div><div class="line">    AppleColorEmoji,</div><div class="line">    AppleGothic,</div><div class="line">    &quot;AppleSDGothicNeo-Bold&quot;,</div><div class="line">    &quot;AppleSDGothicNeo-Light&quot;,</div><div class="line">    &quot;AppleSDGothicNeo-Medium&quot;,</div><div class="line">    &quot;AppleSDGothicNeo-Regular&quot;,</div><div class="line">    &quot;AppleSDGothicNeo-SemiBold&quot;,</div><div class="line">    &quot;AppleSDGothicNeo-Thin&quot;,</div><div class="line">    &quot;AppleSDGothicNeo-UltraLight&quot;,</div><div class="line">    &quot;Arial-BoldItalicMT&quot;,</div><div class="line">    &quot;Arial-BoldMT&quot;,</div><div class="line">    &quot;Arial-ItalicMT&quot;,</div><div class="line">    ArialHebrew,</div><div class="line">    &quot;ArialHebrew-Bold&quot;,</div><div class="line">    &quot;ArialHebrew-Light&quot;,</div><div class="line">    ArialMT,</div><div class="line">    ArialRoundedMTBold,</div><div class="line">    &quot;Asphalt-Medium&quot;,</div><div class="line">    &quot;Athelas-Bold&quot;,</div><div class="line">    &quot;Athelas-BoldItalic&quot;,</div><div class="line">    &quot;Athelas-Italic&quot;,</div><div class="line">    &quot;Athelas-Regular&quot;,</div><div class="line">    &quot;Avenir-Black&quot;,</div><div class="line">    &quot;Avenir-BlackOblique&quot;,</div><div class="line">    &quot;Avenir-Book&quot;,</div><div class="line">    &quot;Avenir-BookOblique&quot;,</div><div class="line">    &quot;Avenir-Heavy&quot;,</div><div class="line">    &quot;Avenir-HeavyOblique&quot;,</div><div class="line">    &quot;Avenir-Light&quot;,</div><div class="line">    &quot;Avenir-LightOblique&quot;,</div><div class="line">    &quot;Avenir-Medium&quot;,</div><div class="line">    &quot;Avenir-MediumOblique&quot;,</div><div class="line">    &quot;Avenir-Oblique&quot;,</div><div class="line">    &quot;Avenir-Roman&quot;,</div><div class="line">    &quot;AvenirNext-Bold&quot;,</div><div class="line">    &quot;AvenirNext-BoldItalic&quot;,</div><div class="line">    &quot;AvenirNext-DemiBold&quot;,</div><div class="line">    &quot;AvenirNext-DemiBoldItalic&quot;,</div><div class="line">    &quot;AvenirNext-Heavy&quot;,</div><div class="line">    &quot;AvenirNext-HeavyItalic&quot;,</div><div class="line">    &quot;AvenirNext-Italic&quot;,</div><div class="line">    &quot;AvenirNext-Medium&quot;,</div><div class="line">    &quot;AvenirNext-MediumItalic&quot;,</div><div class="line">    &quot;AvenirNext-Regular&quot;,</div><div class="line">    &quot;AvenirNext-UltraLight&quot;,</div><div class="line">    &quot;AvenirNext-UltraLightItalic&quot;,</div><div class="line">    &quot;AvenirNextCondensed-Bold&quot;,</div><div class="line">    &quot;AvenirNextCondensed-BoldItalic&quot;,</div><div class="line">    &quot;AvenirNextCondensed-DemiBold&quot;,</div><div class="line">    &quot;AvenirNextCondensed-DemiBoldItalic&quot;,</div><div class="line">    &quot;AvenirNextCondensed-Heavy&quot;,</div><div class="line">    &quot;AvenirNextCondensed-HeavyItalic&quot;,</div><div class="line">    &quot;AvenirNextCondensed-Italic&quot;,</div><div class="line">    &quot;AvenirNextCondensed-Medium&quot;,</div><div class="line">    &quot;AvenirNextCondensed-MediumItalic&quot;,</div><div class="line">    &quot;AvenirNextCondensed-Regular&quot;,</div><div class="line">    &quot;AvenirNextCondensed-UltraLight&quot;,</div><div class="line">    &quot;AvenirNextCondensed-UltraLightItalic&quot;,</div><div class="line">    &quot;Balega-Regular&quot;,</div><div class="line">    Baskerville,</div><div class="line">    &quot;Baskerville-Bold&quot;,</div><div class="line">    &quot;Baskerville-BoldItalic&quot;,</div><div class="line">    &quot;Baskerville-Italic&quot;,</div><div class="line">    &quot;Baskerville-SemiBold&quot;,</div><div class="line">    &quot;Baskerville-SemiBoldItalic&quot;,</div><div class="line">    BebasNeue,</div><div class="line">    BodoniOrnamentsITCTT,</div><div class="line">    &quot;BodoniSvtyTwoITCTT-Bold&quot;,</div><div class="line">    &quot;BodoniSvtyTwoITCTT-Book&quot;,</div><div class="line">    &quot;BodoniSvtyTwoITCTT-BookIta&quot;,</div><div class="line">    &quot;BodoniSvtyTwoOSITCTT-Bold&quot;,</div><div class="line">    &quot;BodoniSvtyTwoOSITCTT-Book&quot;,</div><div class="line">    &quot;BodoniSvtyTwoOSITCTT-BookIt&quot;,</div><div class="line">    &quot;BodoniSvtyTwoSCITCTT-Book&quot;,</div><div class="line">    &quot;BradleyHandITCTT-Bold&quot;,</div><div class="line">    &quot;ChalkboardSE-Bold&quot;,</div><div class="line">    &quot;ChalkboardSE-Light&quot;,</div><div class="line">    &quot;ChalkboardSE-Regular&quot;,</div><div class="line">    Chalkduster,</div><div class="line">    &quot;Charter-Black&quot;,</div><div class="line">    &quot;Charter-BlackItalic&quot;,</div><div class="line">    &quot;Charter-Bold&quot;,</div><div class="line">    &quot;Charter-BoldItalic&quot;,</div><div class="line">    &quot;Charter-Italic&quot;,</div><div class="line">    &quot;Charter-Roman&quot;,</div><div class="line">    Cochin,</div><div class="line">    &quot;Cochin-Bold&quot;,</div><div class="line">    &quot;Cochin-BoldItalic&quot;,</div><div class="line">    &quot;Cochin-Italic&quot;,</div><div class="line">    Copperplate,</div><div class="line">    &quot;Copperplate-Bold&quot;,</div><div class="line">    &quot;Copperplate-Light&quot;,</div><div class="line">    Courier,</div><div class="line">    &quot;Courier-Bold&quot;,</div><div class="line">    &quot;Courier-BoldOblique&quot;,</div><div class="line">    &quot;Courier-Oblique&quot;,</div><div class="line">    &quot;CourierNewPS-BoldItalicMT&quot;,</div><div class="line">    &quot;CourierNewPS-BoldMT&quot;,</div><div class="line">    &quot;CourierNewPS-ItalicMT&quot;,</div><div class="line">    CourierNewPSMT,</div><div class="line">    DBLCDTempBlack,</div><div class="line">    &quot;DINAlternate-Bold&quot;,</div><div class="line">    &quot;DINCondensed-Bold&quot;,</div><div class="line">    Damascus,</div><div class="line">    DamascusBold,</div><div class="line">    DamascusLight,</div><div class="line">    DamascusMedium,</div><div class="line">    DamascusSemiBold,</div><div class="line">    &quot;DearJoeFour-SmallSemibold&quot;,</div><div class="line">    DevanagariSangamMN,</div><div class="line">    &quot;DevanagariSangamMN-Bold&quot;,</div><div class="line">    Didot,</div><div class="line">    &quot;Didot-Bold&quot;,</div><div class="line">    &quot;Didot-Italic&quot;,</div><div class="line">    DiwanMishafi,</div><div class="line">    &quot;Druk-HeavyItalic&quot;,</div><div class="line">    EuphemiaUCAS,</div><div class="line">    &quot;EuphemiaUCAS-Bold&quot;,</div><div class="line">    &quot;EuphemiaUCAS-Italic&quot;,</div><div class="line">    &quot;FaktSlabStencilPro-Medium&quot;,</div><div class="line">    Farah,</div><div class="line">    &quot;Futura-Bold&quot;,</div><div class="line">    &quot;Futura-CondensedExtraBold&quot;,</div><div class="line">    &quot;Futura-CondensedMedium&quot;,</div><div class="line">    &quot;Futura-Medium&quot;,</div><div class="line">    &quot;Futura-MediumItalic&quot;,</div><div class="line">    GeezaPro,</div><div class="line">    &quot;GeezaPro-Bold&quot;,</div><div class="line">    Georgia,</div><div class="line">    &quot;Georgia-Bold&quot;,</div><div class="line">    &quot;Georgia-BoldItalic&quot;,</div><div class="line">    &quot;Georgia-Italic&quot;,</div><div class="line">    GillSans,</div><div class="line">    &quot;GillSans-Bold&quot;,</div><div class="line">    &quot;GillSans-BoldItalic&quot;,</div><div class="line">    &quot;GillSans-Italic&quot;,</div><div class="line">    &quot;GillSans-Light&quot;,</div><div class="line">    &quot;GillSans-LightItalic&quot;,</div><div class="line">    &quot;GillSans-SemiBold&quot;,</div><div class="line">    &quot;GillSans-SemiBoldItalic&quot;,</div><div class="line">    &quot;GillSans-UltraBold&quot;,</div><div class="line">    GujaratiSangamMN,</div><div class="line">    &quot;GujaratiSangamMN-Bold&quot;,</div><div class="line">    GurmukhiMN,</div><div class="line">    &quot;GurmukhiMN-Bold&quot;,</div><div class="line">    Helvetica,</div><div class="line">    &quot;Helvetica-Bold&quot;,</div><div class="line">    &quot;Helvetica-BoldOblique&quot;,</div><div class="line">    &quot;Helvetica-Light&quot;,</div><div class="line">    &quot;Helvetica-LightOblique&quot;,</div><div class="line">    &quot;Helvetica-Oblique&quot;,</div><div class="line">    HelveticaLTMM,</div><div class="line">    HelveticaNeue,</div><div class="line">    &quot;HelveticaNeue-Bold&quot;,</div><div class="line">    &quot;HelveticaNeue-BoldItalic&quot;,</div><div class="line">    &quot;HelveticaNeue-CondensedBlack&quot;,</div><div class="line">    &quot;HelveticaNeue-CondensedBold&quot;,</div><div class="line">    &quot;HelveticaNeue-Italic&quot;,</div><div class="line">    &quot;HelveticaNeue-Light&quot;,</div><div class="line">    &quot;HelveticaNeue-LightItalic&quot;,</div><div class="line">    &quot;HelveticaNeue-Medium&quot;,</div><div class="line">    &quot;HelveticaNeue-MediumItalic&quot;,</div><div class="line">    &quot;HelveticaNeue-Thin&quot;,</div><div class="line">    &quot;HelveticaNeue-ThinItalic&quot;,</div><div class="line">    &quot;HelveticaNeue-UltraLight&quot;,</div><div class="line">    &quot;HelveticaNeue-UltraLightItalic&quot;,</div><div class="line">    &quot;HiraKakuProN-W3&quot;,</div><div class="line">    &quot;HiraKakuProN-W6&quot;,</div><div class="line">    &quot;HiraMinProN-W3&quot;,</div><div class="line">    &quot;HiraMinProN-W6&quot;,</div><div class="line">    &quot;HiraginoSans-W3&quot;,</div><div class="line">    &quot;HiraginoSans-W6&quot;,</div><div class="line">    &quot;HoeflerText-Black&quot;,</div><div class="line">    &quot;HoeflerText-BlackItalic&quot;,</div><div class="line">    &quot;HoeflerText-Italic&quot;,</div><div class="line">    &quot;HoeflerText-Regular&quot;,</div><div class="line">    &quot;IowanOldStyle-Bold&quot;,</div><div class="line">    &quot;IowanOldStyle-BoldItalic&quot;,</div><div class="line">    &quot;IowanOldStyle-Italic&quot;,</div><div class="line">    &quot;IowanOldStyle-Roman&quot;,</div><div class="line">    &quot;JournalSansNew-Inline&quot;,</div><div class="line">    Kailasa,</div><div class="line">    &quot;Kailasa-Bold&quot;,</div><div class="line">    KannadaSangamMN,</div><div class="line">    &quot;KannadaSangamMN-Bold&quot;,</div><div class="line">    KhmerSangamMN,</div><div class="line">    &quot;KohinoorBangla-Light&quot;,</div><div class="line">    &quot;KohinoorBangla-Regular&quot;,</div><div class="line">    &quot;KohinoorBangla-Semibold&quot;,</div><div class="line">    &quot;KohinoorDevanagari-Light&quot;,</div><div class="line">    &quot;KohinoorDevanagari-Regular&quot;,</div><div class="line">    &quot;KohinoorDevanagari-Semibold&quot;,</div><div class="line">    &quot;KohinoorTelugu-Light&quot;,</div><div class="line">    &quot;KohinoorTelugu-Medium&quot;,</div><div class="line">    &quot;KohinoorTelugu-Regular&quot;,</div><div class="line">    LaoSangamMN,</div><div class="line">    LastResort,</div><div class="line">    &quot;LockClock-Light&quot;,</div><div class="line">    MalayalamSangamMN,</div><div class="line">    &quot;MalayalamSangamMN-Bold&quot;,</div><div class="line">    &quot;Marion-Bold&quot;,</div><div class="line">    &quot;Marion-Italic&quot;,</div><div class="line">    &quot;Marion-Regular&quot;,</div><div class="line">    &quot;MarkerFelt-Thin&quot;,</div><div class="line">    &quot;MarkerFelt-Wide&quot;,</div><div class="line">    &quot;Menlo-Bold&quot;,</div><div class="line">    &quot;Menlo-BoldItalic&quot;,</div><div class="line">    &quot;Menlo-Italic&quot;,</div><div class="line">    &quot;Menlo-Regular&quot;,</div><div class="line">    MyanmarSangamMN,</div><div class="line">    &quot;MyanmarSangamMN-Bold&quot;,</div><div class="line">    &quot;Noteworthy-Bold&quot;,</div><div class="line">    &quot;Noteworthy-Light&quot;,</div><div class="line">    NotoSansAvestan,</div><div class="line">    NotoSansBalinese,</div><div class="line">    NotoSansBamum,</div><div class="line">    NotoSansBatak,</div><div class="line">    NotoSansBrahmi,</div><div class="line">    NotoSansBuginese,</div><div class="line">    NotoSansBuhid,</div><div class="line">    NotoSansCarian,</div><div class="line">    NotoSansCham,</div><div class="line">    NotoSansCoptic,</div><div class="line">    NotoSansCuneiform,</div><div class="line">    NotoSansCypriot,</div><div class="line">    NotoSansEgyptianHieroglyphs,</div><div class="line">    NotoSansGlagolitic,</div><div class="line">    NotoSansGothic,</div><div class="line">    NotoSansHanunoo,</div><div class="line">    NotoSansImperialAramaic,</div><div class="line">    NotoSansInscriptionalPahlavi,</div><div class="line">    NotoSansInscriptionalParthian,</div><div class="line">    NotoSansJavanese,</div><div class="line">    NotoSansKaithi,</div><div class="line">    NotoSansKayahLi,</div><div class="line">    NotoSansKharoshthi,</div><div class="line">    NotoSansLepcha,</div><div class="line">    NotoSansLimbu,</div><div class="line">    NotoSansLinearB,</div><div class="line">    NotoSansLisu,</div><div class="line">    NotoSansLycian,</div><div class="line">    NotoSansLydian,</div><div class="line">    NotoSansMandaic,</div><div class="line">    NotoSansMeeteiMayek,</div><div class="line">    NotoSansMongolian,</div><div class="line">    NotoSansNKo,</div><div class="line">    NotoSansNewTaiLue,</div><div class="line">    NotoSansOgham,</div><div class="line">    NotoSansOlChiki,</div><div class="line">    NotoSansOldItalic,</div><div class="line">    NotoSansOldPersian,</div><div class="line">    NotoSansOldSouthArabian,</div><div class="line">    NotoSansOldTurkic,</div><div class="line">    NotoSansOsmanya,</div><div class="line">    NotoSansPhagsPa,</div><div class="line">    NotoSansPhoenician,</div><div class="line">    NotoSansRejang,</div><div class="line">    NotoSansRunic,</div><div class="line">    NotoSansSamaritan,</div><div class="line">    NotoSansSaurashtra,</div><div class="line">    NotoSansShavian,</div><div class="line">    NotoSansSundanese,</div><div class="line">    NotoSansSylotiNagri,</div><div class="line">    NotoSansSyriacEastern,</div><div class="line">    NotoSansTagalog,</div><div class="line">    NotoSansTagbanwa,</div><div class="line">    NotoSansTaiLe,</div><div class="line">    NotoSansTaiTham,</div><div class="line">    NotoSansTaiViet,</div><div class="line">    NotoSansThaana,</div><div class="line">    NotoSansTifinagh,</div><div class="line">    NotoSansUgaritic,</div><div class="line">    NotoSansVai,</div><div class="line">    NotoSansYi,</div><div class="line">    &quot;Optima-Bold&quot;,</div><div class="line">    &quot;Optima-BoldItalic&quot;,</div><div class="line">    &quot;Optima-ExtraBlack&quot;,</div><div class="line">    &quot;Optima-Italic&quot;,</div><div class="line">    &quot;Optima-Regular&quot;,</div><div class="line">    OriyaSangamMN,</div><div class="line">    &quot;OriyaSangamMN-Bold&quot;,</div><div class="line">    &quot;Palatino-Bold&quot;,</div><div class="line">    &quot;Palatino-BoldItalic&quot;,</div><div class="line">    &quot;Palatino-Italic&quot;,</div><div class="line">    &quot;Palatino-Roman&quot;,</div><div class="line">    Papyrus,</div><div class="line">    &quot;Papyrus-Condensed&quot;,</div><div class="line">    PartyLetPlain,</div><div class="line">    PhoneKeyCapsTwo,</div><div class="line">    PhonepadTwo,</div><div class="line">    &quot;PingFangHK-Light&quot;,</div><div class="line">    &quot;PingFangHK-Medium&quot;,</div><div class="line">    &quot;PingFangHK-Regular&quot;,</div><div class="line">    &quot;PingFangHK-Semibold&quot;,</div><div class="line">    &quot;PingFangHK-Thin&quot;,</div><div class="line">    &quot;PingFangHK-Ultralight&quot;,</div><div class="line">    &quot;PingFangSC-Light&quot;,</div><div class="line">    &quot;PingFangSC-Medium&quot;,</div><div class="line">    &quot;PingFangSC-Regular&quot;,</div><div class="line">    &quot;PingFangSC-Semibold&quot;,</div><div class="line">    &quot;PingFangSC-Thin&quot;,</div><div class="line">    &quot;PingFangSC-Ultralight&quot;,</div><div class="line">    &quot;PingFangTC-Light&quot;,</div><div class="line">    &quot;PingFangTC-Medium&quot;,</div><div class="line">    &quot;PingFangTC-Regular&quot;,</div><div class="line">    &quot;PingFangTC-Semibold&quot;,</div><div class="line">    &quot;PingFangTC-Thin&quot;,</div><div class="line">    &quot;PingFangTC-Ultralight&quot;,</div><div class="line">    &quot;Rockwell-Bold&quot;,</div><div class="line">    SavoyeLetPlain,</div><div class="line">    &quot;Scheme-Bold&quot;,</div><div class="line">    Seravek,</div><div class="line">    &quot;Seravek-Bold&quot;,</div><div class="line">    &quot;Seravek-BoldItalic&quot;,</div><div class="line">    &quot;Seravek-ExtraLight&quot;,</div><div class="line">    &quot;Seravek-ExtraLightItalic&quot;,</div><div class="line">    &quot;Seravek-Italic&quot;,</div><div class="line">    &quot;Seravek-Light&quot;,</div><div class="line">    &quot;Seravek-LightItalic&quot;,</div><div class="line">    &quot;Seravek-Medium&quot;,</div><div class="line">    &quot;Seravek-MediumItalic&quot;,</div><div class="line">    &quot;SignPainter-HouseScriptSemibold&quot;,</div><div class="line">    SinhalaSangamMN,</div><div class="line">    &quot;SinhalaSangamMN-Bold&quot;,</div><div class="line">    SnellRoundhand,</div><div class="line">    &quot;SnellRoundhand-Black&quot;,</div><div class="line">    &quot;SnellRoundhand-Bold&quot;,</div><div class="line">    &quot;Superclarendon-Black&quot;,</div><div class="line">    &quot;Superclarendon-BlackItalic&quot;,</div><div class="line">    &quot;Superclarendon-Bold&quot;,</div><div class="line">    &quot;Superclarendon-BoldItalic&quot;,</div><div class="line">    &quot;Superclarendon-Italic&quot;,</div><div class="line">    &quot;Superclarendon-Light&quot;,</div><div class="line">    &quot;Superclarendon-LightItalic&quot;,</div><div class="line">    &quot;Superclarendon-Regular&quot;,</div><div class="line">    Symbol,</div><div class="line">    TamilSangamMN,</div><div class="line">    &quot;TamilSangamMN-Bold&quot;,</div><div class="line">    &quot;TheHandSerif-Semibold&quot;,</div><div class="line">    Thonburi,</div><div class="line">    &quot;Thonburi-Bold&quot;,</div><div class="line">    &quot;Thonburi-Light&quot;,</div><div class="line">    TimesLTMM,</div><div class="line">    &quot;TimesNewRomanPS-BoldItalicMT&quot;,</div><div class="line">    &quot;TimesNewRomanPS-BoldMT&quot;,</div><div class="line">    &quot;TimesNewRomanPS-ItalicMT&quot;,</div><div class="line">    TimesNewRomanPSMT,</div><div class="line">    &quot;Trebuchet-BoldItalic&quot;,</div><div class="line">    TrebuchetMS,</div><div class="line">    &quot;TrebuchetMS-Bold&quot;,</div><div class="line">    &quot;TrebuchetMS-Italic&quot;,</div><div class="line">    Verdana,</div><div class="line">    &quot;Verdana-Bold&quot;,</div><div class="line">    &quot;Verdana-BoldItalic&quot;,</div><div class="line">    &quot;Verdana-Italic&quot;,</div><div class="line">    ZapfDingbatsITC,</div><div class="line">    Zapfino</div><div class="line">) count 548</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div></pre></td><td class="code"><pre><div class="line">CFArrayRef CTFontManagerCopyAvailableFontFamilyNames( void ) CT_AVAILABLE(10_6, 10_0);  所有的 fontFamilyName</div><div class="line"></div><div class="line">结果</div><div class="line">(</div><div class="line">    &quot;.Al Nile PUA&quot;,</div><div class="line">    &quot;.Apple Color Emoji UI&quot;,</div><div class="line">    &quot;.Apple SD Gothic NeoI&quot;,</div><div class="line">    &quot;.Apple SD Gothic NeoW&quot;,</div><div class="line">    &quot;.Damascus PUA&quot;,</div><div class="line">    &quot;.Farah PUA&quot;,</div><div class="line">    &quot;.Geeza Pro Interface&quot;,</div><div class="line">    &quot;.Geeza Pro PUA&quot;,</div><div class="line">    &quot;.Helvetica Light&quot;,</div><div class="line">    &quot;.Helvetica LT MM&quot;,</div><div class="line">    &quot;.Helvetica Neue ATV&quot;,</div><div class="line">    &quot;.Helvetica Neue Interface&quot;,</div><div class="line">    &quot;.Helvetica NeueUI&quot;,</div><div class="line">    &quot;.Hiragino Kaku Gothic Interface&quot;,</div><div class="line">    &quot;.Hiragino Kaku Gothic InterfaceWatch&quot;,</div><div class="line">    &quot;.Keycaps&quot;,</div><div class="line">    &quot;.Keycaps A&quot;,</div><div class="line">    &quot;.Keycaps B&quot;,</div><div class="line">    &quot;.Keycaps Pad&quot;,</div><div class="line">    &quot;.Keycaps Pad A&quot;,</div><div class="line">    &quot;.LastResort&quot;,</div><div class="line">    &quot;.Lock Clock&quot;,</div><div class="line">    &quot;.PhoneFallback&quot;,</div><div class="line">    &quot;.PhoneKeyCaps&quot;,</div><div class="line">    &quot;.PhoneKeyCapsThree&quot;,</div><div class="line">    &quot;.PhoneKeyCapsTwo&quot;,</div><div class="line">    &quot;.PhonepadTwo&quot;,</div><div class="line">    &quot;.PingFang HK&quot;,</div><div class="line">    &quot;.PingFang SC&quot;,</div><div class="line">    &quot;.PingFang TC&quot;,</div><div class="line">    &quot;.Savoye LET CC.&quot;,</div><div class="line">    &quot;.SF Compact Display&quot;,</div><div class="line">    &quot;.SF Compact Rounded&quot;,</div><div class="line">    &quot;.SF Compact Text&quot;,</div><div class="line">    &quot;.SF UI Display&quot;,</div><div class="line">    &quot;.SF UI Display Condensed&quot;,</div><div class="line">    &quot;.SF UI Text&quot;,</div><div class="line">    &quot;.SF UI Text Condensed&quot;,</div><div class="line">    &quot;.Sukhumvit Set UI&quot;,</div><div class="line">    &quot;.Times LT MM&quot;,</div><div class="line">    &quot;Academy Engraved LET&quot;,</div><div class="line">    &quot;Al Nile&quot;,</div><div class="line">    &quot;American Typewriter&quot;,</div><div class="line">    Arial,</div><div class="line">    &quot;Arial Hebrew&quot;,</div><div class="line">    &quot;Arial Rounded MT Bold&quot;,</div><div class="line">    Asphalt,</div><div class="line">    Athelas,</div><div class="line">    Avenir,</div><div class="line">    &quot;Avenir Next&quot;,</div><div class="line">    &quot;Avenir Next Condensed&quot;,</div><div class="line">    Balega,</div><div class="line">    Baskerville,</div><div class="line">    &quot;Bebas Neue&quot;,</div><div class="line">    &quot;Bodoni 72&quot;,</div><div class="line">    &quot;Bodoni 72 Oldstyle&quot;,</div><div class="line">    &quot;Bodoni 72 Smallcaps&quot;,</div><div class="line">    &quot;Bodoni Ornaments&quot;,</div><div class="line">    &quot;Bradley Hand&quot;,</div><div class="line">    &quot;Chalkboard SE&quot;,</div><div class="line">    Chalkduster,</div><div class="line">    Charter,</div><div class="line">    Cochin,</div><div class="line">    Copperplate,</div><div class="line">    Courier,</div><div class="line">    &quot;Courier New&quot;,</div><div class="line">    Damascus,</div><div class="line">    &quot;DB LCD Temp&quot;,</div><div class="line">    &quot;Dear Joe Four&quot;,</div><div class="line">    &quot;Devanagari Sangam MN&quot;,</div><div class="line">    Didot,</div><div class="line">    &quot;DIN Alternate&quot;,</div><div class="line">    &quot;DIN Condensed&quot;,</div><div class="line">    Druk,</div><div class="line">    &quot;Euphemia UCAS&quot;,</div><div class="line">    &quot;Fakt Slab Stencil Pro&quot;,</div><div class="line">    Farah,</div><div class="line">    Futura,</div><div class="line">    &quot;Geeza Pro&quot;,</div><div class="line">    Georgia,</div><div class="line">    &quot;Gill Sans&quot;,</div><div class="line">    &quot;Gujarati Sangam MN&quot;,</div><div class="line">    &quot;Gurmukhi MN&quot;,</div><div class="line">    Helvetica,</div><div class="line">    &quot;Helvetica Neue&quot;,</div><div class="line">    &quot;Hiragino Kaku Gothic ProN&quot;,</div><div class="line">    &quot;Hiragino Mincho ProN&quot;,</div><div class="line">    &quot;Hiragino Sans&quot;,</div><div class="line">    &quot;Hoefler Text&quot;,</div><div class="line">    &quot;Iowan Old Style&quot;,</div><div class="line">    &quot;Journal Sans New&quot;,</div><div class="line">    Kailasa,</div><div class="line">    &quot;Kannada Sangam MN&quot;,</div><div class="line">    &quot;Khmer Sangam MN&quot;,</div><div class="line">    &quot;Kohinoor Bangla&quot;,</div><div class="line">    &quot;Kohinoor Devanagari&quot;,</div><div class="line">    &quot;Kohinoor Telugu&quot;,</div><div class="line">    &quot;Lao Sangam MN&quot;,</div><div class="line">    &quot;Malayalam Sangam MN&quot;,</div><div class="line">    Marion,</div><div class="line">    &quot;Marker Felt&quot;,</div><div class="line">    Menlo,</div><div class="line">    Mishafi,</div><div class="line">    &quot;Myanmar Sangam MN&quot;,</div><div class="line">    Noteworthy,</div><div class="line">    &quot;Noto Sans Avestan&quot;,</div><div class="line">    &quot;Noto Sans Balinese&quot;,</div><div class="line">    &quot;Noto Sans Bamum&quot;,</div><div class="line">    &quot;Noto Sans Batak&quot;,</div><div class="line">    &quot;Noto Sans Brahmi&quot;,</div><div class="line">    &quot;Noto Sans Buginese&quot;,</div><div class="line">    &quot;Noto Sans Buhid&quot;,</div><div class="line">    &quot;Noto Sans Carian&quot;,</div><div class="line">    &quot;Noto Sans Cham&quot;,</div><div class="line">    &quot;Noto Sans Coptic&quot;,</div><div class="line">    &quot;Noto Sans Cuneiform&quot;,</div><div class="line">    &quot;Noto Sans Cypriot&quot;,</div><div class="line">    &quot;Noto Sans Egyptian Hieroglyphs&quot;,</div><div class="line">    &quot;Noto Sans Glagolitic&quot;,</div><div class="line">    &quot;Noto Sans Gothic&quot;,</div><div class="line">    &quot;Noto Sans Hanunoo&quot;,</div><div class="line">    &quot;Noto Sans Imperial Aramaic&quot;,</div><div class="line">    &quot;Noto Sans Inscriptional Pahlavi&quot;,</div><div class="line">    &quot;Noto Sans Inscriptional Parthian&quot;,</div><div class="line">    &quot;Noto Sans Javanese&quot;,</div><div class="line">    &quot;Noto Sans Kaithi&quot;,</div><div class="line">    &quot;Noto Sans Kayah Li&quot;,</div><div class="line">    &quot;Noto Sans Kharoshthi&quot;,</div><div class="line">    &quot;Noto Sans Lepcha&quot;,</div><div class="line">    &quot;Noto Sans Limbu&quot;,</div><div class="line">    &quot;Noto Sans Linear B&quot;,</div><div class="line">    &quot;Noto Sans Lisu&quot;,</div><div class="line">    &quot;Noto Sans Lycian&quot;,</div><div class="line">    &quot;Noto Sans Lydian&quot;,</div><div class="line">    &quot;Noto Sans Mandaic&quot;,</div><div class="line">    &quot;Noto Sans Meetei Mayek&quot;,</div><div class="line">    &quot;Noto Sans Mongolian&quot;,</div><div class="line">    &quot;Noto Sans New Tai Lue&quot;,</div><div class="line">    &quot;Noto Sans NKo&quot;,</div><div class="line">    &quot;Noto Sans Ogham&quot;,</div><div class="line">    &quot;Noto Sans Ol Chiki&quot;,</div><div class="line">    &quot;Noto Sans Old Italic&quot;,</div><div class="line">    &quot;Noto Sans Old Persian&quot;,</div><div class="line">    &quot;Noto Sans Old South Arabian&quot;,</div><div class="line">    &quot;Noto Sans Old Turkic&quot;,</div><div class="line">    &quot;Noto Sans Osmanya&quot;,</div><div class="line">    &quot;Noto Sans Phags Pa&quot;,</div><div class="line">    &quot;Noto Sans Phoenician&quot;,</div><div class="line">    &quot;Noto Sans Rejang&quot;,</div><div class="line">    &quot;Noto Sans Runic&quot;,</div><div class="line">    &quot;Noto Sans Samaritan&quot;,</div><div class="line">    &quot;Noto Sans Saurashtra&quot;,</div><div class="line">    &quot;Noto Sans Shavian&quot;,</div><div class="line">    &quot;Noto Sans Sundanese&quot;,</div><div class="line">    &quot;Noto Sans Syloti Nagri&quot;,</div><div class="line">    &quot;Noto Sans Syriac Eastern&quot;,</div><div class="line">    &quot;Noto Sans Tagalog&quot;,</div><div class="line">    &quot;Noto Sans Tagbanwa&quot;,</div><div class="line">    &quot;Noto Sans Tai Le&quot;,</div><div class="line">    &quot;Noto Sans Tai Tham&quot;,</div><div class="line">    &quot;Noto Sans Tai Viet&quot;,</div><div class="line">    &quot;Noto Sans Thaana&quot;,</div><div class="line">    &quot;Noto Sans Tifinagh&quot;,</div><div class="line">    &quot;Noto Sans Ugaritic&quot;,</div><div class="line">    &quot;Noto Sans Vai&quot;,</div><div class="line">    &quot;Noto Sans Yi&quot;,</div><div class="line">    Optima,</div><div class="line">    &quot;Oriya Sangam MN&quot;,</div><div class="line">    Palatino,</div><div class="line">    Papyrus,</div><div class="line">    &quot;Party LET&quot;,</div><div class="line">    &quot;PingFang HK&quot;,</div><div class="line">    &quot;PingFang SC&quot;,</div><div class="line">    &quot;PingFang TC&quot;,</div><div class="line">    Rockwell,</div><div class="line">    &quot;Savoye LET&quot;,</div><div class="line">    Scheme,</div><div class="line">    Seravek,</div><div class="line">    SignPainter,</div><div class="line">    &quot;Sinhala Sangam MN&quot;,</div><div class="line">    &quot;Snell Roundhand&quot;,</div><div class="line">    Superclarendon,</div><div class="line">    Symbol,</div><div class="line">    &quot;Tamil Sangam MN&quot;,</div><div class="line">    &quot;The Hand Serif&quot;,</div><div class="line">    Thonburi,</div><div class="line">    &quot;Times New Roman&quot;,</div><div class="line">    &quot;Trebuchet MS&quot;,</div><div class="line">    Verdana,</div><div class="line">    &quot;Zapf Dingbats&quot;,</div><div class="line">    Zapfino,</div><div class="line">    &quot;Apple Color Emoji&quot;,</div><div class="line">    &quot;Apple SD Gothic Neo&quot;,</div><div class="line">    AppleGothic</div><div class="line">) count 194</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">CFArrayRef CTFontManagerCopyAvailableFontURLs( void ) CT_AVAILABLE_MAC(10_6); </div><div class="line">mac 专用</div><div class="line">CFComparisonResult CTFontManagerCompareFontFamilyNames(</div><div class="line">    const void *        family1,</div><div class="line">    const void *        family2,</div><div class="line">    void * __nullable   context ) CT_AVAILABLE_MAC(10_6); </div><div class="line">    </div><div class="line">mac专用</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CFArrayRef __nullable CTFontManagerCreateFontDescriptorsFromURL(</div><div class="line">    CFURLRef            fileURL ) CT_AVAILABLE(10_6, 7_0);</div><div class="line">    这个不会用 ，不知道fileURL怎么来</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CTFontDescriptorRef __nullable CTFontManagerCreateFontDescriptorFromData(</div><div class="line">    CFDataRef               data )</div><div class="line">    这个也不会用，不知道data怎么来</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(uint32_t, CTFontManagerScope) &#123;</div><div class="line">    kCTFontManagerScopeNone         = 0,</div><div class="line">    kCTFontManagerScopeProcess      = 1,</div><div class="line">    kCTFontManagerScopeUser         = 2,    /* not supported in iOS */</div><div class="line">    kCTFontManagerScopeSession      = 3     /* not supported in iOS */</div><div class="line">&#125;;</div><div class="line"></div><div class="line">这个权限 ios kCTFontManagerScopeProcess 能用</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bool CTFontManagerRegisterFontsForURL(</div><div class="line">    CFURLRef                fontURL,</div><div class="line">    CTFontManagerScope      scope,</div><div class="line">    CFErrorRef *            error )</div><div class="line">    这个fontURL 不知道怎么来</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bool CTFontManagerUnregisterFontsForURL(</div><div class="line">    CFURLRef                fontURL,</div><div class="line">    CTFontManagerScope      scope,</div><div class="line">    CFErrorRef *            error ) CT_AVAILABLE(10_6, 4_1);</div><div class="line">    这个fontRUL 不知道怎么来</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bool CTFontManagerRegisterGraphicsFont(</div><div class="line">    CGFontRef               font,</div><div class="line">    CFErrorRef *            error ) CT_AVAILABLE(10_8, 4_1);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bool CTFontManagerUnregisterGraphicsFont(</div><div class="line">    CGFontRef               font,</div><div class="line">    CFErrorRef *            error ) CT_AVAILABLE(10_8, 4_1)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bool CTFontManagerRegisterFontsForURLs(</div><div class="line">    CFArrayRef              fontURLs,</div><div class="line">    CTFontManagerScope      scope,</div><div class="line">    CFArrayRef __nullable * __nullable errors )</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bool CTFontManagerUnregisterFontsForURLs(</div><div class="line">    CFArrayRef              fontURLs,</div><div class="line">    CTFontManagerScope      scope,</div><div class="line">    CFArrayRef __nullable * __nullable errors )</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">void CTFontManagerEnableFontDescriptors(</div><div class="line">    CFArrayRef              descriptors,</div><div class="line">    bool                    enable ) CT_AVAILABLE_MAC(10_6);  </div><div class="line">    mac 有效</div><div class="line">    </div><div class="line"> CTFontManagerScope CTFontManagerGetScopeForURL(</div><div class="line">CFURLRef                fontURL ) CT_AVAILABLE_MAC(10_6);</div><div class="line">mac 有效</div><div class="line"></div><div class="line">bool CTFontManagerIsSupportedFont(</div><div class="line">    CFURLRef                fontURL ) CT_AVAILABLE_MAC(10_6)</div><div class="line">mac  有效</div><div class="line"></div><div class="line">CFRunLoopSourceRef __nullable CTFontManagerCreateFontRequestRunLoopSource(</div><div class="line">    CFIndex         sourceOrder,</div><div class="line">    CFArrayRef    (^createMatchesCallback)(CFDictionaryRef requestAttributes, pid_t requestingProcess)) CT_AVAILABLE_MAC(10_6);</div><div class="line">mac 有效</div><div class="line"></div><div class="line">CT_EXPORT const CFStringRef kCTFontManagerBundleIdentifier CT_AVAILABLE_MAC(10_6);</div><div class="line">mac bundle</div><div class="line"></div><div class="line">void CTFontManagerSetAutoActivationSetting(</div><div class="line">    CFStringRef __nullable              bundleIdentifier,</div><div class="line">    CTFontManagerAutoActivationSetting  setting ) CT_AVAILABLE_MAC(10_6);</div><div class="line"> mac 有效</div><div class="line"></div><div class="line">CTFontManagerAutoActivationSetting CTFontManagerGetAutoActivationSetting(</div><div class="line">    CFStringRef __nullable bundleIdentifier ) CT_AVAILABLE_MAC(10_6);</div><div class="line"> mac 有效</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CT_EXPORT const CFStringRef kCTFontManagerRegisteredFontsChangedNotification CT_AVAILABLE(10_6, 7_0); 字体注册变化通知。</div></pre></td></tr></table></figure>
+<p>该类是用来manger 字体的，但是不知道有啥用。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/02/CTFontManager学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-CTStringAttributes学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/CTStringAttributes学习/">CTStringAttributes.h学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/CTStringAttributes学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T05:59:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>完成丰富的布局离不开文本String   下面学习 学习CTStringAttributes</p>
+<h4 id="配置富文本的key"><a href="#配置富文本的key" class="headerlink" title="配置富文本的key"></a>配置富文本的key</h4><table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kCTFontAttributeName</td>
+<td>CTFontRef</td>
+<td>配置富文本的字体默认是  Helvetica 12</td>
+</tr>
+<tr>
+<td>kCTForegroundColorFromContextAttributeName</td>
+<td>CFBooleanRef</td>
+<td>Default is false ，具体想法不清楚</td>
+</tr>
+<tr>
+<td>kCTKernAttributeName</td>
+<td>CFNumberRef</td>
+<td>字符之间的间隔 默认是 0.0</td>
+</tr>
+<tr>
+<td>kCTLigatureAttributeName</td>
+<td>CFNumberRef</td>
+<td>默认值是1 ，用法不清楚</td>
+</tr>
+<tr>
+<td>kCTForegroundColorAttributeName</td>
+<td>CGColorRef</td>
+<td>默认是black  。设置字体颜色</td>
+</tr>
+<tr>
+<td>kCTBackgroundColorAttributeName</td>
+<td>CGColorRef</td>
+<td>默认透明，背景颜色</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleAttributeName</td>
+<td>CTParagraphStyleRef</td>
+<td>默认不设置该属性。可以设置例如line 对对齐，写的方向，tab规则等。</td>
+</tr>
+<tr>
+<td>kCTStrokeWidthAttributeName</td>
+<td>CFNumberRef</td>
+<td>线宽。默认0.0</td>
+</tr>
+<tr>
+<td>kCTStrokeColorAttributeName</td>
+<td>CGColorRef</td>
+<td>线的颜色。默认是  foreground颜色。没啥变化，有时间再研究</td>
+</tr>
+<tr>
+<td>kCTUnderlineStyleAttributeName</td>
+<td>CFNumberRef</td>
+<td>下划线  类型有 CTUnderlineStyle</td>
+</tr>
+<tr>
+<td>kCTSuperscriptAttributeName</td>
+<td>CFNumberRef</td>
+<td>默认是0.上标还是下标。 要 the specified font。具体是啥字体不知道。 -1 下标 1 上标。暂时设置没效果。</td>
+</tr>
+<tr>
+<td>kCTUnderlineColorAttributeName</td>
+<td>CGColorRef</td>
+<td>默认是foreground 颜色  ，下划线颜色.设置不起总用</td>
+</tr>
+<tr>
+<td>kCTVerticalFormsAttributeName</td>
+<td>CFBooleanRef</td>
+<td>value   false  horizontal    value  true  vertical</td>
+</tr>
+<tr>
+<td>kCTHorizontalInVerticalFormsAttributeName</td>
+<td>CFNumberRef</td>
+<td>默认是0. value  是1 to 4  只有设置 kCTVerticalFormsAttributeName才起作用.目前不知道杂用。没效果</td>
+</tr>
+<tr>
+<td>kCTGlyphInfoAttributeName</td>
+<td>CTGlyphInfoRef</td>
+<td>改value 不知道杂用，暂时过</td>
+</tr>
+<tr>
+<td>kCTCharacterShapeAttributeName</td>
+<td>CFNumberRef</td>
+<td>9.0 以后才能用 ，暂时value 值不知道咋用</td>
+</tr>
+<tr>
+<td>kCTLanguageAttributeName</td>
+<td>CFStringRef</td>
+<td>具体value值有哪些。暂时不管。</td>
+</tr>
+<tr>
+<td>kCTRunDelegateAttributeName</td>
+<td>CTRunDelegateRef</td>
+<td>可以用来图文混拍的东西。替代的每一个cgglyph</td>
+</tr>
+<tr>
+<td>kCTBaselineClassAttributeName</td>
+<td>CFStringRef</td>
+<td>value 有 kCTBaselineClassRoman， kCTBaselineClassIdeographicCentered， kCTBaselineClassIdeographicLow， kCTBaselineClassIdeographicHigh， kCTBaselineClassHanging， kCTBaselineClassMath，暂时不知道杂用</td>
+</tr>
+<tr>
+<td>kCTBaselineInfoAttributeName</td>
+<td>CFDictionaryRef</td>
+<td>key  是 value 有 kCTBaselineClassRoman， kCTBaselineClassIdeographicCentered， kCTBaselineClassIdeographicLow， kCTBaselineClassIdeographicHigh， kCTBaselineClassHanging， kCTBaselineClassMath，暂时不知道杂用，不会用</td>
+</tr>
+<tr>
+<td>kCTBaselineReferenceInfoAttributeName</td>
+<td>CFDictionaryRef</td>
+<td>key  是 value 有 kCTBaselineClassRoman， kCTBaselineClassIdeographicCentered， kCTBaselineClassIdeographicLow， kCTBaselineClassIdeographicHigh， kCTBaselineClassHanging， kCTBaselineClassMath，暂时不知道杂用，不会用</td>
+</tr>
+<tr>
+<td>kCTWritingDirectionAttributeName</td>
+<td>CFArray</td>
+<td>数组中是 number 。暂时不会用</td>
+</tr>
+<tr>
+<td>kCTRubyAnnotationAttributeName</td>
+<td>CTRubyAnnotation</td>
+<td>暂时不会用</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div></pre></td><td class="code"><pre><div class="line">-(void)setstring:(NSMutableAttributedString * )beginStr appendString:(CFStringRef )key value:(id)value string:(NSString *)string&#123;</div><div class="line">  NSRange range =   [beginStr.string rangeOfString:string];</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithObject:value forKey:(__bridge NSString *)key];</div><div class="line">    [beginStr setAttributes:dic range:range];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">-(void)string:(NSMutableAttributedString * )beginStr appendString:(CFStringRef )key value:(id)value string:(NSString *)string&#123;</div><div class="line">    </div><div class="line">    </div><div class="line">    NSMutableAttributedString *nextMabstring = [[NSMutableAttributedString alloc]initWithString:string];</div><div class="line">    </div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithObject:value forKey:(__bridge NSString *)key];</div><div class="line">    [nextMabstring setAttributes:dic range:NSMakeRange(0, nextMabstring.length)];</div><div class="line">    [beginStr appendAttributedString:nextMabstring];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTFontAttributeName value:[UIFont systemFontOfSize:24] string:@&quot;kCTFontAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTForegroundColorFromContextAttributeName value:@(YES) string:@&quot;kCTForegroundColorFromContextAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTKernAttributeName value:@(30) string:@&quot;kCTKernAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTLigatureAttributeName value:@(2) string:@&quot;kCTLigatureAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTForegroundColorAttributeName value:(id)([UIColor redColor].CGColor) string:@&quot;kCTForegroundColorAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBackgroundColorAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTBackgroundColorAttributeName&quot;];</div><div class="line">    CTParagraphStyleSetting setting[1] ;</div><div class="line">    CGFloat vale =30;</div><div class="line">    setting[0].spec = kCTParagraphStyleSpecifierLineSpacingAdjustment;</div><div class="line">    setting[0].valueSize =sizeof(CGFloat);</div><div class="line">    setting[0].value = &amp;vale;</div><div class="line">    CTParagraphStyleRef stlye = CTParagraphStyleCreate(setting, 1);</div><div class="line">    [self string:mabstring appendString:kCTParagraphStyleAttributeName value:(id)(stlye) string:@&quot;kCTParagraphStyleAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTStrokeWidthAttributeName value:(id)(@(5)) string:@&quot;kCTStrokeWidthAttributeName&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTStrokeColorAttributeName value:(id)([UIColor redColor].CGColor) string:@&quot;kCTStrokeColorAttributeName&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble)) string:@&quot;kCTUnderlineStyleAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleThick)) string:@&quot;kCTUnderlineStyleAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleSingle)) string:@&quot;kCTUnderlineStyleAttributeName&quot;];</div><div class="line"></div><div class="line">    [self string:mabstring appendString:kCTSuperscriptAttributeName value:(id)(@(-1)) string:@&quot;kCTSuperscriptAttributeName&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleSingle)) string:@&quot;kCTUnderlineColorAttributeName&quot;];</div><div class="line">    [self setstring:mabstring appendString:kCTUnderlineColorAttributeName value:(id)([UIColor redColor].CGColor) string:@&quot;kCTUnderlineColorAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTVerticalFormsAttributeName value:(id)(@(YES)) string:@&quot;kCTVerticalFormsAttributeName&quot;];</div><div class="line">    </div><div class="line">        [self string:mabstring appendString:kCTVerticalFormsAttributeName value:(id)(@(YES)) string:@&quot;kCTHorizontalInVerticalFormsAttributeName&quot;];</div><div class="line">//        [self setstring:mabstring appendString:kCTHorizontalInVerticalFormsAttributeName value:(id)(@(3)) string:@&quot;kCTHorizontalInVerticalFormsAttributeName&quot;];</div><div class="line">   </div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTGlyphInfoAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTGlyphInfoAttributeName&quot;];</div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTCharacterShapeAttributeName value:(id)(@(3)) string:@&quot;kCTCharacterShapeAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTLanguageAttributeName value:(id)(@&quot;Helvetica&quot;) string:@&quot;kCTLanguageAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    CTRunDelegateDeallocateCallback  deallocateCallback= CTRunDelegateDeallocateCallbackFunction;</div><div class="line">    </div><div class="line">    NSLog(@&quot;CTRunDelegateGetAscentCallback 获取ascent&quot;);</div><div class="line">    CTRunDelegateGetAscentCallback ascentCallback= CTRunDelegateGetAscentCallbackFunction;</div><div class="line">    CTRunDelegateGetDescentCallback descentCallback =  CTRunDelegateGetDescentCallbackFunction;</div><div class="line">    </div><div class="line">    CTRunDelegateGetWidthCallback widthCallBack = CTRunDelegateGetWidthCallbackFunction;</div><div class="line">    </div><div class="line">    CTRunDelegateCallbacks callBack ;</div><div class="line">    callBack.version =kCTRunDelegateCurrentVersion;</div><div class="line">    callBack.dealloc = deallocateCallback;</div><div class="line">    callBack.getAscent = ascentCallback;</div><div class="line">    callBack.getDescent = descentCallback;</div><div class="line">    callBack.getWidth = widthCallBack;</div><div class="line">    </div><div class="line">    CTRunDelegateRef delegate=  CTRunDelegateCreate(&amp;callBack, NULL);</div><div class="line">    ///获取delegate值</div><div class="line">    [self string:mabstring appendString:kCTRunDelegateAttributeName value:(__bridge id)(delegate) string:@&quot;kCTRunDelegateAttributeName&quot;];</div><div class="line">    </div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassRoman) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassIdeographicCentered) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassIdeographicLow) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassIdeographicHigh) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassHanging) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    [self string:mabstring appendString:kCTBaselineClassAttributeName value:(id)(kCTBaselineClassMath) string:@&quot;kCTBaselineClassAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTBaselineInfoAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTBaselineInfoAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTBaselineReferenceInfoAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTBaselineReferenceInfoAttributeName&quot;];</div><div class="line">    </div><div class="line">//    [self string:mabstring appendString:kCTWritingDirectionAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTWritingDirectionAttributeName&quot;];</div><div class="line">//    [self string:mabstring appendString:kCTRubyAnnotationAttributeName value:(id)([UIColor blueColor].CGColor) string:@&quot;kCTRubyAnnotationAttributeName&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line"></div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line"></div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    CTFrameDraw(frame, context);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">void CTRunDelegateDeallocateCallbackFunction (void * refCon )&#123;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">CGFloat CTRunDelegateGetAscentCallbackFunction (void * refCon )&#123;</div><div class="line">    return 30;</div><div class="line">&#125;</div><div class="line"></div><div class="line">CGFloat CTRunDelegateGetDescentCallbackFunction (void * refCon )&#123;</div><div class="line">    return 30;</div><div class="line">&#125;</div><div class="line"></div><div class="line">CGFloat CTRunDelegateGetWidthCallbackFunction(void * refCon )&#123;</div><div class="line">    return 30;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果截图</p>
+<p><img src="/images/image-11.tiff" alt="image"></p>
+<p>这个类就是 attString 配置类。</p>
+<h4 id="下面就是上面难点和不太清楚的地方攻关"><a href="#下面就是上面难点和不太清楚的地方攻关" class="headerlink" title="下面就是上面难点和不太清楚的地方攻关"></a>下面就是上面难点和不太清楚的地方攻关</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">kCTForegroundColorFromContextAttributeName  这个开关是关于是否用context 颜色来填充</div><div class="line">要是yes的话，kCTUnderlineStyleAttributeName 属性将失去效果。</div><div class="line"></div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetRGBStrokeColor(context, 0, 1, 0, 1);</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;kCTForegroundColorFromContextAttributeName&quot;];</div><div class="line">    </div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithObject:(id)(@(YES)) forKey:(__bridge NSString *)kCTForegroundColorFromContextAttributeName];</div><div class="line">    [dic setObject:(id)([UIColor redColor].CGColor) forKey:(__bridge NSString *)kCTUnderlineColorAttributeName];</div><div class="line">    [dic setObject:(id)(@(kCTUnderlineStyleSingle)) forKey:(__bridge NSString *)kCTUnderlineStyleAttributeName];</div><div class="line">    </div><div class="line">    [mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    </div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    CTFrameDraw(frame, context);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果  <img src="/images/image-12.tiff" alt="image"></p>
+<p>同时设置CGContextRef 颜色 和 kCTUnderlineStyleAttributeName 属性值，而其动作用的是CGContextRef颜色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTLigatureAttributeName  连体字  没发现可用的字体</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTSuperscriptAttributeName  上标和下标 没看出效果</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">kCTUnderlineColorAttributeName  这个可以被 kCTForegroundColorFromContextAttributeName 属性影响， 要是该属性设置为yes  那么该属性就失效了</div><div class="line"></div><div class="line">补充： 下划线的还可以设置成一下样式：</div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetRGBStrokeColor(context, 0, 1, 0, 1);</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;&quot;];</div><div class="line"></div><div class="line">    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternSolid)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternDot)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternDash)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternDashDot)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];    [self string:mabstring appendString:kCTUnderlineStyleAttributeName value:(id)(@(kCTUnderlineStyleDouble|kCTUnderlinePatternDashDotDot)) string:@&quot;\nkCTUnderlineStyleAttributeName&quot;];</div><div class="line"></div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    CTFrameDraw(frame, context);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图：<img src="/images/image-13.tiff" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTHorizontalInVerticalFormsAttributeName   暂时不知道有啥用</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTGlyphInfoAttributeName  这个具体用法要看CTGlyphInfo.h</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTCharacterShapeAttributeName  9.0 以后被废弃了。不研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTLanguageAttributeName   暂时不知道干嘛用</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTBaselineClassAttributeName  没研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTBaselineInfoAttributeName 没研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTBaselineReferenceInfoAttributeName  没研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kCTWritingDirectionAttributeName  没研究</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">kCTRubyAnnotationAttributeName   类似汉语拼音的注音</div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetRGBStrokeColor(context, 0, 1, 0, 1);</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;kCTRubyAnnotationAttributeName&quot;];</div><div class="line">    CTRubyAnnotationRef rubyAnnotation =CTRubyAnnotationCreateWithAttributes(0, 0, 0, (__bridge CFStringRef)@&quot;nihoa&quot;, NULL);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithObject:(__bridge id)(rubyAnnotation) forKey:(__bridge NSString *)kCTRubyAnnotationAttributeName];</div><div class="line">    [mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    CTFrameDraw(frame, context);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如下:</p>
+<p><img src="/images/image-14.tiff" alt="image"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/02/CTStringAttributes学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-CTRun学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/CTRun学习/">CTRun.h学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/CTRun学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T05:58:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CTLine是由CTRun组成的。</p>
+<p>我们通过以下几个方面来看看CTRun</p>
+<p>   1.Glyph Run Types</p>
+<p>   2Glyph Run Access</p>
+<h3 id="1-Glyph-Run-Types"><a href="#1-Glyph-Run-Types" class="headerlink" title="1.Glyph Run Types"></a>1.Glyph Run Types</h3><p>CFTypeID CTRunGetTypeID( void ) 获取CTRunRef 的 CFTypeID </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">typedef CF_OPTIONS(uint32_t, CTRunStatus)</div><div class="line">&#123;</div><div class="line">    kCTRunStatusNoStatus = 0,</div><div class="line">    kCTRunStatusRightToLeft = (1 &lt;&lt; 0),</div><div class="line">    kCTRunStatusNonMonotonic = (1 &lt;&lt; 1),</div><div class="line">    kCTRunStatusHasNonIdentityMatrix = (1 &lt;&lt; 2)</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Run的状态</div><div class="line">kCTRunStatusNoStatus 没有属性</div><div class="line">kCTRunStatusRightToLeft  暂时不知道干嘛的 </div><div class="line">kCTRunStatusNonMonotonic   暂时不知道干嘛的</div><div class="line">kCTRunStatusHasNonIdentityMatrix   暂时不知道干嘛的</div></pre></td></tr></table></figure>
+<h3 id="2-Glyph-Run-Access"><a href="#2-Glyph-Run-Access" class="headerlink" title="2.Glyph Run Access"></a>2.Glyph Run Access</h3><table>
+<thead>
+<tr>
+<th>CTRunGetGlyphCount (CTRunRef run )</th>
+<th>获取run的字体个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFDictionaryRef CTRunGetAttributes(CTRunRef run )</td>
+<td>获取run的属性</td>
+</tr>
+<tr>
+<td>CTRunStatus CTRunGetStatus(CTRunRef run )</td>
+<td>获取 status 不知道这个干嘛用</td>
+</tr>
+<tr>
+<td>const CGGlyph * __nullable CTRunGetGlyphsPtr(CTRunRef run )</td>
+<td>获取一个CGGlyph 指针数组</td>
+</tr>
+<tr>
+<td>void CTRunGetGlyphs(CTRunRef run,CFRange range,CGGlyph buffer[] )</td>
+<td>获取数据CGGlyph 在范围range</td>
+</tr>
+<tr>
+<td>const CGPoint * __nullable CTRunGetPositionsPtr(CTRunRef run )</td>
+<td>获取每个glyph 字体的起始位置数组</td>
+</tr>
+<tr>
+<td>void CTRunGetPositions(CTRunRef run,CFRange range,CGPoint buffer[] )</td>
+<td>获取数据获取数据CGGlyph位置 在范围range</td>
+</tr>
+<tr>
+<td>const CGSize * __nullable CTRunGetAdvancesPtr(CTRunRef run )</td>
+<td>获取CGGlyph 的大小数组</td>
+</tr>
+<tr>
+<td>void CTRunGetAdvances(CTRunRef run,CFRange range,CGSize buffer[] )</td>
+<td>获取数据获取数据CGGlyph大小 在范围range</td>
+</tr>
+<tr>
+<td>const CFIndex * __nullable CTRunGetStringIndicesPtr(CTRunRef run )</td>
+<td>获取CGGlyph 在整个字符串index数组的大小数组</td>
+</tr>
+<tr>
+<td>void CTRunGetStringIndices(CTRunRef run,CFRange range,CFIndex buffer[] )</td>
+<td>获取数据获取数据CGGlyph在整个字符串index处数组 在范围range</td>
+</tr>
+<tr>
+<td>CFRange CTRunGetStringRange(CTRunRef run )</td>
+<td>获取run在字符串中的range</td>
+</tr>
+<tr>
+<td>double CTRunGetTypographicBounds(CTRunRef run,CFRange range,CGFloat <em> __ nullable ascent,CGFloat </em>  <strong> nullable descent,CGFloat * </strong>nullable leading )</td>
+<td>获取run 在范围range的的相关信息 返回宽度</td>
+</tr>
+<tr>
+<td>CGRect CTRunGetImageBounds( CTRunRef run,CGContextRef __nullable context,CFRange range )</td>
+<td>获取一个rect 具体是怎么样子不知道</td>
+</tr>
+<tr>
+<td>CGAffineTransform CTRunGetTextMatrix(CTRunRef run )</td>
+<td>获取run 的二维矩阵</td>
+</tr>
+<tr>
+<td>void CTRunDraw(CTRunRef run,CGContextRef context,CFRange range )</td>
+<td>绘制run 位置什么的不变。</td>
+</tr>
+</tbody>
+</table>
+<p>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div></pre></td><td class="code"><pre><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学吧&quot;];</div><div class="line">    NSDictionary * dic = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:18] forKey:(__bridge NSString *)kCTFontAttributeName];</div><div class="line">    ///设置字体</div><div class="line">    [mabstring setAttributes:dic range:NSMakeRange(2, 3)];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;dd&quot;];</div><div class="line">   CTLineRef  linetoken = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTLineRef lineTru = CTLineCreateTruncatedLine(line, 300, kCTLineTruncationStart, linetoken);</div><div class="line">//    CTLineDraw(line, context);</div><div class="line"></div><div class="line">    </div><div class="line">    </div><div class="line">//    CTLineDraw(line, context);</div><div class="line">    double offset =  CTLineGetPenOffsetForFlush(line,0.5, 300);</div><div class="line">    NSLog(@&quot;line offset %f&quot;,offset);</div><div class="line">    UIView * view =[[UIView alloc]initWithFrame:CGRectMake(300/2-offset, self.bounds.size.height-64, offset, 10)];</div><div class="line">    [self addSubview:view];</div><div class="line">    view.backgroundColor =[UIColor redColor];</div><div class="line">    </div><div class="line">    view =[[UIView alloc]initWithFrame:CGRectMake(0, self.bounds.size.height-64, 300/2, 10)];</div><div class="line">    [self addSubview:view];</div><div class="line">    view.alpha = 0.4;</div><div class="line">    view.backgroundColor =[UIColor greenColor];</div><div class="line"></div><div class="line">    ///access</div><div class="line">    CFIndex index =   CTLineGetGlyphCount(lineTru);</div><div class="line">    NSLog(@&quot;line glyph %ld&quot;,index);</div><div class="line">    index =   CTLineGetGlyphCount(line);</div><div class="line">    NSLog(@&quot;line glyph %ld&quot;,index);</div><div class="line">    </div><div class="line">    </div><div class="line">  NSArray * runArr = (__bridge NSArray *)  CTLineGetGlyphRuns(line);</div><div class="line">    NSLog(@&quot;runArr %@&quot; ,runArr);</div><div class="line">    </div><div class="line"></div><div class="line">    if (runArr.count&gt;1) &#123;</div><div class="line">        CTRunRef run = (__bridge CTRunRef)runArr[1];</div><div class="line">        CFIndex index =  CTRunGetGlyphCount(run);</div><div class="line">        NSLog(@&quot;Run glyph 个数 %ld&quot;,index);</div><div class="line">       NSDictionary * dic = (__bridge NSDictionary * ) CTRunGetAttributes(run);</div><div class="line">        NSLog(@&quot;run att %@&quot;,dic);</div><div class="line">        CTRunStatus status = CTRunGetStatus(run);</div><div class="line">        NSLog(@&quot;run status %d&quot;,status);</div><div class="line">        </div><div class="line">        </div><div class="line">       const CGGlyph * glyph = CTRunGetGlyphsPtr(run);</div><div class="line">        const CGPoint * point =   CTRunGetPositionsPtr(run);</div><div class="line">        const CGSize * size = CTRunGetAdvancesPtr(run);</div><div class="line">        const CFIndex *  indexs = CTRunGetStringIndicesPtr(run);</div><div class="line">        for (int i=0; i&lt;index; i++) &#123;</div><div class="line">            NSLog(@&quot;run glyph   %d&quot;,glyph[i]);</div><div class="line">            NSLog(@&quot;run point %lf %lf&quot;,point[i].x,point[i].y);</div><div class="line">            NSLog(@&quot;run size %lf %lf&quot;,size[i].width,size[i].height);</div><div class="line">            NSLog(@&quot;run index %ld&quot;,indexs[i]);</div><div class="line">        &#125;</div><div class="line">        CGGlyph buffer[2];</div><div class="line">        CGPoint pointPos[2];</div><div class="line">        CGSize sizeBuffer[2];</div><div class="line">        CFIndex indexBuffer[2];</div><div class="line">        CTRunGetGlyphs(run, CFRangeMake(0, 2), buffer);</div><div class="line">        NSLog(@&quot;run glyph %d %d&quot;,buffer[0],buffer[1]);</div><div class="line">        CTRunGetPositions(run, CFRangeMake(0, 2), pointPos);</div><div class="line">        NSLog(@&quot;run glyph point %lf %lf&quot;,pointPos[0].x,pointPos[1].y);</div><div class="line">        CTRunGetAdvances(run, CFRangeMake(0, 2), sizeBuffer);</div><div class="line">        NSLog(@&quot;run glyph size %lf %lf&quot;,sizeBuffer[0].width,sizeBuffer[1].height);</div><div class="line">         CTRunGetStringIndices(run,CFRangeMake(0, 2),indexBuffer);</div><div class="line">        NSLog(@&quot;run glyph index %ld %ld&quot;,indexBuffer[0],indexBuffer[1]);</div><div class="line">        CFRange stringRange =  CTRunGetStringRange(run);</div><div class="line">        NSLog(@&quot;run string range %ld %ld&quot;,stringRange.location,stringRange.length);</div><div class="line">        CGFloat ascent;</div><div class="line">        CGFloat descent;</div><div class="line">        CGFloat leading;</div><div class="line">        CTRunGetTypographicBounds(run, CFRangeMake(1, 2), &amp;ascent, &amp;descent, &amp;leading);</div><div class="line">        NSLog(@&quot;run ascent %f,descent %f,leading %f&quot;,ascent,descent,leading);</div><div class="line"></div><div class="line">    CGRect imageRect=  CTRunGetImageBounds(run, context, CFRangeMake(1, 2));</div><div class="line">        NSLog(@&quot;不知道能干嘛 run image rect %@&quot;,NSStringFromCGRect(imageRect));</div><div class="line">        UIView * view = [[UIView alloc]initWithFrame:imageRect];</div><div class="line">        view.backgroundColor =[UIColor redColor ];</div><div class="line">        view.alpha = 0.8;</div><div class="line">        [self addSubview:view];</div><div class="line">        CGAffineTransform transfrom =   CTRunGetTextMatrix(run);</div><div class="line">        NSLog(@&quot;run transform %@&quot;,NSStringFromCGAffineTransform(transfrom));</div><div class="line">        </div><div class="line">        CTRunDraw(run, context, CFRangeMake(1, 2));</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    结果</div><div class="line">    2017-02-27 15:12:46.162 CoreTextDemo[11205:345484] line offset 110.487000</div><div class="line">2017-02-27 15:12:46.163 CoreTextDemo[11205:345484] line glyph 5</div><div class="line">2017-02-27 15:12:46.163 CoreTextDemo[11205:345484] line glyph 5</div><div class="line">2017-02-27 15:12:46.163 CoreTextDemo[11205:345484] runArr (</div><div class="line">    &quot;&lt;CTRun: 0x7fdb89c28330&gt;&#123;string range = (0, 2), string = \&quot;\\u5BCC\\u6587\&quot;, attributes = &lt;CFBasicHash 0x60800026abc0 [0x10117ec70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x101b3b788 [0x10117ec70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7fdb89c28130&gt;&#123;name = PingFangSC-Regular, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x60000008a640&gt;&#123;attributes = &lt;CFBasicHash 0x600000271a80 [0x10117ec70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x101b41908 [0x10117ec70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x10ea6d6c0 [0x10117ec70]&gt;&#123;contents = \&quot;PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;&quot;,</div><div class="line">    &quot;&lt;CTRun: 0x7fdb89c3d710&gt;&#123;string range = (2, 3), string = \&quot;\\u672C\\u5B66\\u5427\&quot;, attributes = &lt;CFBasicHash 0x60800026a8c0 [0x10117ec70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x101b3b788 [0x10117ec70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7fdb89c3d3f0&gt;&#123;name = .PingFangSC-Regular, size = 18.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x60000008d570&gt;&#123;attributes = &lt;CFBasicHash 0x600000279140 [0x10117ec70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x101b41908 [0x10117ec70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x101b39be8 [0x10117ec70]&gt;&#123;contents = \&quot;.PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;&quot;</div><div class="line">)</div><div class="line">2017-02-27 15:12:46.171 CoreTextDemo[11205:345484] Run glyph 个数 3</div><div class="line">2017-02-27 15:12:46.171 CoreTextDemo[11205:345484] run att &#123;</div><div class="line">    NSFont = &quot;&lt;UICTFont: 0x7fdb89c3d3f0&gt; font-family: \&quot;.PingFangSC-Regular\&quot;; font-weight: normal; font-style: normal; font-size: 18.00pt&quot;;</div><div class="line">&#125;</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run status 0</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run glyph   3676</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run point 24.000000 0.000000</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run size 18.342000 0.000000</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run index 2</div><div class="line">2017-02-27 15:12:46.172 CoreTextDemo[11205:345484] run glyph   2573</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run point 42.342000 0.000000</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run size 18.342000 0.000000</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run index 3</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run glyph   1929</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run point 60.684000 0.000000</div><div class="line">2017-02-27 15:12:46.173 CoreTextDemo[11205:345484] run size 18.342000 0.000000</div><div class="line">2017-02-27 15:12:46.255 CoreTextDemo[11205:345484] run index 4</div><div class="line">2017-02-27 15:12:46.255 CoreTextDemo[11205:345484] run glyph 3676 2573</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run glyph point 24.000000 0.000000</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run glyph size 18.342000 0.000000</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run glyph index 2 3</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run string range 2 3</div><div class="line">2017-02-27 15:12:46.256 CoreTextDemo[11205:345484] run ascent 15.480000,descent 2.520000,leading 0.540000</div><div class="line">2017-02-27 15:12:46.257 CoreTextDemo[11205:345484] 不知道能干嘛 run image rect &#123;&#123;19.619999999999997, -1.7459999999999998&#125;, &#123;34.128, 16.631999999999998&#125;&#125;</div><div class="line">2017-02-27 15:12:46.257 CoreTextDemo[11205:345484] run transform [1, 0, 0, 1, 0, 0]</div></pre></td></tr></table></figure>
+<p>从run 的api中可以看出，run 是CGGlyph 组成的。CGGlayph可以用来创建字体。</p>
+<p><strong>CTRun  CTLine CTFrame CTFrameSetter 这些就可以完成文本的布局了。</strong></p>
+<p>### </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/02/CTRun学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-CTLine学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/CTLine学习/">CTLine.h学习</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/CTLine学习/" class="archive-article-date">
+  	<time datetime="2017-03-02T05:57:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CTFrame布局是由Path  和CTLine 组成的。</p>
+<p>我们能从CTLine中获取到什么信息呢。</p>
+<p>我们从以下方面  <strong>Line Types</strong>, <strong>Line Creation</strong>,<strong>Line Access</strong> ,<strong>Line Measurement</strong>, <strong>Line Caret Positioning and Highlighting</strong></p>
+<h4 id="1-Line-Types"><a href="#1-Line-Types" class="headerlink" title="1.Line Types"></a>1.Line Types</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFTypeID CTLineGetTypeID( void )</div><div class="line">获取CTLine的 CFTypeID</div></pre></td></tr></table></figure>
+<p>枚举值 CTLineBoundsOptions   和  CTLineTruncationType</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef CF_OPTIONS(CFOptionFlags, CTLineBoundsOptions) &#123;</div><div class="line">    kCTLineBoundsExcludeTypographicLeading  = 1 &lt;&lt; 0,</div><div class="line">    kCTLineBoundsExcludeTypographicShifts   = 1 &lt;&lt; 1,</div><div class="line">    kCTLineBoundsUseHangingPunctuation      = 1 &lt;&lt; 2,</div><div class="line">    kCTLineBoundsUseGlyphPathBounds         = 1 &lt;&lt; 3,</div><div class="line">    kCTLineBoundsUseOpticalBounds           = 1 &lt;&lt; 4,</div><div class="line">    kCTLineBoundsIncludeLanguageExtents CT_ENUM_AVAILABLE(10_11, 8_0) = 1 &lt;&lt; 5,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>目前看上面的枚举值不知道具体有啥用。放过，等看完下面的回来补充。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(uint32_t, CTLineTruncationType) &#123;</div><div class="line">    kCTLineTruncationStart  = 0,</div><div class="line">    kCTLineTruncationEnd    = 1,</div><div class="line">    kCTLineTruncationMiddle = 2</div><div class="line">&#125;;</div><div class="line">这个kCTLineTruncationStart 截断头部</div><div class="line">kCTLineTruncationEnd 截断尾部</div><div class="line">kCTLineTruncationMiddle 截断中间</div></pre></td></tr></table></figure>
+<h4 id="2-Line-Creation"><a href="#2-Line-Creation" class="headerlink" title="2.Line Creation"></a>2.Line Creation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">CTLineRef CTLineCreateWithAttributedString(</div><div class="line">    CFAttributedStringRef attrString )  </div><div class="line">根据CFAttributedStringRef 创建一个 CTLineRef     这个只能创建一行文本。</div><div class="line"></div><div class="line">//CTLine</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习富文本学习富文本学习富文本学习富文本学习富文本学习富文本学习富文本学习&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    CTLineDraw(line, context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/images/image-5.tiff" alt="image"></p>
+<p>文字一行排开。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">CTLineRef __nullable CTLineCreateTruncatedLine(</div><div class="line">    CTLineRef line,</div><div class="line">    double width,</div><div class="line">    CTLineTruncationType truncationType,</div><div class="line">    CTLineRef __nullable truncationToken )</div><div class="line">    </div><div class="line">   line 创建的截断的线</div><div class="line">   width 截断位置</div><div class="line">   truncationType 截断类型 头部截断还是中部尾部截断</div><div class="line">   truncationToken  这个是截断标志  不能让 truncationToken 线宽大于 width 要是大于width 函数返回NULL。</div><div class="line">   </div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功。总是么盛大的饭卡多看看案发扩大到非卡卡打卡卡&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;dd&quot;];</div><div class="line">   CTLineRef  linetoken = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTLineRef lineTru = CTLineCreateTruncatedLine(line, 300, kCTLineTruncationStart, linetoken);</div><div class="line">//    CTLineDraw(line, context);</div><div class="line">    CTLineDraw(lineTru, context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>头部截断效果如下：</p>
+<p><img src="/images/image-8.tiff" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">CTLineRef __nullable CTLineCreateJustifiedLine(</div><div class="line">    CTLineRef line,</div><div class="line">    CGFloat justificationFactor,</div><div class="line">    double justificationWidth )</div><div class="line">    line 参考线</div><div class="line">    justificationFactor  调整文字显示宽度比例 。大于等于1 就是justificationWidth 小于 1 大于零  宽度就是justificationFactor * justificationWidth</div><div class="line">    justificationWidth 宽度。</div><div class="line">   调整宽度小于实际宽度，文字会被压扁。</div><div class="line">    </div><div class="line">    //CTLine</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">  CTLineRef lineJustified =  CTLineCreateJustifiedLine(line, 1, 300);</div><div class="line">    </div><div class="line">    CTLineDraw(line, context);</div><div class="line">    CTLineDraw(lineJustified, context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如图</p>
+<p><img src="/images/image-6.tiff" alt="image"></p>
+<p>要是文本过长，justificationFactor 必须大于等于 1 否则，不进行CTLine绘制。</p>
+<p>代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//CTLine</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功。总是么盛大的饭卡多看看案发扩大到非卡卡打卡卡&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">  CTLineRef lineJustified =  CTLineCreateJustifiedLine(line, 1, 300);</div><div class="line">    </div><div class="line">//    CTLineDraw(line, context);</div><div class="line">    CTLineDraw(lineJustified, context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图：</p>
+<p><img src="/images/image-7.tiff" alt="image"></p>
+<p>文字压扁了。</p>
+<h3 id="3-Line-Access"><a href="#3-Line-Access" class="headerlink" title="3.Line Access"></a>3.Line Access</h3><table>
+<thead>
+<tr>
+<th>CFIndex CTLineGetGlyphCount( CTLineRef line )</th>
+<th>获取Glyph的个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFArrayRef CTLineGetGlyphRuns(CTLineRef line )</td>
+<td>获取CTRunRef数组</td>
+</tr>
+<tr>
+<td>CFRange CTLineGetStringRange(CTLineRef line )</td>
+<td>获取线所在字符串的范围</td>
+</tr>
+<tr>
+<td>double CTLineGetPenOffsetForFlush( CTLineRef line, CGFloat flushFactor, double flushWidth )</td>
+<td>文本flushFactor比例的距离到flushWidth<em>flushFactor的距离  flushFactor大于1 相当于1操作。公式  假设文本长度textWidth  结果result=flushWidth  </em>  flushFactor - flushFactor  * textWidth</td>
+</tr>
+<tr>
+<td>void CTLineDraw(  CTLineRef line,  CGContextRef context )</td>
+<td>绘制线。位置是从底部向上绘制。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">//    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功。总是么盛大的饭卡多看看案发扩大到非卡卡打卡卡&quot;];</div><div class="line">   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;dd&quot;];</div><div class="line">   CTLineRef  linetoken = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    </div><div class="line">    CTLineRef lineTru = CTLineCreateTruncatedLine(line, 300, kCTLineTruncationStart, linetoken);</div><div class="line">//    CTLineDraw(line, context);</div><div class="line"></div><div class="line">    </div><div class="line">    </div><div class="line">    CTLineDraw(line, context);</div><div class="line">    double offset =  CTLineGetPenOffsetForFlush(line, 2, 100);</div><div class="line">    NSLog(@&quot;line offset %f&quot;,offset);</div><div class="line">    ///access</div><div class="line">    CFIndex index =   CTLineGetGlyphCount(lineTru);</div><div class="line">    NSLog(@&quot;line glyph %ld&quot;,index);</div><div class="line">    index =   CTLineGetGlyphCount(line);</div><div class="line">    NSLog(@&quot;line glyph %ld&quot;,index);</div><div class="line">    </div><div class="line">    </div><div class="line">  NSArray * runArr = (__bridge NSArray *)  CTLineGetGlyphRuns(line);</div><div class="line">    NSLog(@&quot;runArr %@&quot; ,runArr);</div><div class="line">    CFRange range =  CTLineGetStringRange(lineTru );</div><div class="line">    NSLog(@&quot;line range %ld %ld&quot;,range.location,range.length);</div><div class="line">    range =  CTLineGetStringRange(line);</div><div class="line">    NSLog(@&quot;line range %ld %ld&quot;,range.location,range.length);</div><div class="line">&#125;</div><div class="line"></div><div class="line">结果：</div><div class="line">2017-02-24 17:07:16.149 CoreTextDemo[5171:125678] line offset 0.000000</div><div class="line">2017-02-24 17:07:16.149 CoreTextDemo[5171:125678] line glyph 25</div><div class="line">2017-02-24 17:07:16.149 CoreTextDemo[5171:125678] line glyph 41</div><div class="line">2017-02-24 17:07:16.150 CoreTextDemo[5171:125678] runArr (</div><div class="line">    &quot;&lt;CTRun: 0x7febf3709730&gt;&#123;string range = (0, 41), string = \&quot;\\u5BCC\\u6587\\u672C\\u5B66\\u4E60\\u6162\\u6162\\u6765\\u5427\\u3002\\u4E0D\\u662F\\u4E00\\u671D\\u4E00\\u5915\\u4E4B\\u529F\\u3002\\u603B\\u662F\\u4E48\\u76DB\\u5927\\u7684\\u996D\\u5361\\u591A\\u770B\\u770B\\u6848\\u53D1\\u6269\\u5927\\u5230\\u975E\\u5361\\u5361\\u6253\\u5361\\u5361\&quot;, attributes = &lt;CFBasicHash 0x600000266940 [0x10f4b1c70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10fe6e788 [0x10f4b1c70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7febf3709600&gt;&#123;name = PingFangSC-Regular, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x608000094e60&gt;&#123;attributes = &lt;CFBasicHash 0x60800026d980 [0x10f4b1c70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10fe74908 [0x10f4b1c70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x11cda06c0 [0x10f4b1c70]&gt;&#123;contents = \&quot;PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;&quot;</div><div class="line">)</div><div class="line">2017-02-24 17:07:16.150 CoreTextDemo[5171:125678] line range 0 41</div><div class="line">2017-02-24 17:07:16.152 CoreTextDemo[5171:125678] line range 0 41</div></pre></td></tr></table></figure>
+<p>从上面结果看：CTLineGetStringRange获取的范围可能会有问题。用的时候要小心（要是自己创建CTline的话）这个只是自己创建的CTline不准，而CTFrame创建的CTLine是没问题的。</p>
+<p>CTLineGetPenOffsetForFlush 函数相当于 文本到某点还有多少距离。</p>
+<p>测试代码是</p>
+<p>` NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@”富文本学”];</p>
+<p>   CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)mabstring);</p>
+<pre><code>CTLineDraw(line, context);
+
+double offset =  CTLineGetPenOffsetForFlush(line,0.5, 300);
+
+NSLog(@&quot;line offset %f&quot;,offset);`
+</code></pre><p>如图</p>
+<p><img src="/images/image-9.tiff" alt="image"></p>
+<p>打印结果是<strong>2017-02-24 19:33:15.061 CoreTextDemo[4317:74402] line offset 126.000000</strong></p>
+<h3 id="4-Line-Measurement"><a href="#4-Line-Measurement" class="headerlink" title="4.Line Measurement"></a>4.Line Measurement</h3><table>
+<thead>
+<tr>
+<th>CTLineGetTypographicBounds( CTLineRef line,CGFloat <em> __nullable ascent,CGFloat </em> <strong>nullable descent, CGFloat * </strong>nullable leading )</th>
+<th>获取线 的ascent descent leading ,返回宽度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CGRect CTLineGetBoundsWithOptions(CTLineRef line,CTLineBoundsOptions options )</td>
+<td>目前还不知道CTLineBoundsOptions 代表啥。 应该与富文本的设置有关。暂时不做研究</td>
+</tr>
+<tr>
+<td>double CTLineGetTrailingWhitespaceWidth(CTLineRef line )</td>
+<td>目前还不会用</td>
+</tr>
+<tr>
+<td>CGRect CTLineGetImageBounds(CTLineRef line,CGContextRef __nullable context )</td>
+<td>目前还不会用</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CGFloat ascent;</div><div class="line">CGFloat descent;</div><div class="line">CGFloat leading;</div><div class="line">CTLineGetTypographicBounds(line, &amp;ascent, &amp;descent, &amp;leading);</div><div class="line">NSLog(@&quot;line ascent %f,descent %f,leading %f&quot;,ascent,descent,leading);</div></pre></td></tr></table></figure>
+<h3 id="5-Line-Caret-Positioning-and-Highlighting"><a href="#5-Line-Caret-Positioning-and-Highlighting" class="headerlink" title="5.Line Caret Positioning and Highlighting"></a>5.Line Caret Positioning and Highlighting</h3><table>
+<thead>
+<tr>
+<th>CFIndex CTLineGetStringIndexForPosition(CTLineRef line,CGPoint position )</th>
+<th>获取线position位置的String index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CGFloat CTLineGetOffsetForStringIndex(CTLineRef line,CFIndex charIndex,CGFloat * __nullable secondaryOffset )</td>
+<td>获取index位置字符的偏移量。目前不知道 返回结果和secondaryOffset 的区别</td>
+</tr>
+<tr>
+<td>void CTLineEnumerateCaretOffsets(CTLineRef line,void (^block)(double offset, CFIndex charIndex, bool leadingEdge, bool* stop) ) CT_AVAILABLE(10_11, 9_0)</td>
+<td>返回每个字体的前后边沿</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">CFIndex stringIndex =  CTLineGetStringIndexForPosition(line, CGPointMake(20,3 ));</div><div class="line">    NSLog(@&quot;line StringIndex %ld&quot;,stringIndex);</div><div class="line">    </div><div class="line">    CGFloat  secondaryOffset;</div><div class="line">   CGFloat offsetIndex = CTLineGetOffsetForStringIndex(line, 2,&amp;secondaryOffset );</div><div class="line">    NSLog(@&quot;line IndexOffset %lf ,secondaryOffset %lf&quot;,offsetIndex,secondaryOffset);</div><div class="line">    </div><div class="line">    CTLineEnumerateCaretOffsets(line, ^(double offset, CFIndex charIndex, bool leadingEdge, bool * _Nonnull stop) &#123;</div><div class="line">        NSLog(@&quot; offset %lf,charindex %ld,leadingEdge %d&quot;,offset,charIndex,leadingEdge);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">结果</div><div class="line">2017-02-27 11:29:21.537 CoreTextDemo[6188:222405] line StringIndex 2</div><div class="line">2017-02-27 11:29:21.537 CoreTextDemo[6188:222405] line IndexOffset 24.000000 ,secondaryOffset 24.000000</div><div class="line">2017-02-27 11:29:21.537 CoreTextDemo[6188:222405]  offset 0.000000,charindex 0,leadingEdge 1</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 12.000000,charindex 0,leadingEdge 0</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 12.000000,charindex 1,leadingEdge 1</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 24.000000,charindex 1,leadingEdge 0</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 24.000000,charindex 2,leadingEdge 1</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 36.000000,charindex 2,leadingEdge 0</div><div class="line">2017-02-27 11:29:21.538 CoreTextDemo[6188:222405]  offset 36.000000,charindex 3,leadingEdge 1</div><div class="line">2017-02-27 11:29:21.539 CoreTextDemo[6188:222405]  offset 48.000000,charindex 3,leadingEdge 0</div></pre></td></tr></table></figure>
+<p>CTLine  的模型图</p>
+<p><img src="/images/image-10.tiff" alt="image"></p>
+<p>## </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/02/CTLine学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-CTFrameSetter学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -394,7 +1006,7 @@
 <td></td>
 </tr>
 <tr>
-<td>CTGlyphInfo.h</td>
+<td><a href="https://npopensource.github.io/2017/03/02/CTGlyphInfo学习/" target="_blank" rel="external">CTGlyphInfo.h</a></td>
 <td></td>
 </tr>
 <tr>
@@ -622,555 +1234,9 @@ defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-6.4
 
 
   
-    <article id="post-2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/18/2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi/">更改xcode生成每个文件头信息</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/18/2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi/" class="archive-article-date">
-  	<time datetime="2015-08-18T02:13:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>修改xocde文件 的头信息</p>
-<blockquote>
-<p>点击工程文件</p>
-<p>点击右边的文件设置窗口</p>
-<p>配置project Document 选项中的相关信息</p>
-</blockquote>
-<p><img src="/images/xcodeSix.jpeg" alt="image"></p>
-<p>上图第四步 class Prefix 是配置文件头，生成每个类前的头</p>
-<p><img src="/images/xcodeFileFour.png" alt="image"> </p>
-<p>organization 是配置文件中的    <strong>科技</strong>        位置的字</p>
-<p><img src="/images/xcodeFileFive.png" alt="image"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/18/2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-2015-08-17-avfoundation-dot-fromworkde-xue-xi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/">AVFoundation.framework的学习</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/" class="archive-article-date">
-  	<time datetime="2015-08-17T09:15:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近学习自定义相机的相关知识，可以自定义相机成功，但是对AVFoundation不是很了解，这里有必要对这个AVFoundation.framework。</p>
-<p>（感觉写点东西咋这么困难）</p>
-<p>##学习类对象</p>
-<blockquote>
-<p>AVCaptureSession、AVCaptureInput 和    AVCaptureOutput 的学习</p>
-</blockquote>
-<pre><code>AVCaptureInput is an abstract base-class describing an input data source to an AVCaptureSession object. 
-
-AVCaptureOutput is an abstract base class describing an output destination of an AVCaptureSession object
-
-You use an AVCaptureSession object to coordinate the flow of data from AV input devices to outputs
-</code></pre><p>#####参考连接<br><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVFoundationFramework/" target="_blank" rel="external">苹果AVFoundation ref</a></p>
-<p><a href="https://developer.apple.com/library/prerelease/mac/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html" target="_blank" rel="external">苹果AVFoundation Programming Guide</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-2015-08-12-zi-ding-yi-xiang-ji" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/">自定义相机</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/" class="archive-article-date">
-  	<time datetime="2015-08-12T03:31:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##调用系统相机</p>
-<p>调用系统相机一般的功能是可以满足的，如果没有特殊的要求要求，可以直接用系统相机。</p>
-<p>代码如下：</p>
-<pre><code>调用照相机
-
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-
-    UIImagePickerController * picker = [[UIImagePickerController alloc]init];
-    picker.delegate = self;
-    block(picker);
-    //摄像头
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:picker animated:YES completion:^{
-
-    }];
-}else{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@&quot;Error&quot; message:@&quot;你没有摄像头&quot; delegate:nil cancelButtonTitle:@&quot;Drat!&quot; otherButtonTitles:nil];
-    [alert show];
-
-}
-</code></pre><p>获取图片或者取消图片实现代理</p>
-<pre><code>- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-
-UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
-if ([self respondsToSelector:@selector(getCameraImage:)]) {
-    [self getCameraImage:image];
-}
-[self dismissViewControllerAnimated:YES completion:^{
-
-}];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-[self dismissViewControllerAnimated:YES completion:^{
-
-}];
-}
-</code></pre><p>以上代码只是简单的调用下系统相机。并没有对相机进行相关设置。</p>
-<p>配置前</p>
-<p><img src="/images/comera1.jpg" alt="image"></p>
-<pre><code>注意将系统相机配置成中文 ，在工程文件plist 中添加下面一项即可。
-</code></pre><p><img src="/images/camerasytemChinese.png" alt="image"></p>
-<p>配置后</p>
-<p><img src="/images/comera2.jpg" alt="image"></p>
-<p>##自定义相机</p>
-<pre><code>我个人偏向用自定义相机，个人理由只有一条，可以高度定制。（虽然有点麻烦）
-
-暂时更新到这里（哈哈。没有上下文了。）我发现学习相机还是先系统学习学习avfoudation.framework 比较靠谱些。学完av 再回来学喽
-</code></pre><p>#####参考连接</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/">进军二维码，从零开始学习二维码</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/" class="archive-article-date">
-  	<time datetime="2015-08-11T10:30:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>做项目挺久的了，但是二维码这块总是用别人写好的，自己从来没有操过刀，内心有点小不爽啊，今天索性就写个博客，自己给自己定定需要，学学学习二维码。</p>
-<pre><code>二维条码/二维码（2-dimensional bar code）是用某种特定的几何图形按一定规律在平面（二维方向上）分布的黑白相间的图形记录数据符号信息的；在代码编制上巧妙地利用构成计算机内部逻辑基础的“0”、“1”比特流的概念，使用若干个与二进制相对应的几何形体来表示文字数值信息，通过图象输入设备或光电扫描设备自动识读以实现信息自动处理：它具有条码技术的一些共性：每种码制有其特定的字符集；每个字符占有一定的宽度；具有一定的校验功能等。同时还具有对不同行的信息自动识别功能、及处理图形旋转变化点。
-</code></pre><h2 id="二维码扫描"><a href="#二维码扫描" class="headerlink" title="二维码扫描"></a>二维码扫描</h2><p>现在都是2015年了。就不研究ZBar和ZXing了。今天要介绍的是iOS7.0后AVFoundation框架提供的原生二维码扫描。</p>
-<h2 id="二维码生成"><a href="#二维码生成" class="headerlink" title="二维码生成"></a>二维码生成</h2><p>#####参考链接</p>
-<p><a href="http://" target="_blank" rel="external">二维码百度百科</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-2015-08-10-cgaffinetransform-dot-hlei-de-xue-xi-he-yuan-li-jiang-jie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/10/2015-08-10-cgaffinetransform-dot-hlei-de-xue-xi-he-yuan-li-jiang-jie/">CGAffineTransform.h类的学习和原理讲解</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/10/2015-08-10-cgaffinetransform-dot-hlei-de-xue-xi-he-yuan-li-jiang-jie/" class="archive-article-date">
-  	<time datetime="2015-08-10T07:25:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 第一次写ios相关技术博客，所以先写个简单的，写的不好大家多多提意见。<br> 想学好这个类，我感觉最好还是从理论上弄明白什么二维图形到底是怎么变换的。</p>
-<h2 id="矩阵及其运算"><a href="#矩阵及其运算" class="headerlink" title="矩阵及其运算"></a>矩阵及其运算</h2><blockquote>
-<p>一．数学概念<br>定义1.1 由<img src="/images/juzhen1.gif" alt="image">个数<img src="/images/juzhen2.gif" alt="image">   排成m行n列的数表<br><img src="/images/juzhen3.gif" alt="image"></p>
-</blockquote>
-<p>称为m行n列的矩阵，简称   矩阵，记作</p>
-<p><img src="/images/juzhen4.gif" alt="image"></p>
-<blockquote>
-<p>二．原理，公式和法则</p>
-</blockquote>
-<p>1．矩阵的加法<br>(1) 公式</p>
-<p> <img src="/images/juzhen5.gif" alt="image"></p>
-<p>  (2) 运算律</p>
-<p> <img src="/images/juzhen6.gif" alt="image"></p>
-<p> 2．数乘矩阵<br> (1) 公式</p>
-<p>  <img src="/images/juzhen7.gif" alt="image"></p>
-<p>(2) 运算律<br>  <img src="/images/juzhen8.gif" alt="image"></p>
-<p> 3．矩阵与矩阵相乘<br> (1) 设 <img src="/images/juzhen9.gif" alt="image">  ,<br> 则 <img src="/images/juzhen10.gif" alt="image">  其中 <img src="/images/juzhen11.gif" alt="image">  ，且</p>
-<p><img src="/images/juzhen12.gif" alt="image"> </p>
-<p>（2）　运算符(假设运算都是可行的)：</p>
-<p><img src="/images/juzhen13.gif" alt="image"> </p>
-<p>(3)　方阵的运算</p>
-<p><img src="/images/juzhen14.gif" alt="image"> </p>
-<p>注意：①矩阵乘法一般不满足交换律。<br>②一般 <img src="/images/juzhen15.gif" alt="image"> </p>
-<p>4.矩阵的转置<br>(1)　公式</p>
-<p><img src="/images/juzhen16.png" alt="image"> </p>
-<p><img src="/images/juzhen17.png" alt="image"> </p>
-<p> (2)　运算律</p>
-<p> <img src="/images/juzhen18.gif" alt="image"> </p>
-<p> 5.方阵的行列式</p>
-<p><img src="/images/juzhen19.png" alt="image"> </p>
-<p>6.共轭矩阵</p>
-<p><img src="/images/juzhen20.png" alt="image"> </p>
-<p>上面一定要看懂矩阵的乘法是怎么运算的才行。</p>
-<h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><blockquote>
-<p>1、基本几何变换及变换矩阵</p>
-</blockquote>
-<p>基本几何变换都是相对于坐标原点和坐标轴进行的几何变换，有平移、比例、旋转、反射和错切等</p>
-<p><strong>1.1 平移变换</strong></p>
-<p>是指将p点沿直线路径从一个坐标位置移到另一个坐标位置的重定位过程。他是一种不产生变形而移动物体的刚体变换（rigid-body transformation），如下图所示。</p>
-<p><img src="/images/juzhen21.png" alt="image"></p>
-<p> 推导：</p>
-<p> <img src="/images/juzhen22.png" alt="image"></p>
-<pre><code>    解释(个人理解)
-    x&apos;=x+Tx  相当于x&apos;= x*1 + y*0 +  1 * Tx
-    y&apos;=y+Ty  相当于y&apos;= x*0 + y*1 +  1 * Ty
-
-    所以 A 矩阵  [x  y 1]
-         C 矩阵要和A矩阵格式一样 [x&apos; y&apos; 1]
-        c矩阵的1 怎么来。只能添加一行了
-
-        1=x*0+y*0+ 1*1
-
-所以b矩阵为 上面如图
-</code></pre><p><strong>1.2 缩放变换</strong><br>缩放变换是指对p点相对于坐标原点沿x方向放缩Sx倍，沿y方向放缩Sy倍。其中Sx和Sy称为缩放系数。</p>
-<p><img src="/images/juzhen23.png" alt="image"><br>推导：</p>
-<p><img src="/images/juzhen24.png" alt="image">    </p>
-<p>  矩阵<br><img src="/images/juzhen25.png" alt="image">        </p>
-<pre><code>x&apos;=x*Sx+y*0 + 0*0;
-y&apos;=x*0 +y *Sy+0*0;
-0=x*0+y*0+0*1;
-</code></pre><p>缩放变换可改变物体的大小，如下图所示。当Sx=Sy &gt;1时，图形沿两个坐标轴方向等比例放大；当Sx=Sy&lt;1，图形沿两个坐标轴方向等比例缩小；当Sx≠Sy，图形沿两个坐标轴方向作非均匀的比例变换。                        </p>
-<p><img src="/images/juzhen26.png" alt="image">        </p>
-<p>  <strong>1.3 旋转变换</strong></p>
-<p>二维旋转是指将p点绕坐标原点转动某个角度（逆时针为正，顺时针为负）得到新的点p’的重定位过程。</p>
-<p><img src="/images/juzhen27.png" alt="image">    </p>
-<p> 推导：利用极坐标方程</p>
-<p><img src="/images/juzhen28.png" alt="image">    </p>
-<p>逆时针旋转θ角的矩阵如下：</p>
-<p><img src="/images/juzhen29.png" alt="image">    </p>
-<p><strong>1.4 对称变换</strong></p>
-<p>对称变换后的图形是原图形关于某一轴线或原点的镜像。<br><img src="/images/juzhen30.png" alt="image"></p>
-<p>  (1)关于x轴对称</p>
-<p><img src="/images/juzhen31.png" alt="image">    </p>
-<pre><code>x&apos;=x*1+y*0+0*0;
-y&apos;=x*0+y*(-1)+0*0;
-0=x*0+y*0+0*1;
-</code></pre><p> (2)关于y轴对称</p>
-<p> <img src="/images/juzhen33.png" alt="image">    </p>
-<p>  (3)关于原点对称</p>
-<p>  <img src="/images/juzhen34.png" alt="image">    </p>
-<p>  (4)关于y=x轴对称</p>
-<p>   <img src="/images/juzhen35.png" alt="image"></p>
-<p>   (5)关于y=-x轴对称</p>
-<p>   <img src="/images/juzhen36.png" alt="image"></p>
-<p><strong>1.5 错切变换</strong></p>
-<p>错切变换也称为剪切、错位变换，用于产生弹性物体的变形处理。</p>
-<p>   <img src="/images/juzhen37.png" alt="image"></p>
-<p> 错切变换的变换矩阵为：</p>
-<p>   <img src="/images/juzhen38.png" alt="image"></p>
-<p>   (1)沿x方向错切：b=0<br>   (2)沿y方向错切：c=0<br>   (3)两个方向错切：b和c都不等于0。</p>
-<blockquote>
-<p>2、 复合变换</p>
-</blockquote>
-<p>如果图形要做一次以上的几何变换，那么可以将各个变换矩阵综合起来进行一步到位的变换。复合变换有如下的性质：</p>
-<p><strong>1）复合平移</strong></p>
-<p>对同一图形做两次平移相当于将两次的平移两加起来：</p>
-<p> <img src="/images/juzhen39.png" alt="image"></p>
-<p> <strong>2）复合缩放</strong></p>
-<p>两次连续的缩放相当于将缩放操作相乘：</p>
-<p> <img src="/images/juzhen40.png" alt="image"></p>
-<p><strong>3）复合旋转</strong></p>
-<p>两次连续的旋转相当于将两次的旋转角度相加： </p>
-<p> <img src="/images/juzhen41.png" alt="image"></p>
-<pre><code>缩放、旋转变换都与参考点有关，上面进行的各种变换都是以原点为参考点的。如果相对某个一般的参考点（xf，yf）作缩放、旋转变换，相当于将该点移到坐标原点处，然后进行缩放、旋转变换，最后将（xf，yf）点移回原来的位置。
-</code></pre><p><strong>4）关于（xf，yf）点的缩放变换</strong></p>
-<p> <img src="/images/juzhen42.png" alt="image"></p>
-<p><strong>5）绕（xf，yf）点的旋转变换</strong></p>
-<p>  <img src="/images/juzhen43.png" alt="image"></p>
-<blockquote>
-<p>  3、二维图形几何变换的计算</p>
-</blockquote>
-<p>几何变换均可表示成P’=P*T的形式</p>
-<p>(1)点的变换：先将点表示为规范化齐次坐标形式，再乘以变换矩阵。</p>
-<p>  <img src="/images/juzhen44.png" alt="image"></p>
-<p>(2)直线的变换：将直线的两个端点表示为规范化齐次坐标形式，再乘以变换矩阵。</p>
-<p>  <img src="/images/juzhen45.png" alt="image"></p>
-<p>(3)多边形的变换：将多边形的顶点表示为规范化齐次坐标形式，再乘以变换矩阵。</p>
-<p>  <img src="/images/juzhen46.png" alt="image"></p>
-<p> (4)曲线的变换：将曲线的每个点表示为规范化齐次坐标形式，再乘以变换矩阵。</p>
-<blockquote>
-<p> 4、复合变换的矩阵点乘的先后问题</p>
-</blockquote>
-<p>1)如果采用以下方式计算几何变换的变换矩阵</p>
-<p><img src="/images/juzhen47.png" alt="image"></p>
-<p>如上范例所示，其先执行变换的矩阵放在前面，后执行变换的矩阵放在后面。</p>
-<p>2)如果采用以下方式计算几何变换的变换矩阵：</p>
-<p><img src="/images/juzhen48.png" alt="image"></p>
-<p>如上范例所示，其先执行变换的矩阵放在后面，后执行变换的矩阵放在前面。</p>
-<p>这是因为矩阵的特性：<img src="/images/juzhen49.png" alt="image"></p>
-<p>##CGAffineTransform.h 函数介绍</p>
-<p>说了半天，不来点代码怎么行。    </p>
-<pre><code>在CGAffineTransform.h 文件中
-
-typedef struct CGAffineTransform CGAffineTransform;
-
-struct CGAffineTransform {
-      CGFloat a, b, c, d;
-      CGFloat tx, ty;
-};
-
-矩阵数学模型是[a  b]
-             c  d
-            tx  ty
-省略了  [a  b  0]  中的最后一列
-        c  d  0
-        tx ty 1
-</code></pre><p> 函数介绍代码</p>
-<pre><code>///获取一个标准矩阵。没有变化的矩阵
-CGAffineTransform transform=  CGAffineTransformIdentity;
-NSLog(@&quot;CGAffineTransformIdentity 数值%@&quot; ,     NSStringFromCGAffineTransform(transform));
-
-///获取一个变幻矩阵 这个函数可以平移旋转和缩放
-/* Return the transform [ a b c d tx ty ]. */
-</code></pre><p>  transform=  CGAffineTransformMake(a, b, c, d,x,y);</p>
-<pre><code>///获取一个只做平移的矩阵
-//        t&apos; = [ 1 0 0 1 tx ty ]
-</code></pre><p> transform=   CGAffineTransformMakeTranslation(x, y);</p>
-<pre><code>///获取一个缩放矩阵
-//         t&apos; = [ sx 0 0 sy 0 0 ] 
-</code></pre><p>  transform=  CGAffineTransformMakeScale(a,c);</p>
-<pre><code>//获取一个旋转矩阵
-/* Return a transform which rotates by `angle&apos; radians:
- t&apos; = [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] */
-</code></pre><p>  transform=  CGAffineTransformMakeRotation(3);</p>
-<pre><code>///验证是否是标准矩阵
-</code></pre><p>  BOOL isTrue =  CGAffineTransformIsIdentity(transform);</p>
-<pre><code>///这个是矩阵之间的换算了
-/* Translate `t&apos; by `(tx, ty)&apos; and return the result:
- t&apos; = [ 1 0 0 1 tx ty ] * t */
-/// 说的很明确 用只有平移的矩阵和 t 矩阵相乘 t*t&apos; 意思是在t&apos;的基础上做t 变幻（例如平移旋转等等）
-transform=   CGAffineTransformTranslate(transform,x,y);
-
-///矩阵先缩放再transform
-/* Scale `t&apos; by `(sx, sy)&apos; and return the result:
- t&apos; = [ sx 0 0 sy 0 0 ] * t */
-</code></pre><p>  transform=  CGAffineTransformScale(transform,a,c);</p>
-<pre><code>///矩阵先旋转再transform
-/* Rotate `t&apos; by `angle&apos; radians and return the result:
- t&apos; =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] * t */
-transform = CGAffineTransformRotate(transform,3);
-
-
-NSLog(@&quot;CGAffineTransformInvert前 数值%@&quot; , NSStringFromCGAffineTransform(transform));
-/// 获取 反转矩阵  看不出效果。做图看看  可以仔细研究下
-///我看着就是沿着y轴做了一个对称变换 （不见得对）
-transform =   CGAffineTransformInvert(transform);
-NSLog(@&quot;CGAffineTransformInvert后 数值%@&quot; , NSStringFromCGAffineTransform(transform));
-
-
-///矩阵相乘
-/* Concatenate `t2&apos; to `t1&apos; and return the result:
- t&apos; = t1 * t2 */
-</code></pre><p>   transform = CGAffineTransformConcat(transform,transform);</p>
-<pre><code>///判断两个矩阵是否相等
-/* Return true if `t1&apos; and `t2&apos; are equal, false otherwise. */
-isTrue =CGAffineTransformEqualToTransform(transform,transform);
-
-///获取一个点矩阵变幻另一个点的位置
-/* Transform `point&apos; by `t&apos; and return the result:
- p&apos; = p * t
- where p = [ x y 1 ]. */
-</code></pre><p>  CGPoint point=  CGPointApplyAffineTransform(CGPointMake(30, 30), transform);</p>
-<pre><code>///获取一个矩形矩形变换的大小
-/* Transform `size&apos; by `t&apos; and return the result:
- s&apos; = s * t
- where s = [ width height 0 ]. */
-CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);
-
-///获取矩形位置变幻后的位置
- CGRect rect=CGRectApplyAffineTransform(CGRectMake(0, 0, 30, 30),transform);
-</code></pre><p>项目中有每个函数的具体用法。</p>
-<p><img src="/images/transformNew.gif" alt="image"></p>
-<p>项目托管在<a href="https://github.com/NPOpenSource/transform.github.com.git" target="_blank" rel="external">github</a> </p>
-<p>#####参考文章：<br><a href="http://dec3.jlu.edu.cn/webcourse/t000022/teach/chapter2/2_1.htm" target="_blank" rel="external">矩阵定义</a></p>
-<p><a href="http://blog.csdn.net/wcyoot/article/details/33310329" target="_blank" rel="external">变换原理</a></p>
-<p><a href="https://developer.apple.com/library/prerelease/watchos/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_affine/dq_affine.html" target="_blank" rel="external">苹果官方文档</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/10/2015-08-10-cgaffinetransform-dot-hlei-de-xue-xi-he-yuan-li-jiang-jie/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1259,6 +1325,14 @@ CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CTFont</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CTGlyphInfo</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

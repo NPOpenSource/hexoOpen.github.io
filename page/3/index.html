@@ -151,6 +151,552 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi/">更改xcode生成每个文件头信息</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/18/2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi/" class="archive-article-date">
+  	<time datetime="2015-08-18T02:13:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>修改xocde文件 的头信息</p>
+<blockquote>
+<p>点击工程文件</p>
+<p>点击右边的文件设置窗口</p>
+<p>配置project Document 选项中的相关信息</p>
+</blockquote>
+<p><img src="/images/xcodeSix.jpeg" alt="image"></p>
+<p>上图第四步 class Prefix 是配置文件头，生成每个类前的头</p>
+<p><img src="/images/xcodeFileFour.png" alt="image"> </p>
+<p>organization 是配置文件中的    <strong>科技</strong>        位置的字</p>
+<p><img src="/images/xcodeFileFive.png" alt="image"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/18/2015-08-18-geng-gai-xcodesheng-cheng-mei-ge-wen-jian-tou-xin-xi/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-2015-08-17-avfoundation-dot-fromworkde-xue-xi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/">AVFoundation.framework的学习</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/" class="archive-article-date">
+  	<time datetime="2015-08-17T09:15:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近学习自定义相机的相关知识，可以自定义相机成功，但是对AVFoundation不是很了解，这里有必要对这个AVFoundation.framework。</p>
+<p>（感觉写点东西咋这么困难）</p>
+<p>##学习类对象</p>
+<blockquote>
+<p>AVCaptureSession、AVCaptureInput 和    AVCaptureOutput 的学习</p>
+</blockquote>
+<pre><code>AVCaptureInput is an abstract base-class describing an input data source to an AVCaptureSession object. 
+
+AVCaptureOutput is an abstract base class describing an output destination of an AVCaptureSession object
+
+You use an AVCaptureSession object to coordinate the flow of data from AV input devices to outputs
+</code></pre><p>#####参考连接<br><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVFoundationFramework/" target="_blank" rel="external">苹果AVFoundation ref</a></p>
+<p><a href="https://developer.apple.com/library/prerelease/mac/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html" target="_blank" rel="external">苹果AVFoundation Programming Guide</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/17/2015-08-17-avfoundation-dot-fromworkde-xue-xi/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-2015-08-12-zi-ding-yi-xiang-ji" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/">自定义相机</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/" class="archive-article-date">
+  	<time datetime="2015-08-12T03:31:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##调用系统相机</p>
+<p>调用系统相机一般的功能是可以满足的，如果没有特殊的要求要求，可以直接用系统相机。</p>
+<p>代码如下：</p>
+<pre><code>调用照相机
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+
+    UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    block(picker);
+    //摄像头
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:^{
+
+    }];
+}else{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@&quot;Error&quot; message:@&quot;你没有摄像头&quot; delegate:nil cancelButtonTitle:@&quot;Drat!&quot; otherButtonTitles:nil];
+    [alert show];
+
+}
+</code></pre><p>获取图片或者取消图片实现代理</p>
+<pre><code>- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+
+UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
+if ([self respondsToSelector:@selector(getCameraImage:)]) {
+    [self getCameraImage:image];
+}
+[self dismissViewControllerAnimated:YES completion:^{
+
+}];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+[self dismissViewControllerAnimated:YES completion:^{
+
+}];
+}
+</code></pre><p>以上代码只是简单的调用下系统相机。并没有对相机进行相关设置。</p>
+<p>配置前</p>
+<p><img src="/images/comera1.jpg" alt="image"></p>
+<pre><code>注意将系统相机配置成中文 ，在工程文件plist 中添加下面一项即可。
+</code></pre><p><img src="/images/camerasytemChinese.png" alt="image"></p>
+<p>配置后</p>
+<p><img src="/images/comera2.jpg" alt="image"></p>
+<p>##自定义相机</p>
+<pre><code>我个人偏向用自定义相机，个人理由只有一条，可以高度定制。（虽然有点麻烦）
+
+暂时更新到这里（哈哈。没有上下文了。）我发现学习相机还是先系统学习学习avfoudation.framework 比较靠谱些。学完av 再回来学喽
+</code></pre><p>#####参考连接</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/12/2015-08-12-zi-ding-yi-xiang-ji/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/">进军二维码，从零开始学习二维码</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/" class="archive-article-date">
+  	<time datetime="2015-08-11T10:30:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>做项目挺久的了，但是二维码这块总是用别人写好的，自己从来没有操过刀，内心有点小不爽啊，今天索性就写个博客，自己给自己定定需要，学学学习二维码。</p>
+<pre><code>二维条码/二维码（2-dimensional bar code）是用某种特定的几何图形按一定规律在平面（二维方向上）分布的黑白相间的图形记录数据符号信息的；在代码编制上巧妙地利用构成计算机内部逻辑基础的“0”、“1”比特流的概念，使用若干个与二进制相对应的几何形体来表示文字数值信息，通过图象输入设备或光电扫描设备自动识读以实现信息自动处理：它具有条码技术的一些共性：每种码制有其特定的字符集；每个字符占有一定的宽度；具有一定的校验功能等。同时还具有对不同行的信息自动识别功能、及处理图形旋转变化点。
+</code></pre><h2 id="二维码扫描"><a href="#二维码扫描" class="headerlink" title="二维码扫描"></a>二维码扫描</h2><p>现在都是2015年了。就不研究ZBar和ZXing了。今天要介绍的是iOS7.0后AVFoundation框架提供的原生二维码扫描。</p>
+<h2 id="二维码生成"><a href="#二维码生成" class="headerlink" title="二维码生成"></a>二维码生成</h2><p>#####参考链接</p>
+<p><a href="http://" target="_blank" rel="external">二维码百度百科</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/11/2015-08-11-jin-jun-er-wei-ma-,cong-ling-kai-shi-xue-xi-er-wei-ma/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-2015-08-10-cgaffinetransform-dot-hlei-de-xue-xi-he-yuan-li-jiang-jie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/10/2015-08-10-cgaffinetransform-dot-hlei-de-xue-xi-he-yuan-li-jiang-jie/">CGAffineTransform.h类的学习和原理讲解</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/10/2015-08-10-cgaffinetransform-dot-hlei-de-xue-xi-he-yuan-li-jiang-jie/" class="archive-article-date">
+  	<time datetime="2015-08-10T07:25:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 第一次写ios相关技术博客，所以先写个简单的，写的不好大家多多提意见。<br> 想学好这个类，我感觉最好还是从理论上弄明白什么二维图形到底是怎么变换的。</p>
+<h2 id="矩阵及其运算"><a href="#矩阵及其运算" class="headerlink" title="矩阵及其运算"></a>矩阵及其运算</h2><blockquote>
+<p>一．数学概念<br>定义1.1 由<img src="/images/juzhen1.gif" alt="image">个数<img src="/images/juzhen2.gif" alt="image">   排成m行n列的数表<br><img src="/images/juzhen3.gif" alt="image"></p>
+</blockquote>
+<p>称为m行n列的矩阵，简称   矩阵，记作</p>
+<p><img src="/images/juzhen4.gif" alt="image"></p>
+<blockquote>
+<p>二．原理，公式和法则</p>
+</blockquote>
+<p>1．矩阵的加法<br>(1) 公式</p>
+<p> <img src="/images/juzhen5.gif" alt="image"></p>
+<p>  (2) 运算律</p>
+<p> <img src="/images/juzhen6.gif" alt="image"></p>
+<p> 2．数乘矩阵<br> (1) 公式</p>
+<p>  <img src="/images/juzhen7.gif" alt="image"></p>
+<p>(2) 运算律<br>  <img src="/images/juzhen8.gif" alt="image"></p>
+<p> 3．矩阵与矩阵相乘<br> (1) 设 <img src="/images/juzhen9.gif" alt="image">  ,<br> 则 <img src="/images/juzhen10.gif" alt="image">  其中 <img src="/images/juzhen11.gif" alt="image">  ，且</p>
+<p><img src="/images/juzhen12.gif" alt="image"> </p>
+<p>（2）　运算符(假设运算都是可行的)：</p>
+<p><img src="/images/juzhen13.gif" alt="image"> </p>
+<p>(3)　方阵的运算</p>
+<p><img src="/images/juzhen14.gif" alt="image"> </p>
+<p>注意：①矩阵乘法一般不满足交换律。<br>②一般 <img src="/images/juzhen15.gif" alt="image"> </p>
+<p>4.矩阵的转置<br>(1)　公式</p>
+<p><img src="/images/juzhen16.png" alt="image"> </p>
+<p><img src="/images/juzhen17.png" alt="image"> </p>
+<p> (2)　运算律</p>
+<p> <img src="/images/juzhen18.gif" alt="image"> </p>
+<p> 5.方阵的行列式</p>
+<p><img src="/images/juzhen19.png" alt="image"> </p>
+<p>6.共轭矩阵</p>
+<p><img src="/images/juzhen20.png" alt="image"> </p>
+<p>上面一定要看懂矩阵的乘法是怎么运算的才行。</p>
+<h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><blockquote>
+<p>1、基本几何变换及变换矩阵</p>
+</blockquote>
+<p>基本几何变换都是相对于坐标原点和坐标轴进行的几何变换，有平移、比例、旋转、反射和错切等</p>
+<p><strong>1.1 平移变换</strong></p>
+<p>是指将p点沿直线路径从一个坐标位置移到另一个坐标位置的重定位过程。他是一种不产生变形而移动物体的刚体变换（rigid-body transformation），如下图所示。</p>
+<p><img src="/images/juzhen21.png" alt="image"></p>
+<p> 推导：</p>
+<p> <img src="/images/juzhen22.png" alt="image"></p>
+<pre><code>    解释(个人理解)
+    x&apos;=x+Tx  相当于x&apos;= x*1 + y*0 +  1 * Tx
+    y&apos;=y+Ty  相当于y&apos;= x*0 + y*1 +  1 * Ty
+
+    所以 A 矩阵  [x  y 1]
+         C 矩阵要和A矩阵格式一样 [x&apos; y&apos; 1]
+        c矩阵的1 怎么来。只能添加一行了
+
+        1=x*0+y*0+ 1*1
+
+所以b矩阵为 上面如图
+</code></pre><p><strong>1.2 缩放变换</strong><br>缩放变换是指对p点相对于坐标原点沿x方向放缩Sx倍，沿y方向放缩Sy倍。其中Sx和Sy称为缩放系数。</p>
+<p><img src="/images/juzhen23.png" alt="image"><br>推导：</p>
+<p><img src="/images/juzhen24.png" alt="image">    </p>
+<p>  矩阵<br><img src="/images/juzhen25.png" alt="image">        </p>
+<pre><code>x&apos;=x*Sx+y*0 + 0*0;
+y&apos;=x*0 +y *Sy+0*0;
+0=x*0+y*0+0*1;
+</code></pre><p>缩放变换可改变物体的大小，如下图所示。当Sx=Sy &gt;1时，图形沿两个坐标轴方向等比例放大；当Sx=Sy&lt;1，图形沿两个坐标轴方向等比例缩小；当Sx≠Sy，图形沿两个坐标轴方向作非均匀的比例变换。                        </p>
+<p><img src="/images/juzhen26.png" alt="image">        </p>
+<p>  <strong>1.3 旋转变换</strong></p>
+<p>二维旋转是指将p点绕坐标原点转动某个角度（逆时针为正，顺时针为负）得到新的点p’的重定位过程。</p>
+<p><img src="/images/juzhen27.png" alt="image">    </p>
+<p> 推导：利用极坐标方程</p>
+<p><img src="/images/juzhen28.png" alt="image">    </p>
+<p>逆时针旋转θ角的矩阵如下：</p>
+<p><img src="/images/juzhen29.png" alt="image">    </p>
+<p><strong>1.4 对称变换</strong></p>
+<p>对称变换后的图形是原图形关于某一轴线或原点的镜像。<br><img src="/images/juzhen30.png" alt="image"></p>
+<p>  (1)关于x轴对称</p>
+<p><img src="/images/juzhen31.png" alt="image">    </p>
+<pre><code>x&apos;=x*1+y*0+0*0;
+y&apos;=x*0+y*(-1)+0*0;
+0=x*0+y*0+0*1;
+</code></pre><p> (2)关于y轴对称</p>
+<p> <img src="/images/juzhen33.png" alt="image">    </p>
+<p>  (3)关于原点对称</p>
+<p>  <img src="/images/juzhen34.png" alt="image">    </p>
+<p>  (4)关于y=x轴对称</p>
+<p>   <img src="/images/juzhen35.png" alt="image"></p>
+<p>   (5)关于y=-x轴对称</p>
+<p>   <img src="/images/juzhen36.png" alt="image"></p>
+<p><strong>1.5 错切变换</strong></p>
+<p>错切变换也称为剪切、错位变换，用于产生弹性物体的变形处理。</p>
+<p>   <img src="/images/juzhen37.png" alt="image"></p>
+<p> 错切变换的变换矩阵为：</p>
+<p>   <img src="/images/juzhen38.png" alt="image"></p>
+<p>   (1)沿x方向错切：b=0<br>   (2)沿y方向错切：c=0<br>   (3)两个方向错切：b和c都不等于0。</p>
+<blockquote>
+<p>2、 复合变换</p>
+</blockquote>
+<p>如果图形要做一次以上的几何变换，那么可以将各个变换矩阵综合起来进行一步到位的变换。复合变换有如下的性质：</p>
+<p><strong>1）复合平移</strong></p>
+<p>对同一图形做两次平移相当于将两次的平移两加起来：</p>
+<p> <img src="/images/juzhen39.png" alt="image"></p>
+<p> <strong>2）复合缩放</strong></p>
+<p>两次连续的缩放相当于将缩放操作相乘：</p>
+<p> <img src="/images/juzhen40.png" alt="image"></p>
+<p><strong>3）复合旋转</strong></p>
+<p>两次连续的旋转相当于将两次的旋转角度相加： </p>
+<p> <img src="/images/juzhen41.png" alt="image"></p>
+<pre><code>缩放、旋转变换都与参考点有关，上面进行的各种变换都是以原点为参考点的。如果相对某个一般的参考点（xf，yf）作缩放、旋转变换，相当于将该点移到坐标原点处，然后进行缩放、旋转变换，最后将（xf，yf）点移回原来的位置。
+</code></pre><p><strong>4）关于（xf，yf）点的缩放变换</strong></p>
+<p> <img src="/images/juzhen42.png" alt="image"></p>
+<p><strong>5）绕（xf，yf）点的旋转变换</strong></p>
+<p>  <img src="/images/juzhen43.png" alt="image"></p>
+<blockquote>
+<p>  3、二维图形几何变换的计算</p>
+</blockquote>
+<p>几何变换均可表示成P’=P*T的形式</p>
+<p>(1)点的变换：先将点表示为规范化齐次坐标形式，再乘以变换矩阵。</p>
+<p>  <img src="/images/juzhen44.png" alt="image"></p>
+<p>(2)直线的变换：将直线的两个端点表示为规范化齐次坐标形式，再乘以变换矩阵。</p>
+<p>  <img src="/images/juzhen45.png" alt="image"></p>
+<p>(3)多边形的变换：将多边形的顶点表示为规范化齐次坐标形式，再乘以变换矩阵。</p>
+<p>  <img src="/images/juzhen46.png" alt="image"></p>
+<p> (4)曲线的变换：将曲线的每个点表示为规范化齐次坐标形式，再乘以变换矩阵。</p>
+<blockquote>
+<p> 4、复合变换的矩阵点乘的先后问题</p>
+</blockquote>
+<p>1)如果采用以下方式计算几何变换的变换矩阵</p>
+<p><img src="/images/juzhen47.png" alt="image"></p>
+<p>如上范例所示，其先执行变换的矩阵放在前面，后执行变换的矩阵放在后面。</p>
+<p>2)如果采用以下方式计算几何变换的变换矩阵：</p>
+<p><img src="/images/juzhen48.png" alt="image"></p>
+<p>如上范例所示，其先执行变换的矩阵放在后面，后执行变换的矩阵放在前面。</p>
+<p>这是因为矩阵的特性：<img src="/images/juzhen49.png" alt="image"></p>
+<p>##CGAffineTransform.h 函数介绍</p>
+<p>说了半天，不来点代码怎么行。    </p>
+<pre><code>在CGAffineTransform.h 文件中
+
+typedef struct CGAffineTransform CGAffineTransform;
+
+struct CGAffineTransform {
+      CGFloat a, b, c, d;
+      CGFloat tx, ty;
+};
+
+矩阵数学模型是[a  b]
+             c  d
+            tx  ty
+省略了  [a  b  0]  中的最后一列
+        c  d  0
+        tx ty 1
+</code></pre><p> 函数介绍代码</p>
+<pre><code>///获取一个标准矩阵。没有变化的矩阵
+CGAffineTransform transform=  CGAffineTransformIdentity;
+NSLog(@&quot;CGAffineTransformIdentity 数值%@&quot; ,     NSStringFromCGAffineTransform(transform));
+
+///获取一个变幻矩阵 这个函数可以平移旋转和缩放
+/* Return the transform [ a b c d tx ty ]. */
+</code></pre><p>  transform=  CGAffineTransformMake(a, b, c, d,x,y);</p>
+<pre><code>///获取一个只做平移的矩阵
+//        t&apos; = [ 1 0 0 1 tx ty ]
+</code></pre><p> transform=   CGAffineTransformMakeTranslation(x, y);</p>
+<pre><code>///获取一个缩放矩阵
+//         t&apos; = [ sx 0 0 sy 0 0 ] 
+</code></pre><p>  transform=  CGAffineTransformMakeScale(a,c);</p>
+<pre><code>//获取一个旋转矩阵
+/* Return a transform which rotates by `angle&apos; radians:
+ t&apos; = [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] */
+</code></pre><p>  transform=  CGAffineTransformMakeRotation(3);</p>
+<pre><code>///验证是否是标准矩阵
+</code></pre><p>  BOOL isTrue =  CGAffineTransformIsIdentity(transform);</p>
+<pre><code>///这个是矩阵之间的换算了
+/* Translate `t&apos; by `(tx, ty)&apos; and return the result:
+ t&apos; = [ 1 0 0 1 tx ty ] * t */
+/// 说的很明确 用只有平移的矩阵和 t 矩阵相乘 t*t&apos; 意思是在t&apos;的基础上做t 变幻（例如平移旋转等等）
+transform=   CGAffineTransformTranslate(transform,x,y);
+
+///矩阵先缩放再transform
+/* Scale `t&apos; by `(sx, sy)&apos; and return the result:
+ t&apos; = [ sx 0 0 sy 0 0 ] * t */
+</code></pre><p>  transform=  CGAffineTransformScale(transform,a,c);</p>
+<pre><code>///矩阵先旋转再transform
+/* Rotate `t&apos; by `angle&apos; radians and return the result:
+ t&apos; =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] * t */
+transform = CGAffineTransformRotate(transform,3);
+
+
+NSLog(@&quot;CGAffineTransformInvert前 数值%@&quot; , NSStringFromCGAffineTransform(transform));
+/// 获取 反转矩阵  看不出效果。做图看看  可以仔细研究下
+///我看着就是沿着y轴做了一个对称变换 （不见得对）
+transform =   CGAffineTransformInvert(transform);
+NSLog(@&quot;CGAffineTransformInvert后 数值%@&quot; , NSStringFromCGAffineTransform(transform));
+
+
+///矩阵相乘
+/* Concatenate `t2&apos; to `t1&apos; and return the result:
+ t&apos; = t1 * t2 */
+</code></pre><p>   transform = CGAffineTransformConcat(transform,transform);</p>
+<pre><code>///判断两个矩阵是否相等
+/* Return true if `t1&apos; and `t2&apos; are equal, false otherwise. */
+isTrue =CGAffineTransformEqualToTransform(transform,transform);
+
+///获取一个点矩阵变幻另一个点的位置
+/* Transform `point&apos; by `t&apos; and return the result:
+ p&apos; = p * t
+ where p = [ x y 1 ]. */
+</code></pre><p>  CGPoint point=  CGPointApplyAffineTransform(CGPointMake(30, 30), transform);</p>
+<pre><code>///获取一个矩形矩形变换的大小
+/* Transform `size&apos; by `t&apos; and return the result:
+ s&apos; = s * t
+ where s = [ width height 0 ]. */
+CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);
+
+///获取矩形位置变幻后的位置
+ CGRect rect=CGRectApplyAffineTransform(CGRectMake(0, 0, 30, 30),transform);
+</code></pre><p>项目中有每个函数的具体用法。</p>
+<p><img src="/images/transformNew.gif" alt="image"></p>
+<p>项目托管在<a href="https://github.com/NPOpenSource/transform.github.com.git" target="_blank" rel="external">github</a> </p>
+<p>#####参考文章：<br><a href="http://dec3.jlu.edu.cn/webcourse/t000022/teach/chapter2/2_1.htm" target="_blank" rel="external">矩阵定义</a></p>
+<p><a href="http://blog.csdn.net/wcyoot/article/details/33310329" target="_blank" rel="external">变换原理</a></p>
+<p><a href="https://developer.apple.com/library/prerelease/watchos/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_affine/dq_affine.html" target="_blank" rel="external">苹果官方文档</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/10/2015-08-10-cgaffinetransform-dot-hlei-de-xue-xi-he-yuan-li-jiang-jie/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-2015-08-04-ji-lu-unixming-ling-de-shi-yong" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1224,60 +1770,9 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
 
 
   
-    <article id="post-2015-08-03-博客第一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/31/2015-08-03-博客第一天/">博客的第一天</a>
-    </h1>
-  
-
-        
-        <a href="/2015/07/31/2015-08-03-博客第一天/" class="archive-article-date">
-  	<time datetime="2015-07-31T03:52:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#新的一天新的开始。只有不断的学习不断的积累才能强大自己。加油。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/07/31/2015-08-03-博客第一天/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1366,6 +1861,14 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CTFont</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CTGlyphInfo</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
