@@ -6,15 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CTParagraphStyle学习 | 温杰的博客</title>
+  <title>CTParagraphStyle.h学习 | 温杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="CTParagraphStyle学习">
+  <meta name="description" content="从  Paragraph Style Types      Paragraph Style Values      Paragraph Style Creation              Paragraph Style Access  四个方面来学习 CTParagraphStyle 样式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTParagraphStyle.h学习">
 <meta property="og:url" content="http://yoursite.com/2017/03/02/CTParagraphStyle学习/index.html">
 <meta property="og:site_name" content="温杰的博客">
-<meta property="og:updated_time" content="2017-03-02T06:55:33.000Z">
+<meta property="og:description" content="从  Paragraph Style Types      Paragraph Style Values      Paragraph Style Creation              Paragraph Style Access  四个方面来学习 CTParagraphStyle 样式">
+<meta property="og:image" content="http://yoursite.com/images/image-17.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-18.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-19.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-20.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-27.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-28.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-29.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-30.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-31.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-32.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-17.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-21.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-22.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-23.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-25.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-24.tiff">
+<meta property="og:image" content="http://yoursite.com/images/image-26.tiff">
+<meta property="og:updated_time" content="2017-03-02T09:22:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CTParagraphStyle学习">
+<meta name="twitter:title" content="CTParagraphStyle.h学习">
+<meta name="twitter:description" content="从  Paragraph Style Types      Paragraph Style Values      Paragraph Style Creation              Paragraph Style Access  四个方面来学习 CTParagraphStyle 样式">
+<meta name="twitter:image" content="http://yoursite.com/images/image-17.tiff">
   
     <link rel="alternative" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
   
@@ -157,7 +178,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CTParagraphStyle学习
+      CTParagraphStyle.h学习
     </h1>
   
 
@@ -170,7 +191,192 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>从  <strong>Paragraph Style Types</strong>      <strong>Paragraph Style Values</strong>      <strong>Paragraph Style Creation</strong>              <strong>Paragraph Style Access</strong>  四个方面来学习 CTParagraphStyle 样式</p>
+<a id="more"></a>
+<h2 id="1-Paragraph-Style-Types"><a href="#1-Paragraph-Style-Types" class="headerlink" title="1.Paragraph Style Types"></a>1.Paragraph Style Types</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFTypeID CTParagraphStyleGetTypeID( void ) CT_AVAILABLE(10_5, 3_2);</div><div class="line">获取CTParagraphStyle ID</div></pre></td></tr></table></figure>
+<h2 id="2-Paragraph-Style-Values"><a href="#2-Paragraph-Style-Values" class="headerlink" title="2.Paragraph Style Values"></a>2.Paragraph Style Values</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(uint8_t, CTTextAlignment) &#123;</div><div class="line">    kCTTextAlignmentLeft      CT_ENUM_AVAILABLE(10_8, 6_0) = 0,</div><div class="line">    kCTTextAlignmentRight     CT_ENUM_AVAILABLE(10_8, 6_0) = 1,</div><div class="line">    kCTTextAlignmentCenter    CT_ENUM_AVAILABLE(10_8, 6_0) = 2,</div><div class="line">    kCTTextAlignmentJustified CT_ENUM_AVAILABLE(10_8, 6_0) = 3,</div><div class="line">    kCTTextAlignmentNatural   CT_ENUM_AVAILABLE(10_8, 6_0) = 4,</div><div class="line"></div><div class="line">    kCTLeftTextAlignment CT_ENUM_DEPRECATED(10_5, 10_11, 3_2, 9_0) = kCTTextAlignmentLeft,</div><div class="line">    kCTRightTextAlignment CT_ENUM_DEPRECATED(10_5, 10_11, 3_2, 9_0) = kCTTextAlignmentRight,</div><div class="line">    kCTCenterTextAlignment CT_ENUM_DEPRECATED(10_5, 10_11, 3_2, 9_0) = kCTTextAlignmentCenter,</div><div class="line">    kCTJustifiedTextAlignment CT_ENUM_DEPRECATED(10_5, 10_11, 3_2, 9_0) = kCTTextAlignmentJustified,</div><div class="line">    kCTNaturalTextAlignment CT_ENUM_DEPRECATED(10_5, 10_11, 3_2, 9_0) = kCTTextAlignmentNatural</div><div class="line">&#125;;</div><div class="line"></div><div class="line">文本对齐</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">typedef CF_ENUM(uint8_t, CTLineBreakMode) &#123;</div><div class="line">    kCTLineBreakByWordWrapping = 0,</div><div class="line">    kCTLineBreakByCharWrapping = 1,</div><div class="line">    kCTLineBreakByClipping = 2,</div><div class="line">    kCTLineBreakByTruncatingHead = 3,</div><div class="line">    kCTLineBreakByTruncatingTail = 4,</div><div class="line">    kCTLineBreakByTruncatingMiddle = 5</div><div class="line">&#125;;</div><div class="line"></div><div class="line">文本break mode</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(int8_t, CTWritingDirection) &#123;</div><div class="line">    kCTWritingDirectionNatural = -1,</div><div class="line">    kCTWritingDirectionLeftToRight = 0,</div><div class="line">    kCTWritingDirectionRightToLeft = 1</div><div class="line">&#125;;</div><div class="line">书写方向</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">typedef CF_ENUM(uint32_t, CTParagraphStyleSpecifier) &#123;</div><div class="line">    kCTParagraphStyleSpecifierAlignment = 0,</div><div class="line">    kCTParagraphStyleSpecifierFirstLineHeadIndent = 1,</div><div class="line">    kCTParagraphStyleSpecifierHeadIndent = 2,</div><div class="line">    kCTParagraphStyleSpecifierTailIndent = 3,</div><div class="line">    kCTParagraphStyleSpecifierTabStops = 4,</div><div class="line">    kCTParagraphStyleSpecifierDefaultTabInterval = 5,</div><div class="line">    kCTParagraphStyleSpecifierLineBreakMode = 6,</div><div class="line">    kCTParagraphStyleSpecifierLineHeightMultiple = 7,</div><div class="line">    kCTParagraphStyleSpecifierMaximumLineHeight = 8,</div><div class="line">    kCTParagraphStyleSpecifierMinimumLineHeight = 9,</div><div class="line">    kCTParagraphStyleSpecifierLineSpacing CT_ENUM_DEPRECATED(10_5, 10_8, 3_2, 6_0) = 10,</div><div class="line">    kCTParagraphStyleSpecifierParagraphSpacing = 11,</div><div class="line">    kCTParagraphStyleSpecifierParagraphSpacingBefore = 12,</div><div class="line">    kCTParagraphStyleSpecifierBaseWritingDirection = 13,</div><div class="line">    kCTParagraphStyleSpecifierMaximumLineSpacing = 14,</div><div class="line">    kCTParagraphStyleSpecifierMinimumLineSpacing = 15,</div><div class="line">    kCTParagraphStyleSpecifierLineSpacingAdjustment = 16,</div><div class="line">    kCTParagraphStyleSpecifierLineBoundsOptions = 17,</div><div class="line"></div><div class="line">    kCTParagraphStyleSpecifierCount</div><div class="line">&#125;;</div><div class="line"></div><div class="line">段落可以修改的部分</div></pre></td></tr></table></figure>
+<p>针对Specifier 所对应的表格</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th>default</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kCTParagraphStyleSpecifierAlignment</td>
+<td>CTTextAlignment</td>
+<td>kCTTextAlignmentNatural</td>
+<td>文本对齐</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierFirstLineHeadIndent</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>首行缩进</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierHeadIndent</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>除了首行都缩进</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierTailIndent</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>相当文本宽度</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierTabStops</td>
+<td>CFArray of CTTextTabRef</td>
+<td>12 left-aligned tabs, spaced by 28.0 points</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierDefaultTabInterval</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierLineBreakMode</td>
+<td>CTLineBreakMode</td>
+<td>kCTLineBreakByWordWrapping</td>
+<td>换行模式</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierLineHeightMultiple</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>不知道杂用</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierMaximumLineHeight</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>最大行高</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierMinimumLineHeight</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>最小行高</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierLineSpacing</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>Deprecated 废弃了</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierParagraphSpacing</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>段间距</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierParagraphSpacingBefore</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>段前距离</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierBaseWritingDirection</td>
+<td>CTWritingDirection</td>
+<td>kCTWritingDirectionNatural</td>
+<td>方向（奇怪）</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierMaximumLineSpacing</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>行最大间隔</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierMinimumLineSpacing</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>行最小间隔</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierLineSpacingAdjustment</td>
+<td>CGFloat</td>
+<td>0.0</td>
+<td>废弃</td>
+</tr>
+<tr>
+<td>kCTParagraphStyleSpecifierLineBoundsOptions</td>
+<td>CTLineBoundsOptions</td>
+<td>0</td>
+<td>不会用</td>
+</tr>
+</tbody>
+</table>
+<p>下面是每个Specifier 对应的 效果</p>
+<p>kCTParagraphStyleSpecifierAlignment</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">代码：</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习/慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    </div><div class="line">   CTTextAlignment alignment = kCTTextAlignmentRight;</div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierAlignment;</div><div class="line">    setting.value = &amp;alignment;</div><div class="line">    setting.valueSize = sizeof(alignment);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="/images/image-17.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierFirstLineHeadIndent</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    </div><div class="line">    </div><div class="line">    CGFloat FirstLineHeadIndent =50;;</div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierFirstLineHeadIndent;</div><div class="line">    setting.value = &amp;FirstLineHeadIndent;</div><div class="line">    setting.valueSize = sizeof(FirstLineHeadIndent);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    </div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：  每个段落的首行 缩进</p>
+<p><img src="/images/image-18.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierHeadIndent</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">代码：</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    CGFloat HeadIndent =50;;</div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierHeadIndent;</div><div class="line">    setting.value = &amp;HeadIndent;</div><div class="line">    setting.valueSize = sizeof(HeadIndent);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：除了首行都缩进</p>
+<p><img src="/images/image-19.tiff" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">typedef struct CTParagraphStyleSetting</div><div class="line">&#123;</div><div class="line">    CTParagraphStyleSpecifier spec;</div><div class="line">    size_t valueSize;</div><div class="line">    const void * value;</div><div class="line"></div><div class="line">&#125; CTParagraphStyleSetting;</div><div class="line"></div><div class="line">段落每项设置都要通过这个结构体来实现</div></pre></td></tr></table></figure>
+<p>kCTParagraphStyleSpecifierTailIndent</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">代码：</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    CGFloat TailIndent =150;;</div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierTailIndent;</div><div class="line">    setting.value = &amp;TailIndent;</div><div class="line">    setting.valueSize = sizeof(TailIndent);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：相当于文本 的宽度</p>
+<p> <img src="/images/image-20.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierMaximumLineHeight最小行间距</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">代码</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不helloworld  ok一朝一夕之功富文本学习慢慢来吧。不  是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功。&quot;];</div><div class="line">    CGFloat LineHeightMultiple =7;;</div><div class="line">    </div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierMaximumLineHeight;</div><div class="line">    setting.value = &amp;LineHeightMultiple;</div><div class="line">    setting.valueSize = sizeof(LineHeightMultiple);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 40 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="/images/image-27.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierMinimumLineHeight</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">代码</div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不helloworld  ok一朝一夕之功富文本学习慢慢来吧。不  是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功。&quot;];</div><div class="line">    CGFloat LineHeightMultiple =30;;</div><div class="line">    </div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierMinimumLineHeight;</div><div class="line">    setting.value = &amp;LineHeightMultiple;</div><div class="line">    setting.valueSize = sizeof(LineHeightMultiple);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 40 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果</p>
+<p><img src="/images/image-28.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierParagraphSpacing 段间隔</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">代码：</div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不helloworld  ok一朝一夕之功富文本学习慢慢来吧。不 \n 是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功。&quot;];</div><div class="line">    CGFloat LineHeightMultiple =30;;</div><div class="line">    </div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierParagraphSpacing;</div><div class="line">    setting.value = &amp;LineHeightMultiple;</div><div class="line">    setting.valueSize = sizeof(LineHeightMultiple);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 40 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="/images/image-29.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierParagraphSpacingBefore   这个没看出啥，段开始部分间距。排除第一段？</p>
+<p><img src="/images/image-30.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierBaseWritingDirection 基本书写方向</p>
+<p><img src="/images/image-31.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierMinimumLineSpacing  最小行间距</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不helloworld  ok一朝一夕之功富文本学习慢慢来吧。不 \n 是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧\n。不是一朝一夕之功。&quot;];</div><div class="line">    CGFloat LineHeightMultiple =20;;</div><div class="line">    </div><div class="line">    CTWritingDirection dir = kCTWritingDirectionRightToLeft;</div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierMinimumLineSpacing;</div><div class="line">    setting.value = &amp;LineHeightMultiple;</div><div class="line">    setting.valueSize = sizeof(LineHeightMultiple);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 40 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果：</p>
+<p>​    <img src="/images/image-32.tiff" alt="image"></p>
+<h2 id="3-Paragraph-Style-Creation"><a href="#3-Paragraph-Style-Creation" class="headerlink" title="3.Paragraph Style Creation"></a>3.Paragraph Style Creation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">CTParagraphStyleRef CTParagraphStyleCreate(</div><div class="line">    const CTParagraphStyleSetting * __nullable settings,</div><div class="line">    size_t settingCount ) CT_AVAILABLE(10_5, 3_2);</div><div class="line"></div><div class="line">创建一个段落。 用法</div><div class="line"></div><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习/慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    </div><div class="line">   CTTextAlignment alignment = kCTTextAlignmentRight;</div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierAlignment;</div><div class="line">    setting.value = &amp;alignment;</div><div class="line">    setting.valueSize = sizeof(alignment);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="/images/image-17.tiff" alt="image"></p>
+<p>kCTParagraphStyleSpecifierLineBreakMode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不helloworld  ok一朝一夕之功富文本学习慢慢来吧。不  是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    CGFloat TailIndent =150;;</div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">   CTLineBreakMode breakMode= kCTLineBreakByWordWrapping;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierLineBreakMode;</div><div class="line">    setting.value = &amp;breakMode;</div><div class="line">    setting.valueSize = sizeof(breakMode);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果：kCTLineBreakByWordWrapping  word 换行</p>
+<p><img src="/images/image-21.tiff" alt="image"></p>
+<p>kCTLineBreakByCharWrapping   char 字符换行</p>
+<p><img src="/images/image-22.tiff" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">修改代码</div><div class="line">  -(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不helloworld  ok一朝一夕之功富文本学习慢慢来吧。不  是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功富文本学习慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    CGFloat TailIndent =150;;</div><div class="line">    </div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">   CTLineBreakMode breakMode= kCTLineBreakByClipping;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierLineBreakMode;</div><div class="line">    setting.value = &amp;breakMode;</div><div class="line">    setting.valueSize = sizeof(breakMode);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , self.bounds.size.height-60 ,self.bounds.size.width-10 , 60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>kCTLineBreakByClipping 尾部截断</p>
+<p><img src="/images/image-23.tiff" alt="image"></p>
+<p>kCTLineBreakByTruncatingHead  头部…</p>
+<p><img src="/images/image-25.tiff" alt="image"></p>
+<p>kCTLineBreakByTruncatingTail  尾部 …</p>
+<p><img src="/images/image-24.tiff" alt="image"></p>
+<p>kCTLineBreakByTruncatingMiddle  中间 …</p>
+<p><img src="/images/image-26.tiff" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">CTParagraphStyleRef CTParagraphStyleCreateCopy(</div><div class="line">    CTParagraphStyleRef paragraphStyle ) CT_AVAILABLE(10_5, 3_2);</div><div class="line"></div><div class="line">这个就是copy 出来一个 CTParagraphStyleRef</div></pre></td></tr></table></figure>
+<h2 id="4-Paragraph-Style-Access"><a href="#4-Paragraph-Style-Access" class="headerlink" title="4.Paragraph Style Access"></a>4.Paragraph Style Access</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">bool CTParagraphStyleGetValueForSpecifier(</div><div class="line">    CTParagraphStyleRef paragraphStyle,</div><div class="line">    CTParagraphStyleSpecifier spec,</div><div class="line">    size_t valueBufferSize,</div><div class="line">    void * valueBuffer ) CT_AVAILABLE(10_5, 3_2);</div><div class="line">    </div><div class="line">  获取 paragraphStyle 中 spec 对应的值， 放入valueBuffer 。要是放入失败，那么返回false</div><div class="line">  </div><div class="line">  代码：</div><div class="line">  	-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习/慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    </div><div class="line">   CTTextAlignment alignment = kCTTextAlignmentRight;</div><div class="line">    CTParagraphStyleSetting setting ;</div><div class="line">    setting.spec = kCTParagraphStyleSpecifierAlignment;</div><div class="line">    setting.value = &amp;alignment;</div><div class="line">    setting.valueSize = sizeof(alignment);</div><div class="line">   CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(&amp;setting, 1);</div><div class="line">    NSMutableDictionary * dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">  bool issuccess =  CTParagraphStyleGetValueForSpecifier(paragraphStyle, kCTParagraphStyleSpecifierAlignment, sizeof(alignment), &amp;alignment);</div><div class="line">    if (issuccess) &#123;</div><div class="line">        NSLog(@&quot;paragraphStyle issuccess kCTParagraphStyleSpecifierAlignment&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">结果：</div><div class="line"></div><div class="line">2017-03-02 15:38:49.533 CoreTextDemo[52027:1578356] paragraphStyle issuccess kCTParagraphStyleSpecifierAlignment</div></pre></td></tr></table></figure>
       
 
       
@@ -199,6 +405,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CTParagraphStyle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -387,6 +604,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CTRunDelegate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CTParagraphStyle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CTTextTab</a>
               </li>
             
             <div class="clearfix"></div>
