@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>coretext.framework 大全 | 温杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CTFrameSetter.h创建 CTFrame 需要CTFrameSetter.h 类中
-该类分四部分，Framesetter Types ， Framesetter Creation ，Frame Creation   ， Frame Sizing
-1.Framesetter TypesCFTypeID CTFramesetterGetTypeID( void )  返回一个CTFrames">
+  <meta name="description" content="3.CTLine.hCTFrame布局是由Path  和CTLine 组成的。
+我们能从CTLine中获取到什么信息呢。
+我们从以下方面  Line Types, Line Creation,Line Access ,Line Measurement, Line Caret Positioning and Highlighting
+1.Line Types12CFTypeID CTLineGet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="coretext.framework 大全">
 <meta property="og:url" content="http://yoursite.com/2017/02/23/coretext-framework-大全/index.html">
 <meta property="og:site_name" content="温杰的博客">
-<meta property="og:description" content="CTFrameSetter.h创建 CTFrame 需要CTFrameSetter.h 类中
-该类分四部分，Framesetter Types ， Framesetter Creation ，Frame Creation   ， Frame Sizing
-1.Framesetter TypesCFTypeID CTFramesetterGetTypeID( void )  返回一个CTFrames">
-<meta property="og:image" content="http://yoursite.com/images/image-3.tiff">
-<meta property="og:image" content="http://yoursite.com/images/image-4.tiff">
+<meta property="og:description" content="3.CTLine.hCTFrame布局是由Path  和CTLine 组成的。
+我们能从CTLine中获取到什么信息呢。
+我们从以下方面  Line Types, Line Creation,Line Access ,Line Measurement, Line Caret Positioning and Highlighting
+1.Line Types12CFTypeID CTLineGet">
 <meta property="og:image" content="http://yoursite.com/images/image-5.tiff">
 <meta property="og:image" content="http://yoursite.com/images/image-8.tiff">
 <meta property="og:image" content="http://yoursite.com/images/image-6.tiff">
@@ -32,13 +32,14 @@
 <meta property="og:image" content="http://yoursite.com/images/image-14.tiff">
 <meta property="og:image" content="http://yoursite.com/images/image-15.tiff">
 <meta property="og:image" content="http://yoursite.com/images/image-16.tiff">
-<meta property="og:updated_time" content="2017-03-02T04:00:40.000Z">
+<meta property="og:updated_time" content="2017-03-02T05:55:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="coretext.framework 大全">
-<meta name="twitter:description" content="CTFrameSetter.h创建 CTFrame 需要CTFrameSetter.h 类中
-该类分四部分，Framesetter Types ， Framesetter Creation ，Frame Creation   ， Frame Sizing
-1.Framesetter TypesCFTypeID CTFramesetterGetTypeID( void )  返回一个CTFrames">
-<meta name="twitter:image" content="http://yoursite.com/images/image-3.tiff">
+<meta name="twitter:description" content="3.CTLine.hCTFrame布局是由Path  和CTLine 组成的。
+我们能从CTLine中获取到什么信息呢。
+我们从以下方面  Line Types, Line Creation,Line Access ,Line Measurement, Line Caret Positioning and Highlighting
+1.Line Types12CFTypeID CTLineGet">
+<meta name="twitter:image" content="http://yoursite.com/images/image-5.tiff">
   
     <link rel="alternative" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
   
@@ -194,27 +195,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="CTFrameSetter-h"><a href="#CTFrameSetter-h" class="headerlink" title="CTFrameSetter.h"></a>CTFrameSetter.h</h2><p>创建 CTFrame 需要CTFrameSetter.h 类中</p>
-<p>该类分四部分，<strong>Framesetter Types</strong> ， <strong>Framesetter Creation</strong> ，<strong>Frame Creation</strong>   ， <strong>Frame Sizing</strong></p>
-<h3 id="1-Framesetter-Types"><a href="#1-Framesetter-Types" class="headerlink" title="1.Framesetter Types"></a>1.Framesetter Types</h3><p>CFTypeID CTFramesetterGetTypeID( void )  返回一个CTFramesetter 的 id 。</p>
-<h3 id="2-Framesetter-Creation"><a href="#2-Framesetter-Creation" class="headerlink" title="2.Framesetter Creation"></a>2.Framesetter Creation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CTFramesetterRef CTFramesetterCreateWithAttributedString(CFAttributedStringRef string )</div><div class="line">用CFAttributedStringRef 属性字符串创建一个CTFramesetterRef</div></pre></td></tr></table></figure>
-<p>获取Framesetter 只有这一种方式获取</p>
-<h3 id="3-Frame-Creation"><a href="#3-Frame-Creation" class="headerlink" title="3.Frame Creation"></a>3.Frame Creation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">CTFrameRef CTFramesetterCreateFrame(</div><div class="line">	CTFramesetterRef framesetter,</div><div class="line">	CFRange stringRange,</div><div class="line">	CGPathRef path,</div><div class="line">	CFDictionaryRef __nullable frameAttributes )</div><div class="line">	</div><div class="line">该函数返回一个CTFrame 只有这一种方式创建CTFrameRef</div><div class="line">参数，需要一个CTFramesetterRef  </div><div class="line">      需要一个CFRange</div><div class="line">      需要一个CGPathRef</div><div class="line">	  需要一个CFDictionaryRef</div><div class="line">	  </div><div class="line">	  CFRange 控制的是文本的长度。如果设置长度是0，就是将attstr 字符串绘制到结束</div><div class="line">	  CGPathRef 就是绘制区域</div><div class="line">	  CFDictionaryRef 绘制CTFrame的相关属性设置，key值在CFFrame中</div></pre></td></tr></table></figure>
-<p>测试代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFRange range = CFRangeMake(2, mabstring.length-4);</div><div class="line">CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, (__bridge CFDictionaryRef) Framedic);</div></pre></td></tr></table></figure>
-<p>测试结果：</p>
-<p><img src="/images/image-3.tiff" alt="image"></p>
-<p>要是代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFRange range = CFRangeMake(0, 0);  </div><div class="line">CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, (__bridge CFDictionaryRef) Framedic);</div></pre></td></tr></table></figure>
-<p>测试结果</p>
-<p><img src="/images/image-4.tiff" alt="image"></p>
-<p>从上下两个图看的出来，前面图的文本前后各少两个字。 所有字体还是对其排列。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CTTypesetterRef CTFramesetterGetTypesetter(</div><div class="line">	CTFramesetterRef framesetter ) </div><div class="line">	根据CTFramesetterRef 获取一个CTTypesetterRef  </div><div class="line">	目前还不知道CTTypesetterRef 有啥用</div></pre></td></tr></table></figure>
-<h3 id="4-Frame-Sizing"><a href="#4-Frame-Sizing" class="headerlink" title="4.Frame Sizing"></a>4.Frame Sizing</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">CGSize CTFramesetterSuggestFrameSizeWithConstraints(</div><div class="line"></div><div class="line">	CTFramesetterRef framesetter,</div><div class="line"></div><div class="line">	CFRange stringRange,</div><div class="line"></div><div class="line">	CFDictionaryRef __nullable frameAttributes,</div><div class="line"></div><div class="line">	CGSize constraints,</div><div class="line"></div><div class="line">	CFRange * __nullable fitRange )</div><div class="line"></div><div class="line">获取Frame的大小</div><div class="line">这个函数适合创建Frame CGPath是矩形的算法，要是三角形等不规则图形就不适合</div></pre></td></tr></table></figure>
-<p>测试代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">     </div><div class="line">    NSMutableDictionary * Framedic = [NSMutableDictionary dictionary];</div><div class="line">    </div><div class="line">    [Framedic setObject:@(kCTFrameProgressionTopToBottom) forKey:(__bridge NSString *)kCTFrameProgressionAttributeName];</div><div class="line">    [Framedic setObject:@(kCTFramePathFillEvenOdd) forKey:(__bridge NSString *)kCTFramePathFillRuleAttributeName];</div><div class="line">    </div><div class="line">    NSMutableArray * arr = [NSMutableArray array];</div><div class="line">    </div><div class="line">    NSMutableDictionary * fillDic = [NSMutableDictionary dictionary];</div><div class="line">    CGMutablePathRef clippath = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(clippath, NULL ,CGRectMake(100 , 20 ,self.bounds.size.width-150 , self.bounds.size.height-60));</div><div class="line">    [fillDic setObject:(__bridge id _Nonnull)(clippath) forKey:(__bridge NSString *)kCTFramePathClippingPathAttributeName];</div><div class="line">    [arr addObject:fillDic];</div><div class="line">    </div><div class="line">    fillDic = [NSMutableDictionary dictionary];</div><div class="line">     clippath = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(clippath, NULL ,CGRectMake(10 , 20 ,10 , self.bounds.size.height-60));</div><div class="line">    [fillDic setObject:(__bridge id _Nonnull)(clippath) forKey:(__bridge NSString *)kCTFramePathClippingPathAttributeName];</div><div class="line">    [arr addObject:fillDic];</div><div class="line">//    [Framedic setObject:arr forKey:(__bridge NSString *)kCTFrameClippingPathsAttributeName];</div><div class="line">    </div><div class="line">    </div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    </div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, (__bridge CFDictionaryRef) Framedic);</div><div class="line">    </div><div class="line">    CGRect rectBoud = CGPathGetBoundingBox(Path);</div><div class="line">    CFRange fitRange = CFRangeMake(0, 0);</div><div class="line">    </div><div class="line">    CGSize size =CTFramesetterSuggestFrameSizeWithConstraints(framesetter, range, (__bridge CFDictionaryRef) Framedic, rectBoud.size, &amp;fitRange);</div><div class="line">    NSLog(@&quot; 获取frame 的大小 %f %f %ld %ld&quot;,size.height,size.width,fitRange.location,fitRange.location);</div></pre></td></tr></table></figure>
-<p>这个函数只能测试矩形排版，矩形内必须一次排满路径才行。不能有clip path存在才能准确。局限性比较大。</p>
-<h2 id="3-CTLine-h"><a href="#3-CTLine-h" class="headerlink" title="3.CTLine.h"></a>3.CTLine.h</h2><p>CTFrame布局是由Path  和CTLine 组成的。</p>
+        <h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h2 id="3-CTLine-h"><a href="#3-CTLine-h" class="headerlink" title="3.CTLine.h"></a>3.CTLine.h</h2><p>CTFrame布局是由Path  和CTLine 组成的。</p>
 <p>我们能从CTLine中获取到什么信息呢。</p>
 <p>我们从以下方面  <strong>Line Types</strong>, <strong>Line Creation</strong>,<strong>Line Access</strong> ,<strong>Line Measurement</strong>, <strong>Line Caret Positioning and Highlighting</strong></p>
 <h4 id="1-Line-Types"><a href="#1-Line-Types" class="headerlink" title="1.Line Types"></a>1.Line Types</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFTypeID CTLineGetTypeID( void )</div><div class="line">获取CTLine的 CFTypeID</div></pre></td></tr></table></figure>
