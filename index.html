@@ -151,19 +151,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-CTFrame-h学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTFrame学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/CTFrame-h学习/">CTFrame.h学习</a>
+      <a class="article-title" href="/2017/03/02/CTFrame学习/">CTFrame.h学习</a>
     </h1>
   
 
         
-        <a href="/2017/03/02/CTFrame-h学习/" class="archive-article-date">
+        <a href="/2017/03/02/CTFrame学习/" class="archive-article-date">
   	<time datetime="2017-03-02T03:52:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
@@ -171,7 +171,63 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>CTFrame 相当于布局控制文件。控制文本的整体绘制。</p>
+<p>我们从三个方面来看这个类 </p>
+<h2 id="1-frame-访问函数"><a href="#1-frame-访问函数" class="headerlink" title="1. frame 访问函数"></a>1. frame 访问函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void CTFrameDraw(CTFrameRef frame,CGContextRef context )` </div><div class="line"></div><div class="line">将文本呈现在屏幕上</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void CTFrameGetLineOrigins(CTFrameRef frame,CFRange range,CGPoint origins[] )</div><div class="line"></div><div class="line">获取range范围内frame每行的起点 range 需要解释下 range.location 是 从第几个开始返回point  range.len 是返回几个，要是0就默认返回都最后一个。要是range 的location + len 大于CTLine的数量，所有的origins 都会是（0，0） 获取的坐标点是 coretext坐标系中的坐标</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CFArrayRef CTFrameGetLines(CTFrameRef frame )</div><div class="line"></div><div class="line">获取frame所有线的数组，frame是由CTLine组成的</div><div class="line"></div><div class="line">   NSArray * array = (__bridge NSArray * )CTFrameGetLines(frame);</div><div class="line"></div><div class="line">    NSLog(@&quot;frame lines %@&quot;,array);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CFDictionaryRef __nullable CTFrameGetFrameAttributes(CTFrameRef frame )</div><div class="line"></div><div class="line">获取修身frame的相关属性</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CGPathRef CTFrameGetPath(CTFrameRef frame )</div><div class="line"></div><div class="line">获取frame绘制的路径不包括剪切路径</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CFRange CTFrameGetVisibleStringRange(CTFrameRef frame ) </div><div class="line"></div><div class="line">获取frame 能看见的，绘制在屏幕上的string 的range范围</div><div class="line"></div><div class="line">CFRange CTFrameGetStringRange(CTFrameRef frame )</div><div class="line"></div><div class="line">获取frame 字符串的范围(包括不可见的)</div></pre></td></tr></table></figure>
+<h6 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">- (void)drawRect:(CGRect)rect &#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">        CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习/慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-640));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    </div><div class="line">    ///frame 相关访问函数 相当于布局控制器。我们能获取布局控制器相关参数</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line">    NSArray * array = (__bridge NSArray * )CTFrameGetLines(frame);</div><div class="line">    NSLog(@&quot;frame lines %@&quot;,array);</div><div class="line">    </div><div class="line">    NSInteger count = CFArrayGetCount((__bridge CFArrayRef)array);</div><div class="line">    CGPoint  origins[count] ;</div><div class="line">    ///range 需要解释下 range.location 是 从第几个开始返回point  range.len 是返回几个，要是0就默认返回都最后一个。要是range 的location + len 大于CTLine的数量，所有的origins 都会是（0，0） 获取的坐标点是 coretext坐标系中的坐标 </div><div class="line">    CTFrameGetLineOrigins(frame, CFRangeMake(0, 0), origins);</div><div class="line">    for (int i =0; i&lt;count; i++) &#123;</div><div class="line">        NSLog(@&quot;frame origins %f %f&quot;,origins[i].x,origins[i].y);</div><div class="line">    &#125;</div><div class="line">   NSDictionary * dic = (__bridge NSDictionary *) CTFrameGetFrameAttributes(frame);</div><div class="line">    NSLog(@&quot;frame att %@&quot;,dic);</div><div class="line">    </div><div class="line">    CGPathRef path = CTFrameGetPath(frame);</div><div class="line">    NSLog(@&quot;frame path %@&quot;,path);</div><div class="line">    </div><div class="line">    CFRange range =  CTFrameGetVisibleStringRange(frame);</div><div class="line">    NSLog(@&quot;frame visibleString Range %ld  %ld&quot;,range.location,range.length);</div><div class="line">    </div><div class="line">    range =  CTFrameGetStringRange(frame);</div><div class="line">    NSLog(@&quot;frame String Range %ld  %ld&quot;,range.location,range.length);</div><div class="line"></div><div class="line">    </div><div class="line">    CGPathRelease(Path);</div><div class="line">    CFRelease(framesetter);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">2017-02-23 15:19:42.578 CoreTextDemo[83004:902122] frame lines (</div><div class="line">    &quot;&lt;CTLine: 0x6080001ae8c0&gt;&#123;run count = 4, string range = (0, 24), width = 250.676, A/D/L = 12.72/4.08/0, glyph count = 24, runs = (\n\n&lt;CTRun: 0x7f8539f09720&gt;&#123;string range = (0, 5), string = \&quot;\\u5BCC\\u6587\\u672C\\u5B66\\u4E60\&quot;, attributes = &lt;CFBasicHash 0x608000267e40 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e05c788 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7f8539f1f160&gt;&#123;name = PingFangSC-Regular, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x608000086a90&gt;&#123;attributes = &lt;CFBasicHash 0x608000261640 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e062908 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x11af8e6c0 [0x10d69fc70]&gt;&#123;contents = \&quot;PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;\n\n\n&lt;CTRun: 0x7f8539f0de20&gt;&#123;string range = (5, 1), string = \&quot;/\&quot;, attributes = &lt;CFBasicHash 0x6080002609c0 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e05c788 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7f8539f04950&gt;&#123;name = Helvetica, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x600000085960&gt;&#123;attributes = &lt;CFBasicHash 0x60000007dd40 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e062908 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x10e0548a8 [0x10d69fc70]&gt;&#123;contents = \&quot;Helvetica\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;\n\n\n&lt;CTRun: 0x7f8539f2e9b0&gt;&#123;string range = (6, 14), string = \&quot;\\u6162\\u6162\\u6765\\u5427\\u3002\\u4E0D\\u662F\\u4E00\\u671D\\u4E00\\u5915\\u4E4B\\u529F\\u3002\&quot;, attributes = &lt;CFBasicHash 0x608000267e40 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e05c788 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7f8539f1f160&gt;&#123;name = PingFangSC-Regular, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x608000086a90&gt;&#123;attributes = &lt;CFBasicHash 0x608000261640 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e062908 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x11af8e6c0 [0x10d69fc70]&gt;&#123;contents = \&quot;PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;\n\n\n&lt;CTRun: 0x7f8539f2eaf0&gt;&#123;string range = (20, 4), string = \&quot;ok \\n\&quot;, attributes = &lt;CFBasicHash 0x6080002609c0 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e05c788 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7f8539f04950&gt;&#123;name = Helvetica, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x600000085960&gt;&#123;attributes = &lt;CFBasicHash 0x60000007dd40 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e062908 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x10e0548a8 [0x10d69fc70]&gt;&#123;contents = \&quot;Helvetica\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;\n\n)\n&#125;&quot;</div><div class="line">)</div><div class="line">2017-02-23 15:19:42.578 CoreTextDemo[83004:902122] frame origins 0.000000 14.000000</div><div class="line">2017-02-23 15:19:42.579 CoreTextDemo[83004:902122] frame att (null)</div><div class="line">2017-02-23 15:19:42.579 CoreTextDemo[83004:902122] frame path &lt;CGPath 0x60800003a300&gt;</div><div class="line">2017-02-23 15:19:42.579 CoreTextDemo[83004:902122] frame visibleString Range 0  24</div><div class="line">2017-02-23 15:19:42.580 CoreTextDemo[83004:902122] frame String Range 0  30</div></pre></td></tr></table></figure>
+<p>从上面结果看 frame 没有设置 att 属性。那怎么设置属性值呢？请看 <strong>CTFramesetterRef</strong></p>
+<h5 id="2-frame-values"><a href="#2-frame-values" class="headerlink" title="2 frame values"></a>2 frame values</h5><p>下面是frame att 属性的key  通过 这些key 可以控制 frame 的绘制布局</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">kCTFrameProgressionAttributeName</th>
+<th style="text-align:left">文字绘制方向，有三个值， kCTFrameProgressionTopToBottom水平绘制  从上到下， kCTFrameProgressionRightToLeft 垂直绘制，从右到左， kCTFrameProgressionLeftToRight 垂直绘制，从左到右</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">kCTFramePathFillRuleAttributeName</td>
+<td style="text-align:left">在path路径的绘制规则。有两种 kCTFramePathFillEvenOdd 根据 CGContextEOFillPath 规则绘制  kCTFramePathFillWindingNumber 充满整个path  默认是kCTFramePathFillEvenOdd</td>
+</tr>
+<tr>
+<td style="text-align:left">kCTFramePathWidthAttributeName</td>
+<td style="text-align:left">这个属性暂时不知道干嘛用的，使用起来无效</td>
+</tr>
+<tr>
+<td style="text-align:left">kCTFrameClippingPathsAttributeName</td>
+<td style="text-align:left">这个value 是array  ，array 中必须包含 字典 ，字典的key值是kCTFramePathClippingPathAttributeName  ，value是path，可选key  kCTFramePathFillRuleAttributeName 可以配置path路径的填充方式</td>
+</tr>
+<tr>
+<td style="text-align:left">kCTFramePathClippingPathAttributeName</td>
+<td style="text-align:left">这个value是path</td>
+</tr>
+</tbody>
+</table>
+<h6 id="kCTFrameProgressionAttributeName"><a href="#kCTFrameProgressionAttributeName" class="headerlink" title="kCTFrameProgressionAttributeName"></a>kCTFrameProgressionAttributeName</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSMutableDictionary * Framedic = [NSMutableDictionary dictionary];</div><div class="line">  [Framedic setObject:@(kCTFrameProgressionLeftToRight) forKey:(__bridge NSString *)kCTFrameProgressionAttributeName];</div><div class="line">  CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, (__bridge CFDictionaryRef) Framedic);</div></pre></td></tr></table></figure>
+<p>效果</p>
+<p><img src="/images/coretext3.tiff" alt="image"></p>
+<h6 id="kCTFrameProgressionRightToLeft"><a href="#kCTFrameProgressionRightToLeft" class="headerlink" title="kCTFrameProgressionRightToLeft"></a>kCTFrameProgressionRightToLeft</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSMutableDictionary * Framedic = [NSMutableDictionary dictionary];</div><div class="line"> [Framedic setObject:@(kCTFrameProgressionRightToLeft) forKey:(__bridge NSString *)kCTFrameProgressionAttributeName];</div><div class="line"> CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, (__bridge CFDictionaryRef) Framedic);</div></pre></td></tr></table></figure>
+<p>效果</p>
+<p><img src="images/image.tiff" alt="image"></p>
+<h6 id="默认是kCTFrameProgressionTopToBottom"><a href="#默认是kCTFrameProgressionTopToBottom" class="headerlink" title="默认是kCTFrameProgressionTopToBottom"></a>默认是kCTFrameProgressionTopToBottom</h6><h6 id="kCTFramePathFillRuleAttributeName"><a href="#kCTFramePathFillRuleAttributeName" class="headerlink" title="kCTFramePathFillRuleAttributeName"></a>kCTFramePathFillRuleAttributeName</h6><p>我认为这个主要是填充path 规则的 kCTFramePathFillEvenOdd 这种方式进行理解</p>
+<p>什么是 CGContextEOFillPath 规则  //使用奇偶规则填充当前路径</p>
+<p>修改路径代码如下：使一个大的矩形套一个小的矩形</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">   CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">   CGPathAddRect(Path, NULL ,CGRectMake(100 , 0 ,self.bounds.size.width-150 , self.bounds.size.height-60));</div></pre></td></tr></table></figure>
+<p>结果显示</p>
+<p><img src="/images/image-1.tiff" alt="image"></p>
+<h6 id="kCTFrameClippingPathsAttributeName-和-kCTFramePathClippingPathAttributeName"><a href="#kCTFrameClippingPathsAttributeName-和-kCTFramePathClippingPathAttributeName" class="headerlink" title="kCTFrameClippingPathsAttributeName 和 kCTFramePathClippingPathAttributeName"></a>kCTFrameClippingPathsAttributeName 和 kCTFramePathClippingPathAttributeName</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">NSMutableArray * arr = [NSMutableArray array];</div><div class="line"></div><div class="line">NSMutableDictionary * fillDic = [NSMutableDictionary dictionary];</div><div class="line">CGMutablePathRef clippath = CGPathCreateMutable();</div><div class="line">CGPathAddRect(clippath, NULL ,CGRectMake(100 , 20 ,self.bounds.size.width-150 , self.bounds.size.height-60));</div><div class="line">[fillDic setObject:(__bridge id _Nonnull)(clippath) forKey:(__bridge NSString *)kCTFramePathClippingPathAttributeName];</div><div class="line">[arr addObject:fillDic];</div><div class="line"></div><div class="line">fillDic = [NSMutableDictionary dictionary];</div><div class="line"> clippath = CGPathCreateMutable();</div><div class="line">CGPathAddRect(clippath, NULL ,CGRectMake(10 , 20 ,10 , self.bounds.size.height-60));</div><div class="line">[fillDic setObject:(__bridge id _Nonnull)(clippath) forKey:(__bridge NSString *)kCTFramePathClippingPathAttributeName];</div><div class="line">[arr addObject:fillDic];</div><div class="line">[Framedic setObject:arr forKey:(__bridge NSString *)kCTFrameClippingPathsAttributeName];</div></pre></td></tr></table></figure>
+<p>剪切上面的路径 。与 kCTFramePathFillRuleAttributeName  暂时看不出变化来，应该是这个里面的路径全部clip。可能与path 重叠有关系，目前没做具体研究。</p>
+<h5 id="3-frame-types"><a href="#3-frame-types" class="headerlink" title="3 frame types"></a>3 frame types</h5><h6 id="CFTypeID-CTFrameGetTypeID-void"><a href="#CFTypeID-CTFrameGetTypeID-void" class="headerlink" title="CFTypeID CTFrameGetTypeID( void )"></a>CFTypeID CTFrameGetTypeID( void )</h6><p>返回一个CFTypeID </p>
+<h3 id="综合CFFrame-h-api-，可以看出该类能获取到frame的信息是-CTLIne-和CTLine-的起点。"><a href="#综合CFFrame-h-api-，可以看出该类能获取到frame的信息是-CTLIne-和CTLine-的起点。" class="headerlink" title="综合CFFrame.h api ，可以看出该类能获取到frame的信息是 CTLIne 和CTLine 的起点。"></a>综合CFFrame.h api ，可以看出该类能获取到frame的信息是 CTLIne 和CTLine 的起点。</h3><p>见图</p>
+<p><img src="/images/image-2.tiff" alt="image"></p>
+<p>上图不包含剪切的路径。</p>
+
       
 
       
@@ -183,7 +239,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/02/CTFrame-h学习/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/02/CTFrame学习/">展开全文 >></a>
         </p>
       
 
@@ -396,199 +452,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>想学好一个framework ，以前总是看看简单的写写代码，实现基本功能。可是稍微遇到点困难的问题，就很难解决，所以这次我决定还是把所有的api都给实现一遍，看看功能，印象深刻。</p>
-<h2 id="coretext包含的类文件"><a href="#coretext包含的类文件" class="headerlink" title="coretext包含的类文件"></a>coretext包含的类文件</h2><table>
-<thead>
-<tr>
-<th>CoreText.h</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CTDefines.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTFont.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTFontCollection.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTFontDescriptor.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTFontManager.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTFontTraits.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTFrame.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTFramesetter.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTGlyphInfo.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTLine.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTParagraphStyle.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTRubyAnnotation.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTRun.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTRunDelegate.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTStringAttributes.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTTextTab.h</td>
-<td></td>
-</tr>
-<tr>
-<td>CTTypesetter.h</td>
-<td></td>
-</tr>
-<tr>
-<td>SFNTLayoutTypes.h</td>
-<td></td>
-</tr>
-<tr>
-<td>SFNTTypes.h</td>
-</tr>
-</tbody>
-</table>
-<p>以上是coretext.framework 包含的所有类</p>
-<h2 id="富文本字体规范"><a href="#富文本字体规范" class="headerlink" title="富文本字体规范"></a>富文本字体规范</h2><h4 id="字体的相关知识"><a href="#字体的相关知识" class="headerlink" title="字体的相关知识"></a>字体的相关知识</h4><p>字体(Font):是一系列字号、样式和磅值相同的字符(例如:10磅黑体Palatino)。现多被视为字样的同义词</p>
-<p>字面(Face):是所有字号的磅值和格式的综合</p>
-<p>字体集(Font family):是一组相关字体(例如:Franklin family包括Franklin Gothic、Fran-klinHeavy和Franklin Compressed)</p>
-<p>磅值(Weight):用于描述字体粗度。典型的磅值,从最粗到最细,有极细、细、book、中等、半粗、粗、较粗、极粗</p>
-<p>样式(Style):字形有三种形式:Roman type是直体;oblique type是斜体;utakuc type是斜体兼曲线(比Roman type更像书法体)。</p>
-<p>x高度(X height):指小写字母的平均高度(以x为基准)。磅值相同的两字母,x高度越大的字母看起来比x高度小的字母要大</p>
-<p>Cap高度(Cap height):与x高度相似。指大写字母的平均高度(以C为基准)</p>
-<p>下行字母(Descender):例如在字母q中,基线以下的字母部分叫下伸部分</p>
-<p>上行字母(Ascender):x高度以上的部分(比如字母b)叫做上伸部分</p>
-<p>基线(Baseline):通常在x、v、b、m下的那条线</p>
-<p>描边(Stroke):组成字符的线或曲线。可以加粗或改变字符形状</p>
-<p>衬线(Serif):用来使字符更可视的一条水平线。如字母左上角和下部的水平线。</p>
-<p>无衬线(Sans Serif):可以让排字员不使用衬线装饰。</p>
-<p>方形字(Block):这种字体的笔画使字符看起来比无衬线字更显眼,但还不到常见的衬线字的程度。例如Lubalin Graph就是方形字,这种字看起来好像是木头块刻的一样</p>
-<p>手写体脚本(Calligraphic script):是一种仿效手写体的字体。例如Murray Hill或者Fraktur字体</p>
-<p>艺术字(Decorative):像绘画般的字体</p>
-<p>Pi符号(Pisymbol):非标准的字母数字字符的特殊符号。例如Wingdings和Mathematical Pi</p>
-<p>连写(Ligature):是一系列连写字母如fi、fl、ffi或ffl。由于字些字母形状的原因经常被连写,故排字员已习惯将它们连写。</p>
-<p><img src="/images/font.gif" alt="image"></p>
-<p><img src="/images/font2.gif" alt="image"></p>
-<p>该框架的整体视窗组合图</p>
-<p><img src="/images/coretext1.png" alt="image"></p>
-<h2 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h2><p>UIKit框架的坐标系是左上角</p>
-<p>而 coretext的坐标系是左下角</p>
-<p>因此 要进行坐标系转换</p>
-<h2 id="简单demo"><a href="#简单demo" class="headerlink" title="简单demo"></a>简单demo</h2><p>我们学习这个框架从简单的demo慢慢扩充到复杂功能及所有api介绍</p>
-<p>demo 代码<br>$$</p>
-<ul>
-<li><p>(void)drawRect:(CGRect)rect {<br>  CGContextRef context = UIGraphicsGetCurrentContext();<br>  CGContextSetTextMatrix(context , CGAffineTransformIdentity);<br>  CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</p>
-<pre><code>CGContextScaleCTM(context, 1.0 ,-1.0);
-</code></pre><p>  NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@”富文本学习/慢慢来吧。不是一朝一夕之功。ok \n ok ok”];</p>
-<p>  CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</p>
-<p>  CGMutablePathRef Path = CGPathCreateMutable();<br>  CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-20));<br>  CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);<br>  CTFrameDraw(frame,context);</p>
-<p>  CGPathRelease(Path);<br>  CFRelease(framesetter);<br>}<br>$$<br>显示效果</p>
-</li>
-</ul>
-<p><img src="/images/coretext2.tiff" alt="image"></p>
-<p>上面就是用coretext实现的简单效果，看着一点都不酷。一个UIlabel就能实现的效果。不过不要紧，慢慢往下看。</p>
-<h2 id="开始学习API"><a href="#开始学习API" class="headerlink" title="开始学习API"></a>开始学习API</h2><p>首先我们学习绘制api <strong>CTFrame.h</strong></p>
-<p>CTFrame 相当于布局控制文件。控制文本的整体绘制。</p>
-<p>我们从三个方面来看这个类 </p>
-<h5 id="1-frame-访问函数"><a href="#1-frame-访问函数" class="headerlink" title="1 frame 访问函数"></a>1 frame 访问函数</h5><p><code>void CTFrameDraw(CTFrameRef frame,CGContextRef context )</code> </p>
-<p><code>将文本呈现在屏幕上</code></p>
-<p><code>void CTFrameGetLineOrigins(CTFrameRef frame,CFRange range,CGPoint origins[] )</code></p>
-<p><code>获取range范围内frame每行的起点 range 需要解释下 range.location 是 从第几个开始返回point  range.len 是返回几个，要是0就默认返回都最后一个。要是range 的location + len 大于CTLine的数量，所有的origins 都会是（0，0） 获取的坐标点是 coretext坐标系中的坐标</code></p>
-<p><code>CFArrayRef CTFrameGetLines(CTFrameRef frame )</code></p>
-<p><code>获取frame所有线的数组，frame是由CTLine组成的</code></p>
-<p>   NSArray <em> array = (__bridge NSArray </em> )CTFrameGetLines(frame);</p>
-<pre><code>NSLog(@&quot;frame lines %@&quot;,array);
-</code></pre><p><code>CFDictionaryRef __nullable CTFrameGetFrameAttributes(CTFrameRef frame )</code></p>
-<p><code>获取修身frame的相关属性</code></p>
-<p><code>CGPathRef CTFrameGetPath(CTFrameRef frame )</code></p>
-<p><code>获取frame绘制的路径不包括剪切路径</code>，</p>
-<p><code>CFRange CTFrameGetVisibleStringRange(CTFrameRef frame )</code> </p>
-<p><code>获取frame 能看见的，绘制在屏幕上的string 的range范围</code></p>
-<p><code>CFRange CTFrameGetStringRange(CTFrameRef frame )</code></p>
-<p><code>获取frame 字符串的范围(包括不可见的)</code></p>
-<h6 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">- (void)drawRect:(CGRect)rect &#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">        CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;富文本学习/慢慢来吧。不是一朝一夕之功。ok \n ok ok&quot;];</div><div class="line">    </div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    </div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-640));</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);</div><div class="line">    </div><div class="line">    ///frame 相关访问函数 相当于布局控制器。我们能获取布局控制器相关参数</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line">    NSArray * array = (__bridge NSArray * )CTFrameGetLines(frame);</div><div class="line">    NSLog(@&quot;frame lines %@&quot;,array);</div><div class="line">    </div><div class="line">    NSInteger count = CFArrayGetCount((__bridge CFArrayRef)array);</div><div class="line">    CGPoint  origins[count] ;</div><div class="line">    ///range 需要解释下 range.location 是 从第几个开始返回point  range.len 是返回几个，要是0就默认返回都最后一个。要是range 的location + len 大于CTLine的数量，所有的origins 都会是（0，0） 获取的坐标点是 coretext坐标系中的坐标 </div><div class="line">    CTFrameGetLineOrigins(frame, CFRangeMake(0, 0), origins);</div><div class="line">    for (int i =0; i&lt;count; i++) &#123;</div><div class="line">        NSLog(@&quot;frame origins %f %f&quot;,origins[i].x,origins[i].y);</div><div class="line">    &#125;</div><div class="line">   NSDictionary * dic = (__bridge NSDictionary *) CTFrameGetFrameAttributes(frame);</div><div class="line">    NSLog(@&quot;frame att %@&quot;,dic);</div><div class="line">    </div><div class="line">    CGPathRef path = CTFrameGetPath(frame);</div><div class="line">    NSLog(@&quot;frame path %@&quot;,path);</div><div class="line">    </div><div class="line">    CFRange range =  CTFrameGetVisibleStringRange(frame);</div><div class="line">    NSLog(@&quot;frame visibleString Range %ld  %ld&quot;,range.location,range.length);</div><div class="line">    </div><div class="line">    range =  CTFrameGetStringRange(frame);</div><div class="line">    NSLog(@&quot;frame String Range %ld  %ld&quot;,range.location,range.length);</div><div class="line"></div><div class="line">    </div><div class="line">    CGPathRelease(Path);</div><div class="line">    CFRelease(framesetter);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h6 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">2017-02-23 15:19:42.578 CoreTextDemo[83004:902122] frame lines (</div><div class="line">    &quot;&lt;CTLine: 0x6080001ae8c0&gt;&#123;run count = 4, string range = (0, 24), width = 250.676, A/D/L = 12.72/4.08/0, glyph count = 24, runs = (\n\n&lt;CTRun: 0x7f8539f09720&gt;&#123;string range = (0, 5), string = \&quot;\\u5BCC\\u6587\\u672C\\u5B66\\u4E60\&quot;, attributes = &lt;CFBasicHash 0x608000267e40 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e05c788 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7f8539f1f160&gt;&#123;name = PingFangSC-Regular, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x608000086a90&gt;&#123;attributes = &lt;CFBasicHash 0x608000261640 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e062908 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x11af8e6c0 [0x10d69fc70]&gt;&#123;contents = \&quot;PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;\n\n\n&lt;CTRun: 0x7f8539f0de20&gt;&#123;string range = (5, 1), string = \&quot;/\&quot;, attributes = &lt;CFBasicHash 0x6080002609c0 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e05c788 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7f8539f04950&gt;&#123;name = Helvetica, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x600000085960&gt;&#123;attributes = &lt;CFBasicHash 0x60000007dd40 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e062908 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x10e0548a8 [0x10d69fc70]&gt;&#123;contents = \&quot;Helvetica\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;\n\n\n&lt;CTRun: 0x7f8539f2e9b0&gt;&#123;string range = (6, 14), string = \&quot;\\u6162\\u6162\\u6765\\u5427\\u3002\\u4E0D\\u662F\\u4E00\\u671D\\u4E00\\u5915\\u4E4B\\u529F\\u3002\&quot;, attributes = &lt;CFBasicHash 0x608000267e40 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e05c788 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7f8539f1f160&gt;&#123;name = PingFangSC-Regular, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x608000086a90&gt;&#123;attributes = &lt;CFBasicHash 0x608000261640 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e062908 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x11af8e6c0 [0x10d69fc70]&gt;&#123;contents = \&quot;PingFangSC-Regular\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;\n\n\n&lt;CTRun: 0x7f8539f2eaf0&gt;&#123;string range = (20, 4), string = \&quot;ok \\n\&quot;, attributes = &lt;CFBasicHash 0x6080002609c0 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e05c788 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFont\&quot;&#125; = &lt;CTFont: 0x7f8539f04950&gt;&#123;name = Helvetica, size = 12.000000, matrix = 0x0, descriptor = &lt;CTFontDescriptor: 0x600000085960&gt;&#123;attributes = &lt;CFBasicHash 0x60000007dd40 [0x10d69fc70]&gt;&#123;type = mutable dict, count = 1,\nentries =&gt;\n\t2 : &lt;CFString 0x10e062908 [0x10d69fc70]&gt;&#123;contents = \&quot;NSFontNameAttribute\&quot;&#125; = &lt;CFString 0x10e0548a8 [0x10d69fc70]&gt;&#123;contents = \&quot;Helvetica\&quot;&#125;\n&#125;\n&gt;&#125;&#125;\n&#125;\n&#125;\n\n)\n&#125;&quot;</div><div class="line">)</div><div class="line">2017-02-23 15:19:42.578 CoreTextDemo[83004:902122] frame origins 0.000000 14.000000</div><div class="line">2017-02-23 15:19:42.579 CoreTextDemo[83004:902122] frame att (null)</div><div class="line">2017-02-23 15:19:42.579 CoreTextDemo[83004:902122] frame path &lt;CGPath 0x60800003a300&gt;</div><div class="line">2017-02-23 15:19:42.579 CoreTextDemo[83004:902122] frame visibleString Range 0  24</div><div class="line">2017-02-23 15:19:42.580 CoreTextDemo[83004:902122] frame String Range 0  30</div></pre></td></tr></table></figure>
-<p>从上面结果看 frame 没有设置 att 属性。那怎么设置属性值呢？请看 <strong>CTFramesetterRef</strong></p>
-<h5 id="2-frame-values"><a href="#2-frame-values" class="headerlink" title="2 frame values"></a>2 frame values</h5><p>下面是frame att 属性的key  通过 这些key 可以控制 frame 的绘制布局</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">kCTFrameProgressionAttributeName</th>
-<th style="text-align:left">文字绘制方向，有三个值， kCTFrameProgressionTopToBottom水平绘制  从上到下， kCTFrameProgressionRightToLeft 垂直绘制，从右到左， kCTFrameProgressionLeftToRight 垂直绘制，从左到右</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">kCTFramePathFillRuleAttributeName</td>
-<td style="text-align:left">在path路径的绘制规则。有两种 kCTFramePathFillEvenOdd 根据 CGContextEOFillPath 规则绘制  kCTFramePathFillWindingNumber 充满整个path  默认是kCTFramePathFillEvenOdd</td>
-</tr>
-<tr>
-<td style="text-align:left">kCTFramePathWidthAttributeName</td>
-<td style="text-align:left">这个属性暂时不知道干嘛用的，使用起来无效</td>
-</tr>
-<tr>
-<td style="text-align:left">kCTFrameClippingPathsAttributeName</td>
-<td style="text-align:left">这个value 是array  ，array 中必须包含 字典 ，字典的key值是kCTFramePathClippingPathAttributeName  ，value是path，可选key  kCTFramePathFillRuleAttributeName 可以配置path路径的填充方式</td>
-</tr>
-<tr>
-<td style="text-align:left">kCTFramePathClippingPathAttributeName</td>
-<td style="text-align:left">这个value是path</td>
-</tr>
-</tbody>
-</table>
-<h6 id="kCTFrameProgressionAttributeName"><a href="#kCTFrameProgressionAttributeName" class="headerlink" title="kCTFrameProgressionAttributeName"></a>kCTFrameProgressionAttributeName</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSMutableDictionary * Framedic = [NSMutableDictionary dictionary];</div><div class="line">  [Framedic setObject:@(kCTFrameProgressionLeftToRight) forKey:(__bridge NSString *)kCTFrameProgressionAttributeName];</div><div class="line">  CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, (__bridge CFDictionaryRef) Framedic);</div></pre></td></tr></table></figure>
-<p>效果</p>
-<p><img src="/images/coretext3.tiff" alt="image"></p>
-<h6 id="kCTFrameProgressionRightToLeft"><a href="#kCTFrameProgressionRightToLeft" class="headerlink" title="kCTFrameProgressionRightToLeft"></a>kCTFrameProgressionRightToLeft</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSMutableDictionary * Framedic = [NSMutableDictionary dictionary];</div><div class="line"> [Framedic setObject:@(kCTFrameProgressionRightToLeft) forKey:(__bridge NSString *)kCTFrameProgressionAttributeName];</div><div class="line"> CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, (__bridge CFDictionaryRef) Framedic);</div></pre></td></tr></table></figure>
-<p>效果</p>
-<p><img src="images/image.tiff" alt="image"></p>
-<h6 id="默认是kCTFrameProgressionTopToBottom"><a href="#默认是kCTFrameProgressionTopToBottom" class="headerlink" title="默认是kCTFrameProgressionTopToBottom"></a>默认是kCTFrameProgressionTopToBottom</h6><h6 id="kCTFramePathFillRuleAttributeName"><a href="#kCTFramePathFillRuleAttributeName" class="headerlink" title="kCTFramePathFillRuleAttributeName"></a>kCTFramePathFillRuleAttributeName</h6><p>我认为这个主要是填充path 规则的 kCTFramePathFillEvenOdd 这种方式进行理解</p>
-<p>什么是 CGContextEOFillPath 规则  //使用奇偶规则填充当前路径</p>
-<p>修改路径代码如下：使一个大的矩形套一个小的矩形</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">   CGPathAddRect(Path, NULL ,CGRectMake(10 , 0 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">   CGPathAddRect(Path, NULL ,CGRectMake(100 , 0 ,self.bounds.size.width-150 , self.bounds.size.height-60));</div></pre></td></tr></table></figure>
-<p>结果显示</p>
-<p><img src="/images/image-1.tiff" alt="image"></p>
-<h6 id="kCTFrameClippingPathsAttributeName-和-kCTFramePathClippingPathAttributeName"><a href="#kCTFrameClippingPathsAttributeName-和-kCTFramePathClippingPathAttributeName" class="headerlink" title="kCTFrameClippingPathsAttributeName 和 kCTFramePathClippingPathAttributeName"></a>kCTFrameClippingPathsAttributeName 和 kCTFramePathClippingPathAttributeName</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">NSMutableArray * arr = [NSMutableArray array];</div><div class="line"></div><div class="line">NSMutableDictionary * fillDic = [NSMutableDictionary dictionary];</div><div class="line">CGMutablePathRef clippath = CGPathCreateMutable();</div><div class="line">CGPathAddRect(clippath, NULL ,CGRectMake(100 , 20 ,self.bounds.size.width-150 , self.bounds.size.height-60));</div><div class="line">[fillDic setObject:(__bridge id _Nonnull)(clippath) forKey:(__bridge NSString *)kCTFramePathClippingPathAttributeName];</div><div class="line">[arr addObject:fillDic];</div><div class="line"></div><div class="line">fillDic = [NSMutableDictionary dictionary];</div><div class="line"> clippath = CGPathCreateMutable();</div><div class="line">CGPathAddRect(clippath, NULL ,CGRectMake(10 , 20 ,10 , self.bounds.size.height-60));</div><div class="line">[fillDic setObject:(__bridge id _Nonnull)(clippath) forKey:(__bridge NSString *)kCTFramePathClippingPathAttributeName];</div><div class="line">[arr addObject:fillDic];</div><div class="line">[Framedic setObject:arr forKey:(__bridge NSString *)kCTFrameClippingPathsAttributeName];</div></pre></td></tr></table></figure>
-<p>剪切上面的路径 。与 kCTFramePathFillRuleAttributeName  暂时看不出变化来，应该是这个里面的路径全部clip。可能与path 重叠有关系，目前没做具体研究。</p>
-<h5 id="3-frame-types"><a href="#3-frame-types" class="headerlink" title="3 frame types"></a>3 frame types</h5><h6 id="CFTypeID-CTFrameGetTypeID-void"><a href="#CFTypeID-CTFrameGetTypeID-void" class="headerlink" title="CFTypeID CTFrameGetTypeID( void )"></a>CFTypeID CTFrameGetTypeID( void )</h6><p>返回一个CFTypeID </p>
-<h3 id="综合CFFrame-h-api-，可以看出该类能获取到frame的信息是-CTLIne-和CTLine-的起点。"><a href="#综合CFFrame-h-api-，可以看出该类能获取到frame的信息是-CTLIne-和CTLine-的起点。" class="headerlink" title="综合CFFrame.h api ，可以看出该类能获取到frame的信息是 CTLIne 和CTLine 的起点。"></a>综合CFFrame.h api ，可以看出该类能获取到frame的信息是 CTLIne 和CTLine 的起点。</h3><p>见图</p>
-<p><img src="/images/image-2.tiff" alt="image"></p>
-<p>上图不包含剪切的路径。</p>
-<h2 id="CTFrameSetter-h"><a href="#CTFrameSetter-h" class="headerlink" title="CTFrameSetter.h"></a>CTFrameSetter.h</h2><p>创建 CTFrame 需要CTFrameSetter.h 类中</p>
+        <h2 id="CTFrameSetter-h"><a href="#CTFrameSetter-h" class="headerlink" title="CTFrameSetter.h"></a>CTFrameSetter.h</h2><p>创建 CTFrame 需要CTFrameSetter.h 类中</p>
 <p>该类分四部分，<strong>Framesetter Types</strong> ， <strong>Framesetter Creation</strong> ，<strong>Frame Creation</strong>   ， <strong>Frame Sizing</strong></p>
 <h3 id="1-Framesetter-Types"><a href="#1-Framesetter-Types" class="headerlink" title="1.Framesetter Types"></a>1.Framesetter Types</h3><p>CFTypeID CTFramesetterGetTypeID( void )  返回一个CTFramesetter 的 id 。</p>
 <h3 id="2-Framesetter-Creation"><a href="#2-Framesetter-Creation" class="headerlink" title="2.Framesetter Creation"></a>2.Framesetter Creation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CTFramesetterRef CTFramesetterCreateWithAttributedString(CFAttributedStringRef string )</div><div class="line">用CFAttributedStringRef 属性字符串创建一个CTFramesetterRef</div></pre></td></tr></table></figure>
