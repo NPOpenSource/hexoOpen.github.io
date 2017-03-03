@@ -8,13 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>CTTextTab.h学习 | 温杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="从  Text Tab Types         Text Tab Constants    Text Tab Creation     Text Tab Access学习">
+<meta property="og:type" content="article">
 <meta property="og:title" content="CTTextTab.h学习">
 <meta property="og:url" content="http://yoursite.com/2017/03/02/CTTextTab学习/index.html">
 <meta property="og:site_name" content="温杰的博客">
-<meta property="og:updated_time" content="2017-03-02T09:24:30.000Z">
+<meta property="og:description" content="从  Text Tab Types         Text Tab Constants    Text Tab Creation     Text Tab Access学习">
+<meta property="og:image" content="http://yoursite.com/images/image-34.tiff">
+<meta property="og:updated_time" content="2017-03-03T02:55:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CTTextTab.h学习">
+<meta name="twitter:description" content="从  Text Tab Types         Text Tab Constants    Text Tab Creation     Text Tab Access学习">
+<meta name="twitter:image" content="http://yoursite.com/images/image-34.tiff">
   
     <link rel="alternative" href="/atom.xml" title="温杰的博客" type="application/atom+xml">
   
@@ -170,7 +175,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>从  <strong>Text Tab Types</strong>         <strong>Text Tab Constants</strong>    <strong>Text Tab Creation</strong>     <strong>Text Tab Access</strong>学习</p>
+<a id="more"></a>
+<h2 id="1-Text-Tab-Types"><a href="#1-Text-Tab-Types" class="headerlink" title="1.Text Tab Types"></a>1.Text Tab Types</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFTypeID CTTextTabGetTypeID( void ) CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<h2 id="2-Text-Tab-Constants"><a href="#2-Text-Tab-Constants" class="headerlink" title="2.Text Tab Constants"></a>2.Text Tab Constants</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CT_EXPORT const CFStringRef kCTTabColumnTerminatorsAttributeName CT_AVAILABLE(10_5, 3_2);</div></pre></td></tr></table></figure>
+<h2 id="3-Text-Tab-Creation"><a href="#3-Text-Tab-Creation" class="headerlink" title="3.Text Tab Creation"></a>3.Text Tab Creation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">-(void)drawRect:(CGRect)rect&#123;</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">    CGContextSetTextMatrix(context , CGAffineTransformIdentity);</div><div class="line">    CGContextTranslateCTM(context , 0 ,self.bounds.size.height);</div><div class="line">    CGContextScaleCTM(context, 1.0 ,-1.0);</div><div class="line">    </div><div class="line">    ///制表符前后都要有空格，生效。</div><div class="line">    NSMutableAttributedString *mabstring = [[NSMutableAttributedString alloc]initWithString:@&quot;wenjie \t 322.2 \t 2.22 \t 3.33 \n 京晓 \t 5.27 \t 2.4 \t 32.43&quot;];</div><div class="line">    NSMutableDictionary * dic=[NSMutableDictionary dictionary];</div><div class="line">    CFCharacterSetRef setRef = CFCharacterSetGetPredefined(kCFCharacterSetLowercaseLetter);</div><div class="line"></div><div class="line">    [dic setObject:(__bridge id _Nonnull)(setRef) forKey:(__bridge NSString *)kCTTabColumnTerminatorsAttributeName];</div><div class="line">    </div><div class="line">    CTTextTabRef textTab = CTTextTabCreate(</div><div class="line">                                kCTTextAlignmentLeft,</div><div class="line">                                  100,</div><div class="line">                                 (__bridge CFDictionaryRef)dic);</div><div class="line">    NSDictionary * dicTextTab = (__bridge NSDictionary * )CTTextTabGetOptions(textTab);</div><div class="line">    NSLog(@&quot;dic textTab %@&quot;,dicTextTab);</div><div class="line">    CTTextTabRef textTab1 = CTTextTabCreate(</div><div class="line">                                           kCTTextAlignmentCenter,</div><div class="line">                                           100,</div><div class="line">                                           NULL);</div><div class="line">    </div><div class="line">   </div><div class="line">    </div><div class="line">    NSMutableArray * arr= [NSMutableArray array];</div><div class="line"></div><div class="line">   UIView  * view= [[UIView alloc]initWithFrame:CGRectMake(50, 0, 100, 20)];</div><div class="line">    view.backgroundColor = [UIColor redColor];</div><div class="line">    [self addSubview: view];</div><div class="line">    [arr addObject:(__bridge id)textTab];</div><div class="line">    [arr addObject:(__bridge id)textTab1];</div><div class="line">    </div><div class="line">    CGFloat tab = 50;</div><div class="line">    CTParagraphStyleSetting setting[2] ;</div><div class="line">    setting[0].spec = kCTParagraphStyleSpecifierTabStops;</div><div class="line">    setting[0].value =&amp;arr;</div><div class="line">    setting[0].valueSize = sizeof(CFArrayRef);</div><div class="line">    setting[1].spec = kCTParagraphStyleSpecifierDefaultTabInterval;</div><div class="line">    setting[1].value =&amp;tab;</div><div class="line">    setting[1].valueSize = sizeof(CGFloat);</div><div class="line">    CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(setting, 2);</div><div class="line">     dic = [NSMutableDictionary dictionary];</div><div class="line">    [dic setObject:(__bridge id)paragraphStyle forKey:(__bridge NSString *)kCTParagraphStyleAttributeName];</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    [ mabstring setAttributes:dic range:NSMakeRange(0, mabstring.length)];</div><div class="line">    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)mabstring);</div><div class="line">    CGMutablePathRef Path = CGPathCreateMutable();</div><div class="line">    CGPathAddRect(Path, NULL ,CGRectMake(10 , 40 ,self.bounds.size.width-10 , self.bounds.size.height-60));</div><div class="line">    CFRange range = CFRangeMake(0, 0);</div><div class="line">    CTFrameRef frame = CTFramesetterCreateFrame(framesetter,range, Path, NULL);</div><div class="line">    CTFrameDraw(frame,context);</div><div class="line">    </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果：</p>
+<p><img src="/images/image-34.tiff" alt="image"></p>
+<p>这个虽然影响制表符  但是没有明显的规律可以查询。</p>
+<h2 id="4-Text-Tab-Access"><a href="#4-Text-Tab-Access" class="headerlink" title="4.Text Tab Access"></a>4.Text Tab Access</h2>
       
 
       
@@ -204,7 +217,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CTTextTab</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CTTextTab1.</a>
         		</li>
       		
 		</ul>
@@ -406,6 +419,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CTTextTab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CTTextTab1.</a>
               </li>
             
             <div class="clearfix"></div>
