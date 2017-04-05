@@ -54,7 +54,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/ios">iOS</a></li>
+	        
+				<li><a href="/tags/macos">MacOS</a></li>
 	        
 			</ul>
 		</nav>
@@ -112,6 +114,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -129,12 +133,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/ios">iOS</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/macos">MacOS</a></li>
 		        
 				</ul>
 			</nav>
@@ -182,7 +188,8 @@
 AVCaptureOutput is an abstract base class describing an output destination of an AVCaptureSession object
 
 You use an AVCaptureSession object to coordinate the flow of data from AV input devices to outputs
-</code></pre><p>#####参考连接<br><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVFoundationFramework/" target="_blank" rel="external">苹果AVFoundation ref</a></p>
+</code></pre><p>​<br>​    </p>
+<p>#####参考连接<br><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVFoundationFramework/" target="_blank" rel="external">苹果AVFoundation ref</a></p>
 <p><a href="https://developer.apple.com/library/prerelease/mac/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html" target="_blank" rel="external">苹果AVFoundation Programming Guide</a></p>
 
       
@@ -192,6 +199,17 @@ You use an AVCaptureSession object to coordinate the flow of data from AV input 
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -236,10 +254,8 @@ You use an AVCaptureSession object to coordinate the flow of data from AV input 
       
         <p>##调用系统相机</p>
 <p>调用系统相机一般的功能是可以满足的，如果没有特殊的要求要求，可以直接用系统相机。</p>
-<p>代码如下：</p>
-<pre><code>调用照相机
-
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+<p>代码如下：<br>​<br>    调用照相机</p>
+<pre><code>    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
 
     UIImagePickerController * picker = [[UIImagePickerController alloc]init];
     picker.delegate = self;
@@ -284,7 +300,8 @@ if ([self respondsToSelector:@selector(getCameraImage:)]) {
 <pre><code>我个人偏向用自定义相机，个人理由只有一条，可以高度定制。（虽然有点麻烦）
 
 暂时更新到这里（哈哈。没有上下文了。）我发现学习相机还是先系统学习学习avfoudation.framework 比较靠谱些。学完av 再回来学喽
-</code></pre><p>#####参考连接</p>
+</code></pre><p>​    </p>
+<p>#####参考连接</p>
 
       
 
@@ -294,6 +311,17 @@ if ([self respondsToSelector:@selector(getCameraImage:)]) {
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ios/" class="article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -348,6 +376,17 @@ if ([self respondsToSelector:@selector(getCameraImage:)]) {
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -443,15 +482,13 @@ if ([self respondsToSelector:@selector(getCameraImage:)]) {
         1=x*0+y*0+ 1*1
 
 所以b矩阵为 上面如图
-</code></pre><p><strong>1.2 缩放变换</strong><br>缩放变换是指对p点相对于坐标原点沿x方向放缩Sx倍，沿y方向放缩Sy倍。其中Sx和Sy称为缩放系数。</p>
-<p><img src="/images/juzhen23.png" alt="image"><br>推导：</p>
-<p><img src="/images/juzhen24.png" alt="image">    </p>
+</code></pre><p>​<br><strong>1.2 缩放变换</strong><br>缩放变换是指对p点相对于坐标原点沿x方向放缩Sx倍，沿y方向放缩Sy倍。其中Sx和Sy称为缩放系数。</p>
+<p><img src="/images/juzhen23.png" alt="image"><br>推导：<br>​<br><img src="/images/juzhen24.png" alt="image">    </p>
 <p>  矩阵<br><img src="/images/juzhen25.png" alt="image">        </p>
 <pre><code>x&apos;=x*Sx+y*0 + 0*0;
 y&apos;=x*0 +y *Sy+0*0;
 0=x*0+y*0+0*1;
-</code></pre><p>缩放变换可改变物体的大小，如下图所示。当Sx=Sy &gt;1时，图形沿两个坐标轴方向等比例放大；当Sx=Sy&lt;1，图形沿两个坐标轴方向等比例缩小；当Sx≠Sy，图形沿两个坐标轴方向作非均匀的比例变换。                        </p>
-<p><img src="/images/juzhen26.png" alt="image">        </p>
+</code></pre><p>缩放变换可改变物体的大小，如下图所示。当Sx=Sy &gt;1时，图形沿两个坐标轴方向等比例放大；当Sx=Sy&lt;1，图形沿两个坐标轴方向等比例缩小；当Sx≠Sy，图形沿两个坐标轴方向作非均匀的比例变换。<br>​<br><img src="/images/juzhen26.png" alt="image">        </p>
 <p>  <strong>1.3 旋转变换</strong></p>
 <p>二维旋转是指将p点绕坐标原点转动某个角度（逆时针为正，顺时针为负）得到新的点p’的重定位过程。</p>
 <p><img src="/images/juzhen27.png" alt="image">    </p>
@@ -462,11 +499,8 @@ y&apos;=x*0 +y *Sy+0*0;
 <p><strong>1.4 对称变换</strong></p>
 <p>对称变换后的图形是原图形关于某一轴线或原点的镜像。<br><img src="/images/juzhen30.png" alt="image"></p>
 <p>  (1)关于x轴对称</p>
-<p><img src="/images/juzhen31.png" alt="image">    </p>
-<pre><code>x&apos;=x*1+y*0+0*0;
-y&apos;=x*0+y*(-1)+0*0;
-0=x*0+y*0+0*1;
-</code></pre><p> (2)关于y轴对称</p>
+<p><img src="/images/juzhen31.png" alt="image"><br>​<br>    x’=x<em>1+y</em>0+0<em>0;<br>    y’=x</em>0+y<em>(-1)+0</em>0;<br>    0=x<em>0+y</em>0+0*1;</p>
+<p> (2)关于y轴对称</p>
 <p> <img src="/images/juzhen33.png" alt="image">    </p>
 <p>  (3)关于原点对称</p>
 <p>  <img src="/images/juzhen34.png" alt="image">    </p>
@@ -543,36 +577,16 @@ NSLog(@&quot;CGAffineTransformIdentity 数值%@&quot; ,     NSStringFromCGAffine
 
 ///获取一个变幻矩阵 这个函数可以平移旋转和缩放
 /* Return the transform [ a b c d tx ty ]. */
-</code></pre><p>  transform=  CGAffineTransformMake(a, b, c, d,x,y);</p>
-<pre><code>///获取一个只做平移的矩阵
-//        t&apos; = [ 1 0 0 1 tx ty ]
-</code></pre><p> transform=   CGAffineTransformMakeTranslation(x, y);</p>
-<pre><code>///获取一个缩放矩阵
-//         t&apos; = [ sx 0 0 sy 0 0 ] 
-</code></pre><p>  transform=  CGAffineTransformMakeScale(a,c);</p>
+</code></pre><p>  transform=  CGAffineTransformMake(a, b, c, d,x,y);<br>​<br>    ///获取一个只做平移的矩阵<br>    //        t’ = [ 1 0 0 1 tx ty ]<br> transform=   CGAffineTransformMakeTranslation(x, y);<br>​<br>    ///获取一个缩放矩阵<br>    //         t’ = [ sx 0 0 sy 0 0 ]<br>  transform=  CGAffineTransformMakeScale(a,c);</p>
 <pre><code>//获取一个旋转矩阵
 /* Return a transform which rotates by `angle&apos; radians:
  t&apos; = [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] */
-</code></pre><p>  transform=  CGAffineTransformMakeRotation(3);</p>
-<pre><code>///验证是否是标准矩阵
-</code></pre><p>  BOOL isTrue =  CGAffineTransformIsIdentity(transform);</p>
-<pre><code>///这个是矩阵之间的换算了
-/* Translate `t&apos; by `(tx, ty)&apos; and return the result:
- t&apos; = [ 1 0 0 1 tx ty ] * t */
-/// 说的很明确 用只有平移的矩阵和 t 矩阵相乘 t*t&apos; 意思是在t&apos;的基础上做t 变幻（例如平移旋转等等）
-transform=   CGAffineTransformTranslate(transform,x,y);
-
-///矩阵先缩放再transform
+</code></pre><p>  transform=  CGAffineTransformMakeRotation(3);<br>​<br>    ///验证是否是标准矩阵<br>  BOOL isTrue =  CGAffineTransformIsIdentity(transform);<br>​<br>​<br>    ///这个是矩阵之间的换算了<br>    /<em> Translate <code>t&#39; by</code>(tx, ty)’ and return the result:<br>     t’ = [ 1 0 0 1 tx ty ] </em> t <em>/<br>    /// 说的很明确 用只有平移的矩阵和 t 矩阵相乘 t</em>t’ 意思是在t’的基础上做t 变幻（例如平移旋转等等）<br>    transform=   CGAffineTransformTranslate(transform,x,y);</p>
+<pre><code>///矩阵先缩放再transform
 /* Scale `t&apos; by `(sx, sy)&apos; and return the result:
  t&apos; = [ sx 0 0 sy 0 0 ] * t */
-</code></pre><p>  transform=  CGAffineTransformScale(transform,a,c);</p>
-<pre><code>///矩阵先旋转再transform
-/* Rotate `t&apos; by `angle&apos; radians and return the result:
- t&apos; =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] * t */
-transform = CGAffineTransformRotate(transform,3);
-
-
-NSLog(@&quot;CGAffineTransformInvert前 数值%@&quot; , NSStringFromCGAffineTransform(transform));
+</code></pre><p>  transform=  CGAffineTransformScale(transform,a,c);<br>​<br>    ///矩阵先旋转再transform<br>    /<em> Rotate <code>t&#39; by</code>angle’ radians and return the result:<br>     t’ =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] </em> t */<br>    transform = CGAffineTransformRotate(transform,3);</p>
+<pre><code>NSLog(@&quot;CGAffineTransformInvert前 数值%@&quot; , NSStringFromCGAffineTransform(transform));
 /// 获取 反转矩阵  看不出效果。做图看看  可以仔细研究下
 ///我看着就是沿着y轴做了一个对称变换 （不见得对）
 transform =   CGAffineTransformInvert(transform);
@@ -591,14 +605,8 @@ isTrue =CGAffineTransformEqualToTransform(transform,transform);
 /* Transform `point&apos; by `t&apos; and return the result:
  p&apos; = p * t
  where p = [ x y 1 ]. */
-</code></pre><p>  CGPoint point=  CGPointApplyAffineTransform(CGPointMake(30, 30), transform);</p>
-<pre><code>///获取一个矩形矩形变换的大小
-/* Transform `size&apos; by `t&apos; and return the result:
- s&apos; = s * t
- where s = [ width height 0 ]. */
-CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);
-
-///获取矩形位置变幻后的位置
+</code></pre><p>  CGPoint point=  CGPointApplyAffineTransform(CGPointMake(30, 30), transform);<br>​<br>    ///获取一个矩形矩形变换的大小<br>    /<em> Transform <code>size&#39; by</code>t’ and return the result:<br>     s’ = s </em> t<br>     where s = [ width height 0 ]. */<br>    CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);</p>
+<pre><code>///获取矩形位置变幻后的位置
  CGRect rect=CGRectApplyAffineTransform(CGRectMake(0, 0, 30, 30),transform);
 </code></pre><p>项目中有每个函数的具体用法。</p>
 <p><img src="/images/transformNew.gif" alt="image"></p>
@@ -614,6 +622,17 @@ CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -674,7 +693,7 @@ man open
 <li>ls 查看当面文件夹中的目录列表</li>
 <li>cd .. 返回上已目录</li>
 <li>rm xxx 删除文件</li>
-<li>vi xxx 打开文件<br>  进入vi文件之后，q键是功能切换<pre><code>a键是插入操作
+<li>vi xxx 打开文件<br>进入vi文件之后，q键是功能切换<pre><code>a键是插入操作
 shift+q 进入退出模式。wq 写入并保存 q! 强制退出不保存
 </code></pre></li>
 </ul>
@@ -686,6 +705,17 @@ shift+q 进入退出模式。wq 写入并保存 q! 强制退出不保存
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -760,6 +790,17 @@ nothing to commit, working directory clean
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -826,14 +867,13 @@ nothing to commit, working directory clean
   .git/objects/info 
   .git/objects/pack 
   $ find .git/objects -type f 
-</code></pre><p>Git 初始化了 objects 目录，同时在该目录下创建了 pack 和 info 子目录，但是该目录下没有其他常规文件。我们往这个 Git 数据库里存储一些文本：</p>
+</code></pre><p>​<br>Git 初始化了 objects 目录，同时在该目录下创建了 pack 和 info 子目录，但是该目录下没有其他常规文件。我们往这个 Git 数据库里存储一些文本：</p>
 <pre><code>$ echo &apos;test content&apos; | git hash-object -w --stdin 
 d670460b4b4aece5915caf5c68d12f560a9fe3e4
 </code></pre><p>参数 -w 指示 hash-object 命令存储 (数据) 对象，若不指定这个参数该命令仅仅返回键值。–stdin 指定从标准输入设备 (stdin) 来读取内容，若不指定这个参数则需指定一个要存储的文件的路径。该命令输出长度为 40 个字符的校验和。这是个 SHA-1 哈希值──其值为要存储的数据加上你马上会了解到的一种头信息的校验和。现在可以查看到 Git 已经存储了数据</p>
 <pre><code>$ find .git/objects -type f 
 .git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4
-</code></pre><p>可以在 objects 目录下看到一个文件。这便是 Git 存储数据内容的方式──为每份内容生成一个文件，取得该内容与头信息的 SHA-1 校验和，创建以该校验和前两个字符为名称的子目录，并以 (校验和) 剩下 38 个字符为文件命名 (保存至子目录下)。</p>
-<p>通过 cat-file 命令可以将数据内容取回。该命令是查看 Git 对象的瑞士军刀。传入 -p 参数可以让该命令输出数据内容的类型</p>
+</code></pre><p>可以在 objects 目录下看到一个文件。这便是 Git 存储数据内容的方式──为每份内容生成一个文件，取得该内容与头信息的 SHA-1 校验和，创建以该校验和前两个字符为名称的子目录，并以 (校验和) 剩下 38 个字符为文件命名 (保存至子目录下)。<br>​<br>通过 cat-file 命令可以将数据内容取回。该命令是查看 Git 对象的瑞士军刀。传入 -p 参数可以让该命令输出数据内容的类型</p>
 <pre><code>$ git cat-file -p d670460b4b4aece5915caf5c68d12f560a9fe3e4 
 test content
 </code></pre><p>可以往 Git 中添加更多内容并取回了。也可以直接添加文件。比方说可以对一个文件进行简单的版本控制。首先，创建一个新文件，并把文件内容存储到数据库中：</p>
@@ -865,7 +905,7 @@ blob
 <pre><code>$ git cat-file -p master^{tree} 100644 blob a906cb2a4a904a152e80877d4088654daad0c859 README 100644 blob 8f94139338f9404f26296befa88755fc2598c289 Rakefile 040000 tree 99f1a6d12cb4b6f19c8655fca46c3ecf317074e0 lib
 
 具体生成办法往下看，这个代码可以暂时不验证        
-</code></pre><p>master^{tree} 表示 branch 分支上最新提交指向的 tree 对象。请注意 lib 子目录并非一个 blob 对象，而是一个指向别一个 tree 对象的指针：</p>
+</code></pre><p>​<br>master^{tree} 表示 branch 分支上最新提交指向的 tree 对象。请注意 lib 子目录并非一个 blob 对象，而是一个指向别一个 tree 对象的指针：</p>
 <pre><code>$ git cat-file -p 99f1a6d12cb4b6f19c8655fca46c3ecf317074e0 100644 blob 47c6340d6459e05787f644c2447d2595f5d3a54b simplegit.rb
 </code></pre><p>从概念上来讲，Git 保存的数据如图<br><img src="/images/git-branch32.png" alt="alt text"></p>
 <p>你可以自己创建 tree 。通常 Git 根据你的暂存区域或 index 来创建并写入一个 tree 。因此要创建一个 tree 对象的话首先要通过将一些文件暂存从而创建一个 index 。可以使用 plumbing 命令update-index 为一个单独文件 ── test.txt 文件的第一个版本 ──    创建一个 index    。通过该命令人为的将 test.txt 文件的首个版本加入到了一个新的暂存区域中。由于该文件原先并不在暂存区域中 (甚至就连暂存区域也还没被创建出来呢) ，必须传入–add 参数;由于要添加的文件并不在当前目录下而是在数据库中，必须传入 –cacheinfo 参数。同时指定了文件模式，SHA-1 值和文件名：</p>
@@ -948,18 +988,16 @@ commit 1a410efbd13591db07496601ebc7a059dd55cfe9 Author: Scott Chacon Date: Fri M
 <blockquote>
 <p>分布式版本控制系统</p>
 </blockquote>
-<p>于是分布式版本控制系统（ Distributed Version Control System，简称 DVCS ）面世了。在这类系统中，像 Git，Mercurial，Bazaar 以及 Darcs 等，客户端并不只提取最新版本的文件快照，而是把原始的代码仓库完整地镜像下来。这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜 像出来的本地仓库恢复。因为每一次的提取操作，实际上都是一次对代码仓库的完整备份。</p>
-<p><img src="/images/git-fenbushi.png" alt="alt text"></p>
+<p>于是分布式版本控制系统（ Distributed Version Control System，简称 DVCS ）面世了。在这类系统中，像 Git，Mercurial，Bazaar 以及 Darcs 等，客户端并不只提取最新版本的文件快照，而是把原始的代码仓库完整地镜像下来。这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜 像出来的本地仓库恢复。因为每一次的提取操作，实际上都是一次对代码仓库的完整备份。<br>​<br><img src="/images/git-fenbushi.png" alt="alt text"></p>
 <p>更进一步，许多这类系统都可以指定和若干不同的远端代码仓库进行交互。籍此，你就可以在同一个项目中，分别和不同工作小组的人相互协作。你可以根据需要设定不同的协作流程，比如层次模型式的工作流，而这在以前的集中式系统中是无法实现的。</p>
 <p>###git基础</p>
 <blockquote>
 <p>直接记录快照，而非差异比较</p>
 </blockquote>
-<p>Git 和其他版本控制系统的主要差别在于，Git 只关心文件数据的整体是否发生变化，而大多数其他系统则只关心文件内容的具体差异。这类系统 （CVS，Subversion，Perforce，Bazaar 等等）每次记录有哪些文件作了更新，以及都更新了哪些行的什么内容</p>
-<p><img src="/images/git-otherSys.png" alt="alt text"></p>
+<p>Git 和其他版本控制系统的主要差别在于，Git 只关心文件数据的整体是否发生变化，而大多数其他系统则只关心文件内容的具体差异。这类系统 （CVS，Subversion，Perforce，Bazaar 等等）每次记录有哪些文件作了更新，以及都更新了哪些行的什么内容<br>​<br><img src="/images/git-otherSys.png" alt="alt text"></p>
 <p>Git 并不保存这些前后变化的差异数据。实际上，Git 更像是把变化的文件作快照后，记录在一个微型的文件系统中。每次提交更新时，它会纵览一遍所有文件的指纹信息并对文件作一快照，然后保存一个指向这次快照 的索引。为提高性能，若文件没有变化，Git 不会再次保存，而只对上次保存的快照作一链接。</p>
 <p><img src="/images/git-differentSys.png" alt="alt text"></p>
-<p>这是 Git 同其他系统的重要区别。它完全颠覆了传统版本控制的套路，并对各个环节的实现方式作了新的设计。Git 更像是个小型的文件系统，但它同时还提供了许多以此为基础的超强工具，而不只是一个简单的 VCS</p>
+<p>这是 Git 同其他系统的重要区别。它完全颠覆了传统版本控制的套路，并对各个环节的实现方式作了新的设计。Git 更像是个小型的文件系统，但它同时还提供了许多以此为基础的超强工具，而不只是一个简单的 VCS<br>​    </p>
 <blockquote>
 <p>近乎所有操作都是本地执行</p>
 </blockquote>
@@ -969,12 +1007,11 @@ commit 1a410efbd13591db07496601ebc7a059dd55cfe9 Author: Scott Chacon Date: Fri M
 </blockquote>
 <p>在保存到 Git 之前，所有数据都要进行内容的校验和（checksum）计算，并将此结果作为数据的唯一标识和索引。换句话说，不可能在你修改了文件或目录之后，Git 一无所知。这项特性作为 Git 的设计哲学，建在整体架构的最底层。所以如果文件在传输时变得不完整，或者磁盘损坏导致文件数据缺失，Git 都能立即察觉。</p>
 <p>Git 使用 SHA-1 算法计算数据的校验和，通过对文件的内容或目录的结构计算出一个 SHA-1 哈希值，作为指纹字符串。该字串由 40 个十六进制字符（0-9 及 a-f）组成，看起来就像是：</p>
-<p>24b9da6552252987aa493b52f8696cd6d3b00373</p>
-<p>Git 的工作完全依赖于这类指纹字串，所以你会经常看到这样的哈希值。实际上，所有保存在 Git 数据库中的东西都是用此哈希值来作索引的，而不是靠文件名。</p>
+<p>24b9da6552252987aa493b52f8696cd6d3b00373<br>​<br>Git 的工作完全依赖于这类指纹字串，所以你会经常看到这样的哈希值。实际上，所有保存在 Git 数据库中的东西都是用此哈希值来作索引的，而不是靠文件名。<br>​    </p>
 <blockquote>
 <p>多数操作仅添加数据</p>
 </blockquote>
-<p>常用的 Git 操作大多仅仅是把数据添加到数据库。因为任何一种不可逆的操作，比如删除数据，都会使回退或重现历史版本变得困难重重。在别的 VCS 中，若还未提交更新，就有可能丢失或者混淆一些修改的内容，但在 Git 里，一旦提交快照之后就完全不用担心丢失数据，特别是养成定期推送到其他仓库的习惯的话。</p>
+<p>常用的 Git 操作大多仅仅是把数据添加到数据库。因为任何一种不可逆的操作，比如删除数据，都会使回退或重现历史版本变得困难重重。在别的 VCS 中，若还未提交更新，就有可能丢失或者混淆一些修改的内容，但在 Git 里，一旦提交快照之后就完全不用担心丢失数据，特别是养成定期推送到其他仓库的习惯的话。<br>​    </p>
 <blockquote>
 <p>文件的三种状态</p>
 </blockquote>
@@ -987,7 +1024,7 @@ commit 1a410efbd13591db07496601ebc7a059dd55cfe9 Author: Scott Chacon Date: Fri M
 <p>基本的 Git 工作流程如下：</p>
 <ol>
 <li><p>在工作目录中修改某些文件。 2. 对修改后的文件进行快照，然后保存到暂存区域。 3. 提交更新，将保存在暂存区域的文件快照永久转储到 Git 目录中。</p>
-<p> 所以，我们可以从文件所处的位置来判断状态：如果是 Git 目录中保存着的特定版本文件，就属于已提交状态；如果作了修改并已放入暂存区域，就属于已暂存状态；如果自上次取出后，作了修改但还没有放到暂存区域，就 是已修改状态。</p>
+<p>所以，我们可以从文件所处的位置来判断状态：如果是 Git 目录中保存着的特定版本文件，就属于已提交状态；如果作了修改并已放入暂存区域，就属于已暂存状态；如果自上次取出后，作了修改但还没有放到暂存区域，就 是已修改状态。</p>
 </li>
 </ol>
 <p>请记住，工作目录下面的所有文件都不外乎这两种状态：已跟踪或未跟踪。已跟踪的文件是指本来就被纳入版本控制管理的文件，在上次快照中有它们的记 录，工作一段时间后，它们的状态可能是未更新，已修改或者已放入暂存区。而所有其他文件都属于未跟踪文件。它们既没有上次更新时的快照，也不在当前的暂存 区域。初次克隆某个仓库时，工作目录中的所有文件都属于已跟踪文件，且状态为未修改。</p>
@@ -996,40 +1033,27 @@ commit 1a410efbd13591db07496601ebc7a059dd55cfe9 Author: Scott Chacon Date: Fri M
 <p> 何谓分支</p>
 </blockquote>
 <p>为了理解 Git 分支的实现方式，我们需要回顾一下 Git 是如何储存数据的。或许你还记得第一章的内容，Git 保存的不是文件差异或者变化量，而只是一系列文件快照。</p>
-<p>在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提交对 象的父对象指针：首次提交是没有直接祖先的，普通提交有一个祖先，由两个或多个分支合并产生的提交则有多个祖先。</p>
-<p>为直观起见，我们假设在工作目录中有三个文件，准备将它们暂存后提交。暂存操作会对每一个文件计算校验和，然后把当前版本的文件快照保存到 Git 仓库中（Git 使用 blob 类型的对象存储这些快照），并将校验和加入暂存区域：</p>
-<pre><code>$ git add README test.rb LICENSE $ git commit -m &apos;initial commit of my project&apos;
-</code></pre><p>当使用 git commit 新建一个提交对象前，Git 会先计算每一个子目录（本例中就是项目根目录）的校验和，然后在 Git 仓库中将这些目录保存为树（tree）对象。之后 Git 创建的提交对象，除了包含相关提交信息以外，还包含着指向这个树对象（项目根目录）的指针，如此它就可以在将来需要的时候，重现此次快照的内容了。</p>
+<p>在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提交对 象的父对象指针：首次提交是没有直接祖先的，普通提交有一个祖先，由两个或多个分支合并产生的提交则有多个祖先。<br>​<br>为直观起见，我们假设在工作目录中有三个文件，准备将它们暂存后提交。暂存操作会对每一个文件计算校验和，然后把当前版本的文件快照保存到 Git 仓库中（Git 使用 blob 类型的对象存储这些快照），并将校验和加入暂存区域：<br>​<br>    $ git add README test.rb LICENSE $ git commit -m ‘initial commit of my project’</p>
+<p>当使用 git commit 新建一个提交对象前，Git 会先计算每一个子目录（本例中就是项目根目录）的校验和，然后在 Git 仓库中将这些目录保存为树（tree）对象。之后 Git 创建的提交对象，除了包含相关提交信息以外，还包含着指向这个树对象（项目根目录）的指针，如此它就可以在将来需要的时候，重现此次快照的内容了。</p>
 <p>现在，Git 仓库中有五个对象：三个表示文件快照内容的 blob 对象；一个记录着目录树内容及其中各个文件对应 blob 对象索引的 tree 对象；以及一个包含指向 tree 对象（根目录）的索引和其他提交信息元数据的 commit 对象。概念上来说，仓库中的各个对象保存的数据和相互关系看起来如图：<br><img src="/images/git-branch-master.png" alt="alt text"></p>
-<p>作些修改后再次提交，那么这次的提交对象会包含一个指向上次提交对象的指针（译注：即下图中的 parent 对象）。两次提交后，仓库历史会变成下图</p>
-<p><img src="/iamges/git-commit-more.png" alt="alt text"></p>
+<p>作些修改后再次提交，那么这次的提交对象会包含一个指向上次提交对象的指针（译注：即下图中的 parent 对象）。两次提交后，仓库历史会变成下图<br>​<br><img src="/iamges/git-commit-more.png" alt="alt text"></p>
 <p>现在来谈分支。Git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指针。Git 会使用 master 作为分支的默认名字。在若干次提交后，你其实已经有了一个指向最后一次提交对象的 master 分支，它在每次提交的时候都会自动向前移动。</p>
 <p><img src="/images/git-branch-new.png" alt="alt text"></p>
-<p>Git 又是如何创建一个新的分支的呢？答案很简单，创建一个新的分支指针。比如新建一个 testing 分支，可以使用 git branch 命令：</p>
-<pre><code>$ git branch testing
-</code></pre><p>这会在当前 commit 对象上新建一个分支指针如图</p>
-<p><img src="/images/git-branch-create.png" alt="alt text"></p>
-<p>那么，Git 是如何知道你当前在哪个分支上工作的呢？其实答案也很简单，它保存着一个名为 HEAD 的特别指针。请注意它和你熟知的许多其他版本控制系统（比如 Subversion 或 CVS）里的 HEAD 概念大不相同。在 Git 中，它是一个指向你正在工作中的本地分支的指针（译注：将 HEAD 想象为当前分支的别名。）。运行git branch 命令，仅仅是建立了一个新的分支，但不会自动切换到这个分支中去，所以在这个例子中，我们依然还在 master 分支里工作(如图)</p>
-<p><img src="/images/git-branch-show.png" alt="alt text"></p>
+<p>Git 又是如何创建一个新的分支的呢？答案很简单，创建一个新的分支指针。比如新建一个 testing 分支，可以使用 git branch 命令：<br>​<br>    $ git branch testing</p>
+<p>这会在当前 commit 对象上新建一个分支指针如图<br>​<br><img src="/images/git-branch-create.png" alt="alt text"></p>
+<p>那么，Git 是如何知道你当前在哪个分支上工作的呢？其实答案也很简单，它保存着一个名为 HEAD 的特别指针。请注意它和你熟知的许多其他版本控制系统（比如 Subversion 或 CVS）里的 HEAD 概念大不相同。在 Git 中，它是一个指向你正在工作中的本地分支的指针（译注：将 HEAD 想象为当前分支的别名。）。运行git branch 命令，仅仅是建立了一个新的分支，但不会自动切换到这个分支中去，所以在这个例子中，我们依然还在 master 分支里工作(如图)<br>​<br><img src="/images/git-branch-show.png" alt="alt text"></p>
 <p>要切换到其他分支，可以执行 git checkout 命令。我们现在转换到新建的 testing 分支</p>
 <pre><code>$ git checkout testing
-</code></pre><p>这样 HEAD 就指向了 testing 分支</p>
-<p><img src="/images/git-branch-check.png" alt="alt text"></p>
-<p>这样的实现方式会给我们带来什么好处呢？好吧，现在不妨再提交一次：</p>
-<pre><code>$ vim test.rb $ git commit -a -m &apos;made a change&apos;
-</code></pre><p>下图  展示了提交后的结果</p>
-<p><img src="/images/git-branch-checkout.png" alt="alt text"></p>
+</code></pre><p>这样 HEAD 就指向了 testing 分支<br>​<br><img src="/images/git-branch-check.png" alt="alt text"></p>
+<p>这样的实现方式会给我们带来什么好处呢？好吧，现在不妨再提交一次：<br>​<br>    $ vim test.rb $ git commit -a -m ‘made a change’</p>
+<p>下图  展示了提交后的结果<br>​<br><img src="/images/git-branch-checkout.png" alt="alt text"></p>
 <p>非常有趣，现在 testing 分支向前移动了一格，而 master 分支仍然指向原先 git checkout 时所在的 commit 对象。现在我们回到 master 分支看看：</p>
 <pre><code>$ git checkout master
-</code></pre><p>下图 显示了结果。</p>
-<p><img src="/images/git-master-new.png" alt="alt text"></p>
-<p>这条命令做了两件事。它把 HEAD 指针移回到 master 分支，并把工作目录中的文件换成了 master 分支所指向的快照内容。也就是说，现在开始所做的改动，将始于本项目中一个较老的版本。它的主要作用是将 testing 分支里作出的修改暂时取消，这样你就可以向另一个方向进行开发。</p>
+</code></pre><p>下图 显示了结果。<br>​<br><img src="/images/git-master-new.png" alt="alt text"><br>​<br>这条命令做了两件事。它把 HEAD 指针移回到 master 分支，并把工作目录中的文件换成了 master 分支所指向的快照内容。也就是说，现在开始所做的改动，将始于本项目中一个较老的版本。它的主要作用是将 testing 分支里作出的修改暂时取消，这样你就可以向另一个方向进行开发。</p>
 <p>我们作些修改后再次提交：</p>
 <pre><code>$ vim test.rb $ git commit -a -m &apos;made other changes&apos;
-</code></pre><p>现在我们的项目提交历史产生了分叉（如图 3-9 所示），因为刚才我们创建了一个分支，转换到其中进行了一些工作，然后又回到原来的主分支进行了另外一些工作。这些改变分别孤立在不同的分支里：我们可以 在不同分支里反复切换，并在时机成熟时把它们合并到一起。而所有这些工作，仅仅需要branch 和 checkout 这两条命令就可以完成。</p>
-<p><img src="/images/git-head.png" alt="alt text"></p>
-<p>由于 Git 中的分支实际上仅是一个包含所指对象校验和（40 个字符长度 SHA-1 字串）的文件，所以创建和销毁一个分支就变得非常廉价。说白了，新建一个分支就是向一个文件写入 41 个字节（外加一个换行符）那么简单，当然也就很快了。</p>
-<p>这和大多数版本控制系统形成了鲜明对比，它们管理分支大多采取备份所有项目文件到特定目录的方式，所以根据项目文件数量和大小不同，可能花费的时间 也会有相当大的差别，快则几秒，慢则数分钟。而 Git 的实现与项目复杂度无关，它永远可以在几毫秒的时间内完成分支的创建和切换。同时，因为每次提交时都记录了祖先信息（译注：即parent 对象），将来要合并分支时，寻找恰当的合并基础（译注：即共同祖先）的工作其实已经自然而然地摆在那里了，所以实现起来非常容易。Git 鼓励开发者频繁使用分支，正是因为有着这些特性作保障</p>
+</code></pre><p>现在我们的项目提交历史产生了分叉（如图 3-9 所示），因为刚才我们创建了一个分支，转换到其中进行了一些工作，然后又回到原来的主分支进行了另外一些工作。这些改变分别孤立在不同的分支里：我们可以 在不同分支里反复切换，并在时机成熟时把它们合并到一起。而所有这些工作，仅仅需要branch 和 checkout 这两条命令就可以完成。<br>​<br><img src="/images/git-head.png" alt="alt text"></p>
+<p>由于 Git 中的分支实际上仅是一个包含所指对象校验和（40 个字符长度 SHA-1 字串）的文件，所以创建和销毁一个分支就变得非常廉价。说白了，新建一个分支就是向一个文件写入 41 个字节（外加一个换行符）那么简单，当然也就很快了。<br>​<br>这和大多数版本控制系统形成了鲜明对比，它们管理分支大多采取备份所有项目文件到特定目录的方式，所以根据项目文件数量和大小不同，可能花费的时间 也会有相当大的差别，快则几秒，慢则数分钟。而 Git 的实现与项目复杂度无关，它永远可以在几毫秒的时间内完成分支的创建和切换。同时，因为每次提交时都记录了祖先信息（译注：即parent 对象），将来要合并分支时，寻找恰当的合并基础（译注：即共同祖先）的工作其实已经自然而然地摆在那里了，所以实现起来非常容易。Git 鼓励开发者频繁使用分支，正是因为有着这些特性作保障<br>​<br>​    </p>
 <blockquote>
 <p>  分支的新建与合并</p>
 </blockquote>
@@ -1058,8 +1082,7 @@ commit 1a410efbd13591db07496601ebc7a059dd55cfe9 Author: Scott Chacon Date: Fri M
 <p>接下来，你得进行紧急修补。我们创建一个紧急修补分支 hotfix 来开展工作，直到搞定（见图 3-13）：</p>
 <pre><code>$ git checkout -b &apos;hotfix&apos;
  $ vim index.html $ git commit -a -m &apos;fixed &quot;
-</code></pre><p> <img src="/images/git-branch6.png" alt="alt text"></p>
-<p> 有必要作些测试，确保修补是成功的，然后回到 master 分支并把它合并进来，然后发布到生产服务器。用 git merge 命令来进行合并</p>
+</code></pre><p> <img src="/images/git-branch6.png" alt="alt text"><br>​<br> 有必要作些测试，确保修补是成功的，然后回到 master 分支并把它合并进来，然后发布到生产服务器。用 git merge 命令来进行合并</p>
 <pre><code>$ git checkout master 
 $ git merge hotfix
 </code></pre><p>请注意，合并时出现了“Fast forward”的提示。由于当前 master 分支所在的提交对象是要并入的 hotfix 分支的直接上游，Git 只需把master 分支指针直接右移。换句话说，如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地把指针右移，因为这种单线的历史分支不存在任何需要解决的分歧，所以这种合并过程可以称为快进（Fast forward）。</p>
@@ -1096,17 +1119,14 @@ contact : email.support@github.com
 ======= 
 please contact us at support@github.com
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53:index.html
-</code></pre><p>可以看到 ======= 隔开的上半部分，是 HEAD（即 master 分支，在运行merge 命令时所切换到的分支）中的内容，下半部分是在 iss53 分支中的内容。解决冲突的办法无非是二者选其一或者由你亲自整合到一起。比如你可以通过把这段内容替换为下面这样来解决</p>
-<pre><code>please contact us at email.support@github.com
-</code></pre><p>这个解决方案各采纳了两个分支中的一部分内容，而且我还删除了 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，======= 和 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 这些行。在解决了所有文件里的所有冲突后，运行 git add 将把它们标记为已解决状态（译注：实际上就是来一次快照保存到暂存区域。）。因为一旦暂存，就表示冲突已经解决。如果你想用一个有图形界面的工具来解决这些问题，不妨运行git mergetool，它会调用一个可视化的合并工具并引导你解决所有冲突：</p>
-<pre><code>$ git mergetool merge tool candidates: kdiff3 tkdiff xxdiff meld gvimdiff opendiff emerge vimdiff Merging the files: index.html Normal merge conflict for &apos;index.html&apos;: {local}: modified {remote}: modified Hit return to start merge resolution tool (opendiff):
-</code></pre><p>如果不想用默认的合并工具（Git 为我默认选择了 opendiff，因为我在 Mac 上运行了该命令），你可以在上方”merge tool candidates”里找到可用的合并工具列表，输入你想用的工具名。我们将在第七章讨论怎样改变环境中的默认值。</p>
+</code></pre><p>可以看到 ======= 隔开的上半部分，是 HEAD（即 master 分支，在运行merge 命令时所切换到的分支）中的内容，下半部分是在 iss53 分支中的内容。解决冲突的办法无非是二者选其一或者由你亲自整合到一起。比如你可以通过把这段内容替换为下面这样来解决<br>​<br>    please contact us at email.support@github.com</p>
+<p>这个解决方案各采纳了两个分支中的一部分内容，而且我还删除了 &lt;&lt;&lt;&lt;&lt;&lt;&lt;，======= 和 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 这些行。在解决了所有文件里的所有冲突后，运行 git add 将把它们标记为已解决状态（译注：实际上就是来一次快照保存到暂存区域。）。因为一旦暂存，就表示冲突已经解决。如果你想用一个有图形界面的工具来解决这些问题，不妨运行git mergetool，它会调用一个可视化的合并工具并引导你解决所有冲突：<br>​<br>    $ git mergetool merge tool candidates: kdiff3 tkdiff xxdiff meld gvimdiff opendiff emerge vimdiff Merging the files: index.html Normal merge conflict for ‘index.html’: {local}: modified {remote}: modified Hit return to start merge resolution tool (opendiff):</p>
+<p>如果不想用默认的合并工具（Git 为我默认选择了 opendiff，因为我在 Mac 上运行了该命令），你可以在上方”merge tool candidates”里找到可用的合并工具列表，输入你想用的工具名。我们将在第七章讨论怎样改变环境中的默认值。</p>
 <p>退出合并工具以后，Git 会询问你合并是否成功。如果回答是，它会为你把相关文件暂存起来，以表明状态为已解决。</p>
 <p>再运行一次 git status 来确认所有冲突都已解决：</p>
 <pre><code>$ git status # On branch master # Changes to be committed: # (use &quot;git reset HEAD ...&quot; to unstage) # # modified: index.html # 
-</code></pre><p>如果觉得满意了，并且确认所有冲突都已解决，也就是进入了暂存区，就可以用 git commit 来完成这次合并提交。提交的记录差不多是这样：</p>
-<pre><code>Merge branch &apos;iss53&apos; Conflicts: index.html # # It looks like you may be committing a MERGE. # If this is not correct, please remove the file # .git/MERGE_HEAD # and try again. #
-</code></pre><p>如果想给将来看这次合并的人一些方便，可以修改该信息，提供更多合并细节。比如你都作了哪些改动，以及这么做的原因。有时候裁决冲突的理由并不直接或明显，有必要略加注解。</p>
+</code></pre><p>如果觉得满意了，并且确认所有冲突都已解决，也就是进入了暂存区，就可以用 git commit 来完成这次合并提交。提交的记录差不多是这样：<br>​<br>    Merge branch ‘iss53’ Conflicts: index.html # # It looks like you may be committing a MERGE. # If this is not correct, please remove the file # .git/MERGE_HEAD # and try again. #</p>
+<p>如果想给将来看这次合并的人一些方便，可以修改该信息，提供更多合并细节。比如你都作了哪些改动，以及这么做的原因。有时候裁决冲突的理由并不直接或明显，有必要略加注解。</p>
 <ul>
 <li>分支的管理</li>
 </ul>
@@ -1122,7 +1142,7 @@ please contact us at support@github.com
 <pre><code>$ git branch --no-merged testing
 </code></pre><p>它会显示还未合并进来的分支。由于这些分支中还包含着尚未合并进来的工作成果，所以简单地用 git branch -d 删除该分支会提示错误，因为那样做会丢失数据</p>
 <pre><code>$ git branch -d testing error: The branch &apos;testing&apos; is not an ancestor of your current HEAD. If you are sure you want to delete it, run &apos;git branch -D testing&apos;.
-</code></pre><p>不过，如果你确实想要删除该分支上的改动，可以用大写的删除选项 -D 强制执行，就像上面提示信息中给出的那样。</p>
+</code></pre><p>不过，如果你确实想要删除该分支上的改动，可以用大写的删除选项 -D 强制执行，就像上面提示信息中给出的那样。<br>​<br>​    </p>
 <blockquote>
 <p>利用分支进行开发的工作流程</p>
 </blockquote>
@@ -1189,9 +1209,9 @@ please contact us at support@github.com
 <ul>
 <li>删除远程分支</li>
 </ul>
-<p>如果不再需要某个远程分支了，比如搞定了某个特性并把它合并进了远程的 master 分支（或任何其他存放稳定代码的地方），可以用这个非常无厘头的语法来删除它：git push [远程名] :[分支名]。如果想在服务器上删除serverfix 分支，运行下面的命令</p>
-<pre><code>$ git push origin :serverfix To git@github.com:schacon/simplegit.git - [deleted] serverfix
-</code></pre><p><strong>咚！服务器上的分支没了。你最好特别留心这一页，因为你一定会用到那个命令，而且你很可能会忘掉它的语法。有种方便记忆这条命令的方法：记住我们不久前见过的 git push [远程名] [本地分支]:[远程分支] 语法，如果省略 [本地分支]，那就等于是在说“在这里提取空白然后把它变成[远程分支]”</strong></p>
+<p>如果不再需要某个远程分支了，比如搞定了某个特性并把它合并进了远程的 master 分支（或任何其他存放稳定代码的地方），可以用这个非常无厘头的语法来删除它：git push [远程名] :[分支名]。如果想在服务器上删除serverfix 分支，运行下面的命令<br>​<br>    $ git push origin :serverfix To git@github.com:schacon/simplegit.git - [deleted] serverfix</p>
+<p>​    </p>
+<p><strong>咚！服务器上的分支没了。你最好特别留心这一页，因为你一定会用到那个命令，而且你很可能会忘掉它的语法。有种方便记忆这条命令的方法：记住我们不久前见过的 git push [远程名] [本地分支]:[远程分支] 语法，如果省略 [本地分支]，那就等于是在说“在这里提取空白然后把它变成[远程分支]”</strong></p>
 <blockquote>
 <pre><code>分支的衍合
 </code></pre></blockquote>
@@ -1251,13 +1271,15 @@ please contact us at support@github.com
 <p>如果把衍合当成一种在推送之前清理提交历史的手段，而且仅仅衍合那些尚未公开的提交对象，就没问题。如果衍合那些已经公开的提交对象，并且已经有人基于这些提交对象开展了后续开发工作的话，就会出现叫人沮丧的麻烦。</p>
 <p>###服务器上的git</p>
 <pre><code>省略
-</code></pre><p>###git命令</p>
+</code></pre><p>​    </p>
+<p>###git命令</p>
 <pre><code>Git 提供了一个叫做 git config 的工具（译注：实际是 git-config 命令，只不过可以通过 git 加一个名字来呼叫此命令。），专门用来配置或读取相应的工作环境变量。而正是由这些环境变量，决定了 Git 在各个环节的具体工作方式和行为。这些变量可以存放在以下三个不同的地方：
 
 /etc/gitconfig 文件：系统中对所有用户都普遍适用的配置。若使用 git config 时用--system 选项，读写的就是这个文件。
 ~/.gitconfig 文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用--global 选项，读写的就是这个文件。
 当前项目的 git 目录中的配置文件（也就是工作目录中的 .git/config 文件）：这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以.git/config 里的配置会覆盖/etc/gitconfig 中的同名变量。
-</code></pre><ul>
+</code></pre><p>​    </p>
+<ul>
 <li>git config –list  要检查已有的配置信息</li>
 <li>git config –global user.name “John Doe”  配置用户名</li>
 <li>git config –global user.email johndoe@example.com 配置邮件</li>
@@ -1275,14 +1297,16 @@ please contact us at support@github.com
 <li>git commit -m ‘initial project version’ 提交文件</li>
 <li>git clone git://github.com/schacon/grit.git 克隆文件到当前文件夹</li>
 <li>git clone git://github.com/schacon/grit.git mygrit  克隆文件到当前文件夹并将文件夹命名为 myfrit</li>
-<li>git status 检查当前文件状态</li>
-<li>cat .gitignore <em>.[oa] </em>~ 第一行告诉 Git 忽略所有以 .o 或 .a 结尾的文件。第二行告诉 Git 忽略所有以波浪符（~）结尾的文件    （<strong>可以添加多个忽略文件匹配，之间用空格空开</strong>）  </li>
+<li>git status 检查当前文件状态<ul>
+<li>cat .gitignore <em>.[oa] </em>~ 第一行告诉 Git 忽略所有以 .o 或 .a 结尾的文件。第二行告诉 Git 忽略所有以波浪符（~）结尾的文件（<strong>可以添加多个忽略文件匹配，之间用空格空开</strong>）  </li>
+</ul>
+</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">文件 .gitignore 的格式规范如下：</div><div class="line">所有空行或者以注释符号 ＃ 开头的行都会被 Git 忽略。</div><div class="line">可以使用标准的 glob 模式匹配。 * 匹配模式最后跟反斜杠（/）说明要忽略的是目录。 * 	要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。</div><div class="line"></div><div class="line">所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。星号（*）匹配零个或多个任意字符；[abc] 匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；问号（?）只匹配一个任意字符；如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如[0-9] 表示匹配所有 0 到 9 的数字）。</div></pre></td></tr></table></figure>
 <ul>
 <li>git diff  查看尚未暂存的文件更新了哪些部分</li>
 <li><p>git diff –cached 已经暂存起来的文件和上次提交时的快照之间的差异</p>
-<p>  例如 vim read </p>
+<p>例如 vim read </p>
 <pre><code>git add read      ///这第一个新生产的问题提交到git 缓存区域了
 vim read 打开read 输入文字abc
 git add read   ///第二次保存快照
@@ -1310,8 +1334,6 @@ index 0000000..40bae04
 
 比较的是缓存区最后两次的比较 （个人理解）
 </code></pre></li>
-</ul>
-<ul>
 <li><p>git commit 将暂存文件提交</p>
 <pre><code>可以看到，默认的提交消息包含最后一次运行 git status 的输出，放在注释行里，另外开头还有一空行，供你输入提交说明。你完全可以去掉这些注释行，不过留着也没关系，多少能帮你回想起这次更新的内容有哪些。退出编辑器时，Git 会丢掉注释行，将说明内容和本次更新提交到仓库。
 </code></pre></li>
@@ -1325,10 +1347,13 @@ index 0000000..40bae04
 <li><p>git mv file_from file_to 移动文件</p>
 <pre><code>其实，运行 git mv 就相当于运行了下面三条命令：
 $ mv README.txt README $ git rm README.txt $ git add README
-</code></pre></li>
-<li><p>git log  查看提交历史</p>
-</li>
+</code></pre><ul>
+<li>git log  查看提交历史<ul>
 <li>git log -p -2   -p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p>git commit –amend  有时候我们提交完了才发现漏掉了几个文件没有加，或者提交信息写错了。想要撤消刚才的提交操作，可以使用 –amend 选项重新提交（修改提交信息）</p>
 </li>
 <li><p>git reset HEAD benchmarks.rb  取消已经暂存的文件</p>
@@ -1343,10 +1368,13 @@ $ mv README.txt README $ git rm README.txt $ git add README
 <p>远程操作</p>
 </blockquote>
 <ul>
-<li>git remote add [shortname] [url]  要添加一个新的远程仓库，可以指定一个简单的名字，以便将来引用（在我看来，就是和远程仓库建立一个连接，给命名了一个别名。网上说的迷迷糊糊的）</li>
+<li><p>git remote add [shortname] [url]  要添加一个新的远程仓库，可以指定一个简单的名字，以便将来引用（在我看来，就是和远程仓库建立一个连接，给命名了一个别名。网上说的迷迷糊糊的）</p>
+<ul>
 <li><p>git fetch pb  到远程仓库中拉取所有你本地仓库中还没有的数据，运行完成后，你就可以在本地访问该远程仓库中的所有分支</p>
-<p>  如果是克隆了一个仓库，此命令会自动将远程仓库归于 origin 名下。所以，git fetch origin 会抓取从你上次克隆以来别人上传到此远程仓库中的所有更新（或是上次 fetch 以来别人提交的更新）。有一点很重要，需要记住，fetch 命令只是将远端的数据拉到本地仓库，并不自动合并到当前工作分支，只有当你确实准备好了，才能手工合并。</p>
-<p>  如果设置了某个分支用于跟踪某个远端仓库的分支（参见下节及第三章的内容），可以使用 git pull 命令自动抓取数据下来，然后将远端分支自动合并到本地仓库中当前分支。在日常工作中我们经常这么用，既快且好。实际上，默认情况下git clone 命令本质上就是自动创建了本地的 master 分支用于跟踪远程仓库中的 master 分支（假设远程仓库确实有 master 分支）。所以一般我们运行git pull，目的都是要从原始克隆的远端仓库中抓取数据后，合并到工作目录中的当前分支。</p>
+<p>如果是克隆了一个仓库，此命令会自动将远程仓库归于 origin 名下。所以，git fetch origin 会抓取从你上次克隆以来别人上传到此远程仓库中的所有更新（或是上次 fetch 以来别人提交的更新）。有一点很重要，需要记住，fetch 命令只是将远端的数据拉到本地仓库，并不自动合并到当前工作分支，只有当你确实准备好了，才能手工合并。</p>
+<p>如果设置了某个分支用于跟踪某个远端仓库的分支（参见下节及第三章的内容），可以使用 git pull 命令自动抓取数据下来，然后将远端分支自动合并到本地仓库中当前分支。在日常工作中我们经常这么用，既快且好。实际上，默认情况下git clone 命令本质上就是自动创建了本地的 master 分支用于跟踪远程仓库中的 master 分支（假设远程仓库确实有 master 分支）。所以一般我们运行git pull，目的都是要从原始克隆的远端仓库中抓取数据后，合并到工作目录中的当前分支。</p>
+</li>
+</ul>
 </li>
 <li><p>git push [remote-name] [branch-name] 将本地仓库中的数据推送到远程仓库</p>
 <pre><code>要把本地的 master 分支推送到origin 服务器上（再次说明下，克隆操作会自动使用默认的 master 和 origin 名字），可以运行下面的命令：
@@ -1354,18 +1382,23 @@ $ mv README.txt README $ git rm README.txt $ git add README
 $ git push origin master
 
 只有在所克隆的服务器上有写权限，或者同一时刻没有其他人在推数据，这条命令才会如期完成任务。如果在你推数据前，已经有其他人推送了若干更新，那 你的推送操作就会被驳回。你必须先把他们的更新抓取到本地，合并到自己的项目中，然后才可以再次推送。
-</code></pre></li>
-<li><p>git remote show [remote-name] 查看某个远程仓库的详细信息</p>
-</li>
+</code></pre><ul>
+<li>git remote show [remote-name] 查看某个远程仓库的详细信息<ul>
 <li>git remote rename [pb] [paul] 对远程仓库的重命名 将pb重命名为paul</li>
 <li>git remote rm paul  删除paul远端仓库连接</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>2.6  打标签  (这个我用的不多暂时不弄这个了)</p>
 </blockquote>
 <ul>
-<li>git tag  列出现有标签  </li>
-<li>git tag -a v1.4 -m ‘my version 1.4’  创建一个含附注类型的标签非常简单，用 -a 而 -m 选项则指定了对应的标签说明    </li>
+<li>git tag  列出现有标签  <ul>
+<li>git tag -a v1.4 -m ‘my version 1.4’  创建一个含附注类型的标签非常简单，用 -a 而 -m 选项则指定了对应的标签说明</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li>git branch testing 新建一个 testing 分支</li>
@@ -1378,7 +1411,7 @@ $ git push origin master
 <li>git branch –merged 筛选出已经与当前分支合并的分支</li>
 <li>git branch –no-merged 筛选出已经与当前分支未合并的分支</li>
 <li>git checkout –track  跟踪分支</li>
-<li>git push [远程名] :[分支名]  删除分支<br>*git rebase master  将分支衍生到master上</li>
+<li>git push [远程名] :[分支名]  删除分支<br> *git rebase master  将分支衍生到master上</li>
 </ul>
 <p>####参考链接：</p>
 <ul>
@@ -1405,6 +1438,17 @@ $ git push origin master
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -1463,6 +1507,17 @@ $ git push origin master
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -1506,9 +1561,8 @@ $ git push origin master
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="纪要"><a href="#纪要" class="headerlink" title="纪要"></a>纪要</h2><pre><code>由于要用markdown写博客并进行排版，所以暂时先简单的学习使用下。
-</code></pre><h2 id="编辑软件"><a href="#编辑软件" class="headerlink" title="编辑软件"></a>编辑软件</h2><p>   <a href="http://pan.baidu.com/s/1qW9RRBI" target="_blank" rel="external">Mou link</a> </p>
-<pre><code>markdown语言编辑软件.
-</code></pre><h2 id="语法纪要"><a href="#语法纪要" class="headerlink" title="语法纪要"></a>语法纪要</h2><p>####段落、标题、区块代码</p>
+</code></pre><h2 id="编辑软件"><a href="#编辑软件" class="headerlink" title="编辑软件"></a>编辑软件</h2><p>   <a href="http://pan.baidu.com/s/1qW9RRBI" target="_blank" rel="external">Mou link</a><br>​<br>    markdown语言编辑软件.</p>
+<h2 id="语法纪要"><a href="#语法纪要" class="headerlink" title="语法纪要"></a>语法纪要</h2><p>####段落、标题、区块代码</p>
 <p>一个段落是由一个以上的连接的行句组成，而一个以上的空行则会划分出不同的段落（空行的定义是显示上看起来像是空行，就被视为空行，例如有一行只有空白和 tab，那该行也会被视为空行），一般的段落不需要用空白或换行缩进。</p>
 <p>Markdown 支持两种标题的语法，Setext 和 atx 形式。Setext 形式是用底线的形式，利用 = （最高阶标题）和 - （第二阶标题），Atx 形式在行首插入 1 到 6 个 # ，对应到标题 1 到 6 阶。</p>
 <p>区块引用则使用 email 形式的 ‘&gt;’ 角括号</p>
@@ -1540,10 +1594,8 @@ The quick brown fox jumped over the lazy dog&apos;s back.
 &lt;p&gt;This is the second paragraph in the blockquote.&lt;/p&gt;
 &lt;h2&gt;This is an H2 in a blockquote&lt;/h2&gt;
 &lt;/blockquote&gt;
-</code></pre><p>注释：</p>
-<pre><code>如果你在项目之间插入空行，那项目的内容会用 &lt;p&gt; 包起来，你也可以在一个项目内放上多个段落，只要在它前面缩排 4 个空白或 1 个 tab 。
-如果要建立一个已经格式化好的代码区块，只要每行都缩进 4 个空格或是一个 tab 就可以了，而 &amp;、&lt; 和 &gt; 也一样会自动转成 HTML 实体
-</code></pre><p>####修辞和强调 </p>
+</code></pre><p>注释：<br>​<br>    如果你在项目之间插入空行，那项目的内容会用 </p><p> 包起来，你也可以在一个项目内放上多个段落，只要在它前面缩排 4 个空白或 1 个 tab 。<br>    如果要建立一个已经格式化好的代码区块，只要每行都缩进 4 个空格或是一个 tab 就可以了，而 &amp;、&lt; 和 &gt; 也一样会自动转成 HTML 实体</p>
+<p>####修辞和强调 </p>
 <p>Markdown 使用星号和底线来标记需要强调的区段。</p>
 <p>  常用语法：<br>    <table border="4" width="400" align="center" bordercolor="red"><br>    <tr><br>        <td>输出后的效果    </td><br>        <td>Markdown    </td><br>        <td>快捷键    </td><br>        <td>是否好用    </td><br>    </tr><br>    <tr><br>        <td>Bold    </td><br>        <td><strong>text</strong>    </td><br>        <td>⌘ + B（mac）</td><br>        <td>好用    </td><br>    </tr><br>      <tr><br>        <td>Emphasize    </td><br>        <td><em>text</em>    </td><br>        <td>⌘ + I（mac）    </td><br>        <td>好用    </td><br>    </tr><br>     <br>      <tr><br>        <td>Strike-through    </td><br>        <td>#<del>text</del>    </td><br>        <td>Ctrl + Alt + U</td><br>        <td>不好用</td><br>    </tr><br>     <br>      <tr><br>        <td>Blockquote</td><br>        <td>&gt; quote</td><br>        <td>Ctrl + Q    </td><br>    </tr><br>     <br>    </table></p>
 <p>   Markdown 语法:</p>
@@ -1565,7 +1617,7 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
 <pre><code>* Candy.
 * Gum.
 * Booze.    
-</code></pre><p>加号</p>
+</code></pre><p>加号<br>​    </p>
 <pre><code>+ Candy.
 + Gum.
 + Booze.    
@@ -1613,7 +1665,7 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
 [3]: http://search.msn.com/ &quot;MSN Search&quot;
 </code></pre><p>输出 HTML 为：</p>
 <pre><code>&lt;p&gt;I get 10 times more traffic from &lt;a href=&quot;http://google.com/&quot;title=&quot;Google&quot;&gt;Google&lt;/a&gt; than from &lt;a href=&quot;http://search.yahoo.com/&quot;title=&quot;Yahoo Search&quot;&gt;Yahoo&lt;/a&gt; or &lt;a href=&quot;http://search.msn.com/&quot;title=&quot;MSN Search&quot;&gt;MSN&lt;/a&gt;.&lt;/p&gt;
-</code></pre><p>title 属性是选择性的，链接名称可以用字母、数字和空格，但是<strong>不分大小写</strong>：</p>
+</code></pre><p>​<br>title 属性是选择性的，链接名称可以用字母、数字和空格，但是<strong>不分大小写</strong>：</p>
 <pre><code>I start my morning with a cup of coffee and [The New York Times][NY Times].
 
 [ny times]: http://www.nytimes.com/
@@ -1643,19 +1695,8 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
 <blockquote>
 <pre><code>提示：github引用图片资源应该放在octopress/source/images/
 </code></pre></blockquote>
-<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>markdown 生成table 可以直接用html标签 相对比较麻烦 （github 不支持表格）</p>
-<pre><code>&lt;table border=4 width=250 align=center bordercolor=red&gt;
-&lt;tr&gt;
-    &lt;td&gt;北京    &lt;/td&gt;
-    &lt;td&gt;雾霾    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;深圳    &lt;/td&gt;
-    &lt;td&gt;暴雨    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-只有width 起作用
+<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>markdown 生成table 可以直接用html标签 相对比较麻烦 （github 不支持表格）<br>​<br>    <table border="4" width="250" align="center" bordercolor="red"><br>    <tr><br>        <td>北京    </td><br>        <td>雾霾    </td><br>    </tr><br>    <tr><br>        <td>深圳    </td><br>        <td>暴雨    </td><br>    </tr><br>    </table></p>
+<pre><code>只有width 起作用
 </code></pre><p>响应的效果</p>
 <table border="4" width="250" align="center" bordercolor="red"><br>    <tr><br>        <td>北京    </td><br>        <td>雾霾    </td><br>    </tr><br>    <tr><br>        <td>深圳    </td><br>        <td>暴雨    </td><br>    </tr><br>    </table>
 
@@ -1671,14 +1712,17 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
 <li>换行符 : 一行结束时输入两个空格</li>
 <li>列表 :* 添加星号成为一个新的列表项。</li>
 <li>引用 :&gt; 引用内容</li>
-<li>内嵌代码 : <code>alert(&#39;Hello World&#39;);</code></li>
-<li>画水平线 (HR) :——–    </li>
+<li>内嵌代码 : <code>alert(&#39;Hello World&#39;);</code><ul>
+<li>画水平线 (HR) :——–</li>
+</ul>
+</li>
 </ul>
 <p>#####参考链接：</p>
 <ul>
 <li><a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="external">http://wowubuntu.com/markdown/basic.html</a></li>
 <li><a href="http://baike.baidu.com/link?url=tyTi8BEbR9O32Af2md0WHPGdFwH_ZGSU0oVORrowucw1Nw8OWiuEJOoGeihjIcy5DH9tJCD-8s0RLPIaZKfeaa" target="_blank" rel="external">markdown百度百科</a></li>
 </ul>
+<p>​    </p>
 
       
 
@@ -1687,6 +1731,17 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -1738,6 +1793,17 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -1886,6 +1952,30 @@ Or, if you prefer, &lt;strong&gt;use two underscores instead&lt;/strong&gt;.&lt;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">CTTextTab1.</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CTTextTab1.h iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CTParagraphStyle ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CTTextTab1.h</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CTStringAttributes</a>
               </li>
             
             <div class="clearfix"></div>

@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://yoursite.com/images/juzhen48.png">
 <meta property="og:image" content="http://yoursite.com/images/juzhen49.png">
 <meta property="og:image" content="http://yoursite.com/images/transformNew.gif">
-<meta property="og:updated_time" content="2017-02-21T07:02:40.000Z">
+<meta property="og:updated_time" content="2017-04-05T02:54:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CGAffineTransform.h类的学习和原理讲解">
 <meta name="twitter:description" content="第一次写ios相关技术博客，所以先写个简单的，写的不好大家多多提意见。 想学好这个类，我感觉最好还是从理论上弄明白什么二维图形到底是怎么变换的。
@@ -153,7 +153,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/ios">iOS</a></li>
+	        
+				<li><a href="/tags/macos">MacOS</a></li>
 	        
 			</ul>
 		</nav>
@@ -211,6 +213,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -228,12 +232,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/ios">iOS</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/macos">MacOS</a></li>
 		        
 				</ul>
 			</nav>
@@ -321,15 +327,13 @@
         1=x*0+y*0+ 1*1
 
 所以b矩阵为 上面如图
-</code></pre><p><strong>1.2 缩放变换</strong><br>缩放变换是指对p点相对于坐标原点沿x方向放缩Sx倍，沿y方向放缩Sy倍。其中Sx和Sy称为缩放系数。</p>
-<p><img src="/images/juzhen23.png" alt="image"><br>推导：</p>
-<p><img src="/images/juzhen24.png" alt="image">    </p>
+</code></pre><p>​<br><strong>1.2 缩放变换</strong><br>缩放变换是指对p点相对于坐标原点沿x方向放缩Sx倍，沿y方向放缩Sy倍。其中Sx和Sy称为缩放系数。</p>
+<p><img src="/images/juzhen23.png" alt="image"><br>推导：<br>​<br><img src="/images/juzhen24.png" alt="image">    </p>
 <p>  矩阵<br><img src="/images/juzhen25.png" alt="image">        </p>
 <pre><code>x&apos;=x*Sx+y*0 + 0*0;
 y&apos;=x*0 +y *Sy+0*0;
 0=x*0+y*0+0*1;
-</code></pre><p>缩放变换可改变物体的大小，如下图所示。当Sx=Sy &gt;1时，图形沿两个坐标轴方向等比例放大；当Sx=Sy&lt;1，图形沿两个坐标轴方向等比例缩小；当Sx≠Sy，图形沿两个坐标轴方向作非均匀的比例变换。                        </p>
-<p><img src="/images/juzhen26.png" alt="image">        </p>
+</code></pre><p>缩放变换可改变物体的大小，如下图所示。当Sx=Sy &gt;1时，图形沿两个坐标轴方向等比例放大；当Sx=Sy&lt;1，图形沿两个坐标轴方向等比例缩小；当Sx≠Sy，图形沿两个坐标轴方向作非均匀的比例变换。<br>​<br><img src="/images/juzhen26.png" alt="image">        </p>
 <p>  <strong>1.3 旋转变换</strong></p>
 <p>二维旋转是指将p点绕坐标原点转动某个角度（逆时针为正，顺时针为负）得到新的点p’的重定位过程。</p>
 <p><img src="/images/juzhen27.png" alt="image">    </p>
@@ -340,11 +344,8 @@ y&apos;=x*0 +y *Sy+0*0;
 <p><strong>1.4 对称变换</strong></p>
 <p>对称变换后的图形是原图形关于某一轴线或原点的镜像。<br><img src="/images/juzhen30.png" alt="image"></p>
 <p>  (1)关于x轴对称</p>
-<p><img src="/images/juzhen31.png" alt="image">    </p>
-<pre><code>x&apos;=x*1+y*0+0*0;
-y&apos;=x*0+y*(-1)+0*0;
-0=x*0+y*0+0*1;
-</code></pre><p> (2)关于y轴对称</p>
+<p><img src="/images/juzhen31.png" alt="image"><br>​<br>    x’=x<em>1+y</em>0+0<em>0;<br>    y’=x</em>0+y<em>(-1)+0</em>0;<br>    0=x<em>0+y</em>0+0*1;</p>
+<p> (2)关于y轴对称</p>
 <p> <img src="/images/juzhen33.png" alt="image">    </p>
 <p>  (3)关于原点对称</p>
 <p>  <img src="/images/juzhen34.png" alt="image">    </p>
@@ -421,36 +422,16 @@ NSLog(@&quot;CGAffineTransformIdentity 数值%@&quot; ,     NSStringFromCGAffine
 
 ///获取一个变幻矩阵 这个函数可以平移旋转和缩放
 /* Return the transform [ a b c d tx ty ]. */
-</code></pre><p>  transform=  CGAffineTransformMake(a, b, c, d,x,y);</p>
-<pre><code>///获取一个只做平移的矩阵
-//        t&apos; = [ 1 0 0 1 tx ty ]
-</code></pre><p> transform=   CGAffineTransformMakeTranslation(x, y);</p>
-<pre><code>///获取一个缩放矩阵
-//         t&apos; = [ sx 0 0 sy 0 0 ] 
-</code></pre><p>  transform=  CGAffineTransformMakeScale(a,c);</p>
+</code></pre><p>  transform=  CGAffineTransformMake(a, b, c, d,x,y);<br>​<br>    ///获取一个只做平移的矩阵<br>    //        t’ = [ 1 0 0 1 tx ty ]<br> transform=   CGAffineTransformMakeTranslation(x, y);<br>​<br>    ///获取一个缩放矩阵<br>    //         t’ = [ sx 0 0 sy 0 0 ]<br>  transform=  CGAffineTransformMakeScale(a,c);</p>
 <pre><code>//获取一个旋转矩阵
 /* Return a transform which rotates by `angle&apos; radians:
  t&apos; = [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] */
-</code></pre><p>  transform=  CGAffineTransformMakeRotation(3);</p>
-<pre><code>///验证是否是标准矩阵
-</code></pre><p>  BOOL isTrue =  CGAffineTransformIsIdentity(transform);</p>
-<pre><code>///这个是矩阵之间的换算了
-/* Translate `t&apos; by `(tx, ty)&apos; and return the result:
- t&apos; = [ 1 0 0 1 tx ty ] * t */
-/// 说的很明确 用只有平移的矩阵和 t 矩阵相乘 t*t&apos; 意思是在t&apos;的基础上做t 变幻（例如平移旋转等等）
-transform=   CGAffineTransformTranslate(transform,x,y);
-
-///矩阵先缩放再transform
+</code></pre><p>  transform=  CGAffineTransformMakeRotation(3);<br>​<br>    ///验证是否是标准矩阵<br>  BOOL isTrue =  CGAffineTransformIsIdentity(transform);<br>​<br>​<br>    ///这个是矩阵之间的换算了<br>    /<em> Translate <code>t&#39; by</code>(tx, ty)’ and return the result:<br>     t’ = [ 1 0 0 1 tx ty ] </em> t <em>/<br>    /// 说的很明确 用只有平移的矩阵和 t 矩阵相乘 t</em>t’ 意思是在t’的基础上做t 变幻（例如平移旋转等等）<br>    transform=   CGAffineTransformTranslate(transform,x,y);</p>
+<pre><code>///矩阵先缩放再transform
 /* Scale `t&apos; by `(sx, sy)&apos; and return the result:
  t&apos; = [ sx 0 0 sy 0 0 ] * t */
-</code></pre><p>  transform=  CGAffineTransformScale(transform,a,c);</p>
-<pre><code>///矩阵先旋转再transform
-/* Rotate `t&apos; by `angle&apos; radians and return the result:
- t&apos; =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] * t */
-transform = CGAffineTransformRotate(transform,3);
-
-
-NSLog(@&quot;CGAffineTransformInvert前 数值%@&quot; , NSStringFromCGAffineTransform(transform));
+</code></pre><p>  transform=  CGAffineTransformScale(transform,a,c);<br>​<br>    ///矩阵先旋转再transform<br>    /<em> Rotate <code>t&#39; by</code>angle’ radians and return the result:<br>     t’ =  [ cos(angle) sin(angle) -sin(angle) cos(angle) 0 0 ] </em> t */<br>    transform = CGAffineTransformRotate(transform,3);</p>
+<pre><code>NSLog(@&quot;CGAffineTransformInvert前 数值%@&quot; , NSStringFromCGAffineTransform(transform));
 /// 获取 反转矩阵  看不出效果。做图看看  可以仔细研究下
 ///我看着就是沿着y轴做了一个对称变换 （不见得对）
 transform =   CGAffineTransformInvert(transform);
@@ -469,14 +450,8 @@ isTrue =CGAffineTransformEqualToTransform(transform,transform);
 /* Transform `point&apos; by `t&apos; and return the result:
  p&apos; = p * t
  where p = [ x y 1 ]. */
-</code></pre><p>  CGPoint point=  CGPointApplyAffineTransform(CGPointMake(30, 30), transform);</p>
-<pre><code>///获取一个矩形矩形变换的大小
-/* Transform `size&apos; by `t&apos; and return the result:
- s&apos; = s * t
- where s = [ width height 0 ]. */
-CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);
-
-///获取矩形位置变幻后的位置
+</code></pre><p>  CGPoint point=  CGPointApplyAffineTransform(CGPointMake(30, 30), transform);<br>​<br>    ///获取一个矩形矩形变换的大小<br>    /<em> Transform <code>size&#39; by</code>t’ and return the result:<br>     s’ = s </em> t<br>     where s = [ width height 0 ]. */<br>    CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);</p>
+<pre><code>///获取矩形位置变幻后的位置
  CGRect rect=CGRectApplyAffineTransform(CGRectMake(0, 0, 30, 30),transform);
 </code></pre><p>项目中有每个函数的具体用法。</p>
 <p><img src="/images/transformNew.gif" alt="image"></p>
@@ -518,6 +493,17 @@ CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ios</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -730,6 +716,30 @@ CGSize size= CGSizeApplyAffineTransform(CGSizeMake(30, 30),transform);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">CTTextTab1.</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CTTextTab1.h iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CTParagraphStyle ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CTTextTab1.h</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CTStringAttributes</a>
               </li>
             
             <div class="clearfix"></div>
